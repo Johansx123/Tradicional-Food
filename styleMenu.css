@@ -3,4 +3,56 @@
     box-sizing: border-box;
     padding: 0;
     text-decoration: none;
+    font-size: 16px;
+}
+:root{
+    --color-white:#FEFEFE;
+    --color-black:#262425;
+    --color-yellow:#F7C809;
+    --color-red:#ED3237;
+
+    --color-black-font:#000000;
+    --color-white-font:#fefefe;
+
+    --font-size-main:69px;
+    --font-size-title-big:51px;
+    --font-size-title-medium:30px;
+    --font-size-title-small:15px;
+    --font-size-small:9px;
+
+    --size-icon-medium:36px;
+    --size-brach-medium:45px;
+    --size-brach-big:75px;
+
+}
+
+body{
+    background-image:url(/images/Mobile/Fondo.png);
+    background-repeat: repeat;
+    background-size:100%;
+    background-attachment:fixed;
+}
+.wrapper-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    height: 6.5vh;
+    width: 100vw;
+    box-shadow:0px 0.01em 0.1em 0.1em rgba(0, 0, 0, 0.30); 
+    position: fixed;
+    padding:3% ;
+}
+.content-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+}
+.content-menu img{
+    width: var(--size-icon-medium);
+}
+.up{
+    position: fixed;
+    margin:90vh 83vw; 
 }
