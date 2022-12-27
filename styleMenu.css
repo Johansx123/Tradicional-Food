@@ -19,12 +19,13 @@
     --font-size-title-big:51px;
     --font-size-title-medium:30px;
     --font-size-title-small:15px;
-    --font-size-small:9px;
+    --font-size-small:12px;
 
     --font-family-main:'Antonio', sans-serif;
     --font-family-title:'Atkinson Hyperlegible', 'sans-serif';
     --font-family-paragraph:'Balsamiq Sans', cursive;
     --font-family-price:'Barlow Semi Condensed', sans-serif;
+    --font-family-img:'Bluestar';
 
     --size-icon-medium:36px;
     --size-brach-medium: 45px;
@@ -172,4 +173,37 @@ main{
 .price{
     font-family: var(--font-family-price);
     font-size: var(--font-size-title-medium);
+}
+.wrapper-dinamic1{
+    position: relative;
+    width: var(--layout-90);
+    margin: 10%  0;
+    background-image: url(/images/Mobile/Mancha.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+}
+.wrapper-dinamic1 img{
+    width: 75%;
+}
+.about-dinamic1{
+    position: absolute;
+    top: 92%;
+    display: flex;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    align-items: center;
+    padding: 6%;
+}
+.about-dinamic1 .description{
+    font-size: var(--font-size-small);
+    
+}
+.wrapper-menu2{
+    margin-top: 200px;
+    
 }
