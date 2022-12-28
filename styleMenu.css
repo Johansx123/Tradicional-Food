@@ -39,7 +39,7 @@
 }
 
 body{
-    background-image:url(/images/Mobile/Fondo.png);
+    background-image:url(images/Mobile/Fondo.png);
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
