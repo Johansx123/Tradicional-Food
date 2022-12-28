@@ -204,6 +204,30 @@ main{
     
 }
 .wrapper-menu2{
+	display:flex;
+	flex-direction:column;
     margin-top: 200px;
-    
 }
+.titl
+.wrapper-menu2 .description{
+	font-size:var(--font-size-small);
+}
+.wrapper-menu2 .contentL{
+	width:60%;
+}
+.wrapper-menu2 .group-menu1{
+	align-items:center;
+}
+.wrapper-menu2 .title-menu1{
+	background-image:url(images/Mobile/Menu2.png);
+	background-repeat:no-repeat;
+	line-height: 0.9;
+	background-position:center;
+	font-size:var(--font-size-title-medium);
+	color: var( --color-white);
+	width:10em;
+	padding:10% 0px;
+	text-align:center;
+	align-self:center;
+}
+
