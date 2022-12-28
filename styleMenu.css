@@ -178,7 +178,7 @@ main{
     position: relative;
     width: var(--layout-90);
     margin: 10%  0;
-    background-image: url(/images/Mobile/Mancha.svg);
+    background-image: url(images/Mobile/Mancha.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 75%;
@@ -229,4 +229,34 @@ main{
 	text-align:center;
 	align-self:center;
 }
+.wrapper-dinamic2{
+	display:flex;
+	flex-direction:column;
+	position:relative;
+	
+}
+.dinamic2{
+	display:flex;
+	overflow:visible;
+	justify-content:space-around;
+}
+.element1{
+	
+	object-fit:contain;
+	margin-top:40%;
+	height:50%;
+	width:50%;	
+	margin-left:-19%;
+}
+.element2{
+	object-fit:contain;
+	width:80%;
+	height:80%;
+}
+.wrapper-dinamic2 .group-menu1{
+		align-items:center;
+}
+
+
+
 
