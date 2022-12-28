@@ -137,16 +137,17 @@ main{
 .content-menu1{
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 5% 10% 10% ;
 }
 .title-menu1{
     font-size: var(--font-size-title-big);
     font-family: var(--font-family-title);
+    align-self: center;
 }
 .subtitle-menu1{
     display: flex;
     justify-content: space-around;
+    align-self: center;
     width: 80%;
 }
 .subtitle-menu1 h2, h3{
@@ -160,7 +161,6 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
     text-align: left;
 }
 .contentL{
