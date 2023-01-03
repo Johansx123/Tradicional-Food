@@ -268,5 +268,33 @@
     <span class="cp">Copyright 2022 | Tradicional Food</span>
   
   </footer>
+  <style>
+    .seccion {
+      animation: aparecer 10s ease-in-out;
+    }
+  
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+  
+  <div id="seccion" class="seccion">Contenido de la sección</div>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      var seccion = document.getElementById('seccion');
+      var rect = seccion.getBoundingClientRect();
+      var isVisible = (rect.top >= 0) && (rect.bottom <= window.innerHeight);
+      if (isVisible) {
+        seccion.classList.add('aparecer');
+      }
+    });
+  </script>
+  
   <script src="scriptsMenu.js"></script>
 </html>
