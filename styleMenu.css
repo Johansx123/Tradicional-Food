@@ -37,6 +37,9 @@
     --layout-90: 90vw;
 
 }
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     background-image:url(images/Mobile/Fondo.png);
