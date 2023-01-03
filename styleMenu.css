@@ -266,12 +266,12 @@ main{
 		align-items:center;
 }
 .wrapper-jucie{
-    margin: auto;
-    margin-top: 200px;
+    margin: 200px auto 0;
     background-image: url(images/Mobile/Bebidas.png);
     background-size: COVER;
-    height: 65vh;
+    height: 550px;
     width: 101vw;
+
 }
 .content-jucie{
     position: relative;
