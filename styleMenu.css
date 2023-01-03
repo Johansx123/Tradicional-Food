@@ -270,7 +270,7 @@ main{
     margin-top: 200px;
     background-image: url(images/Mobile/Bebidas.png);
     background-size: COVER;
-    height: 64vh;
+    height: 65vh;
     width: 101vw;
 }
 .content-jucie{
@@ -286,13 +286,15 @@ main{
     margin-right: 5%;
 }
 .slider-jucie{
-
     margin-top: 60%;
     display:flex;
-    gap: 50%;
+    gap: 55%;
     overflow: scroll;
     padding-right: 40%;
-    padding-left: 5%;
+    
+}
+.slider-jucie img{
+    width: 100%;
 }
 /* .wrapper-jucie h2{
     margin: auto;
