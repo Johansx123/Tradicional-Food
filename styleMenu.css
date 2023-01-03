@@ -294,9 +294,6 @@ main{
     padding-right: 40%;
     padding-left: 5%;
 }
-
-
-
 /* .wrapper-jucie h2{
     margin: auto;
     background-image: url(images/Mobile/Back_jucie_title.svg);
@@ -310,3 +307,29 @@ main{
     color: var(--color-white);
     -webkit-text-stroke:0.05em   #ED3237;   
 } */
+.wrapper-footer{
+    background-color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+.wrapper-footer h2{
+    padding: 10%;
+    font-size: var(--font-size-title-medium);
+    font-family: var(--font-family-title);
+    color: var(--color-white-font);
+}
+.wrapper-social{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+.item-social a, .cp {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    color: var(--color-white-font);
+    font-family: var(--font-family-title);
+}
