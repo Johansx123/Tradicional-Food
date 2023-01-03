@@ -43,10 +43,10 @@ body{
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
+    
 }
 main{
-    width: var(--layout-90);
-    margin: auto;
+    overflow: hidden;
 }
 .wrapper-header{
     z-index: 10;
@@ -65,6 +65,7 @@ main{
     align-items: center;
     justify-content: space-between;
     width: 25%;
+    
 }
 .content-menu img{
     width: var(--size-icon-medium);
@@ -103,6 +104,8 @@ main{
     align-items: flex-end;
     justify-content: space-between;
     padding: var(--size-header-h) 0 30% ;
+    width: var(--layout-90);
+    margin: auto;
     
 }
 .item-index img{
@@ -115,6 +118,8 @@ main{
     justify-content: space-between;
     background-color: var(--color-yellow);
     text-align: center;
+    width: var(--layout-90);
+    margin: auto;
 }
 .back-menu1 {
     position: absolute;
@@ -176,8 +181,6 @@ main{
 }
 .wrapper-dinamic1{
     position: relative;
-    width: var(--layout-90);
-    margin: 10%  0;
     background-image: url(images/Mobile/Mancha.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -186,6 +189,8 @@ main{
     flex-direction: column;
     align-items: center;
     padding-top: 15%;
+    width: var(--layout-90);
+    margin: auto;
 }
 .wrapper-dinamic1 img{
     width: 75%;
@@ -207,6 +212,8 @@ main{
 	display:flex;
 	flex-direction:column;
     margin-top: 200px;
+    width: var(--layout-90);
+    margin: 20% auto;
 }
 .wrapper-menu2 .description{
 	font-size:var(--font-size-small);
@@ -233,6 +240,8 @@ main{
 	display:flex;
 	flex-direction:column;
 	position:relative;
+    width: var(--layout-90);
+    margin: auto;
 	
 }
 .dinamic2{
@@ -256,7 +265,47 @@ main{
 .wrapper-dinamic2 .group-menu1{
 		align-items:center;
 }
+.wrapper-jucie{
+    margin: auto;
+    margin-top: 200px;
+    background-image: url(images/Mobile/Bebidas.png);
+    background-size: COVER;
+    height: 64vh;
+    width: 101vw;
+}
+.content-jucie{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.about{
+    width: 50%;
+    align-self: flex-end;
+    margin-top: 30%;
+    position: absolute;
+}
+.slider-jucie{
+
+    margin-top: 60%;
+    display:flex;
+    gap: 50%;
+    overflow: scroll;
+    padding-right: 40%;
+    padding-left: 5%;
+}
 
 
 
-
+/* .wrapper-jucie h2{
+    margin: auto;
+    background-image: url(images/Mobile/Back_jucie_title.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: var(--font-size-title-medium);
+    font-family: var(--font-family-title);
+} */
+/* .content-jucie h3{
+    font-family: var(--font-family-img);
+    color: var(--color-white);
+    -webkit-text-stroke:0.05em   #ED3237;   
+} */

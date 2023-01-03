@@ -7,7 +7,6 @@
     <title>Menu</title>
     <style> @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Atkinson+Hyperlegible:wght@700&family=Balsamiq+Sans&family=Barlow+Semi+Condensed:wght@800&display=swap'); </style>
     <link href = "/Fonts/Bluestar/style.css" rel = "stylesheet" type = "text/css" />
-    <script src="scriptsMenu.js"></script>
     <link rel="stylesheet" href="styleMenu.css" />
     <link rel="Icon" href="images/Originales/logo en modo claro.svg" />
   </head>
@@ -26,27 +25,27 @@
   </header>
 
   <body>    
-    <span class="up"><img src="images/Mobile/up.png" alt=""></span>
-    <main class="wrapper-main">
+    <a href="#top" class="up"><img src="images/Mobile/up.png" alt=""></a>
+    <main id="top" class="wrapper-main">
     <div class="wrapper-title">
 
       <h1 class="title">MENU</h1>
       <span><img class="vector-title"src="images/Mobile/Rectangle 6.png" alt=""></span>
     </div>
     <section class="wrapper-index">
-      <a href="" class="item-index"
+      <a href="#menu1" class="item-index"
         ><img src="images/Mobile/Arepa.png" alt="Ir a menu arepas"
       /></a>
-      <a href="" class="item-index"
+      <a href="#bebidas" class="item-index"
         ><img src="images/Mobile/Jugo.png" alt="Ir a menu bebidas"
       /></a>
-      <a href="" class="item-index"
+      <a href="#perros" class="item-index"
         ><img src="images/Mobile/Perro.png" alt="Ir a menu perros"
       /></a>
     </section>
 
-    <section class="wrapper-menu1">
-      <div class="back-menu1 back-size">
+    <section  id="menu1" class="wrapper-menu1">
+      <div id="" class="back-menu1 back-size">
         <div class="top-back-menu1">
           <img src="images/Mobile/lt.svg" alt="" class="backLt">
           <img src="images/Mobile/rt.svg" alt="" class="backRt">
@@ -137,7 +136,7 @@
       </div>
     </section>
 
-    <section class="wrapper-menu2">
+    <section id="perros" class="wrapper-menu2">
       <h2 class="title-menu1">SUPER TRADICIONALES</h2>
       <div class="group-menu1">
         <div class="contentL">
@@ -199,31 +198,42 @@
         </div>
       </div>
     </section>
-    <section class="wrapper-jucie">
-        <h2>BEBIDAS</h2>
-        <div class="slider-jucie">
+
+
+
+    <section id="bebidas" class="wrapper-jucie">
+        <!-- <h2>BEBIDAS</h2> -->
+        <div class="content-jucie">
+          <!-- <h3>FRESA</h3> -->
+          <img class="about" src="images/Mobile/About.png" alt="">
+          <div class="slider-jucie">
             <img src="images/Mobile/Item slider jucie.png" alt="">
             <img src="images/Mobile/Item slider jucie.png" alt="">
             <img src="images/Mobile/Item slider jucie.png" alt="">
             <img src="images/Mobile/Item slider jucie.png" alt="">
             <img src="images/Mobile/Item slider jucie.png" alt="">
-        </div>
-        <article class="about-jucie">
+          </div>
+          <!-- <article class="about-jucie">
             <div class="text-jugos">
-                <h3>Jugos Naturales en Agua y en Leche</h3>
-                <h3>Agua</h3>
-                <h3>Leche</h3>
-                <span class="price" class="price price-menu1">$3.500</span>
-                <span class="price" class="price price-menu1">$2.500</span>
+              <h3>Jugos Naturales en Agua y en Leche</h3>
+              <h3>Agua</h3>
+              <h3>Leche</h3>
+              <span class="price" class="price price-menu1">$3.500</span>
+              <span class="price" class="price price-menu1">$2.500</span>
             </div>
             <div class="text-gaseosa">
-                <h3>Gaseosa</h3>
-                <span class="price" class="price price-menu1">$2.000</span>
+              <h3>Gaseosa</h3>
+              <span class="price" class="price price-menu1">$2.000</span>
             </div>
-        </article>
+          </article> -->
+        </div>
     </section>
+
+
     </main>
   </body>
+
+
   <footer>
     <h2>Contactarnos</h2>
     <section class="wrapper-social">
@@ -257,4 +267,5 @@
     <span>Copyright 2022 | Tradicional Food</span>
   </section>
   </footer>
+  <script src="scriptsMenu.js"></script>
 </html>
