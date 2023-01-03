@@ -279,10 +279,11 @@ main{
     flex-direction: column;
 }
 .about{
-    width: 50%;
+    width: 45%;
     align-self: flex-end;
-    margin-top: 30%;
+    margin-top: 36%;
     position: absolute;
+    margin-right: 5%;
 }
 .slider-jucie{
 
