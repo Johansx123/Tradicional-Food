@@ -46,7 +46,6 @@ body{
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
-    
 }
 main{
     overflow: hidden;
@@ -76,7 +75,11 @@ main{
 .up{
     z-index: 10;
     position: fixed;
+    
     margin:90vh 83vw; 
+}
+.up img{
+    width: 50px;
 }
 .wrapper-main{
     padding-top: var(--size-header-h);
@@ -271,7 +274,8 @@ main{
 .wrapper-jucie{
     margin: 200px auto 0;
     background-image: url(images/Mobile/Bebidas.png);
-    background-size: COVER;
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 550px;
     width: 101vw;
 
@@ -333,7 +337,10 @@ main{
 }
 .item-social a, .cp {
     display: flex;
+    flex-direction: column;
+    align-content: space-around;
     align-items: center;
+    width: 100%;
     gap: 10%;
     color: var(--color-white-font);
     font-family: var(--font-family-title);
