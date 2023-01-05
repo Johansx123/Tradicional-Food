@@ -1,4 +1,4 @@
-
+@import url(./styleJs.css);
 * {
     margin: 0;
     box-sizing: border-box;
@@ -9,6 +9,7 @@
 :root{
     --color-white:#FEFEFE;
     --color-black:#262425;
+    --color-black-0:#262425c1;
     --color-yellow:#F7C809;
     --color-red:#ED3237;
 
@@ -46,6 +47,8 @@ body{
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
+    position: relative;
+    
 }
 main{
     overflow: hidden;
