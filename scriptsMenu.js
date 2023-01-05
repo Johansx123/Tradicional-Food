@@ -6,7 +6,7 @@ barsMenu.addEventListener("click", function () {
   const body = document.getElementById("root");
   const closeModal = document.createElement("img");
   const content = document.createElement("section");
-  let iconClose = "./images/mobile/Close.svg";
+  let iconClose = "images/mobile/Close.svg";
 
   closeModal.classList.add("closeModal");
   closeModal.setAttribute("src", iconClose);
