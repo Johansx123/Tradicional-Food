@@ -78,7 +78,7 @@ main{
 .up{
     z-index: 10;
     position: fixed;
-    
+    /* margin: 90vh 100vw ; */
     margin:90vh 83vw; 
 }
 .up img{

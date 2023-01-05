@@ -13,12 +13,18 @@ barsMenu.addEventListener("click", function () {
   content.classList.add("modal");
   content.appendChild(closeModal);
 
+
   modal.classList.add("wrapper-modal");
   modal.appendChild(content);
 
-  body.appendChild(modal);
 
+  body.appendChild(modal);
+  body.style.overflow ="hidden"
+
+  
   closeModal.addEventListener("click", function () {
      modal.remove()
+     body.style.overflow ="scroll"
   });
 });
+
