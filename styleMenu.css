@@ -203,6 +203,8 @@ main{
 }
 .wrapper-dinamic1 img{
     width: 75%;
+    
+    
 }
 .about-dinamic1{
     position: absolute;
@@ -257,6 +259,8 @@ main{
 	display:flex;
 	overflow:visible;
 	justify-content:space-around;
+    
+
 }
 .element1{
 	
@@ -270,6 +274,7 @@ main{
 	object-fit:contain;
 	width:80%;
 	height:80%;
+    transition: 1s;
 }
 .wrapper-dinamic2 .group-menu1{
 		align-items:center;
@@ -289,6 +294,7 @@ main{
     flex-direction: column;
 }
 .about{
+    z-index: 1;
     width: 45%;
     align-self: flex-end;
     margin-top: 36%;
@@ -299,9 +305,14 @@ main{
     margin-top: 60%;
     display:flex;
     gap: 55%;
-    overflow: scroll;
     padding-right: 40%;
-    
+    overflow: visible;
+}
+
+@keyframes move {
+    to{
+        transform: translateX(-94vw);
+    }
 }
 .slider-jucie img{
     width: 100%;
@@ -348,3 +359,5 @@ main{
     color: var(--color-white-font);
     font-family: var(--font-family-title);
 }
+
+

@@ -1,3 +1,4 @@
+// Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
 
 barsMenu.addEventListener("click", function () {
@@ -28,3 +29,33 @@ barsMenu.addEventListener("click", function () {
   });
 });
 
+// SLIDER
+
+let slider = document.getElementById("slider")
+let wrapperSlider = document.getElementById("bebidas")
+
+
+
+wrapperSlider.addEventListener('touchmove',function(){
+  slider.style.animation ="move 3s infinite"
+})
+
+let box = document.getElementById("box")
+let perro = document.getElementById("perro")
+perro.style.transform="translateX(300px)"
+box.addEventListener('touchmove',function(){
+  perro.style.transform="translateX(0px)"
+}
+)
+
+let dinamic1 = document.getElementById("dinamic1");
+let elementDinamic1 =  document.getElementById("elementDinamic1");
+
+
+elementDinamic1.style.scale = "0"
+dinamic1.addEventListener('touchmove',()=>{
+  elementDinamic1.style.transition="scale, transform, 1s"
+  
+  elementDinamic1.style.scale='1'
+  elementDinamic1.style.transform = "rotate(360deg)"  
+})
