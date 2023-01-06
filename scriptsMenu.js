@@ -76,6 +76,7 @@ window.addEventListener("scroll", () => {
     elementDinamic1.style.transform = "rotate(360deg)";
   }else if(position < 0 || position<pantalla*3){
     elementDinamic1.style.scale = "0";
+    elementDinamic1.style.transform = "rotate(0)";
     }
   
 });
