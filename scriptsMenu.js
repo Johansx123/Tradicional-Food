@@ -1,3 +1,5 @@
+import { eventScrollIn, eventScrollOut } from "./libreria.js";
+
 // Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
 const modal = document.createElement("div");
@@ -27,71 +29,47 @@ barsMenu.addEventListener("click", function () {
 // Elementos DOM
 
 let slider = document.getElementById("slider"),
-    wrapperSlider = document.getElementById("bebidas"),
-    box = document.getElementById("box"),
-    perro = document.getElementById("perro"),
-    dinamic1 = document.getElementById("dinamic1"),
-    elementDinamic1 = document.getElementById("elementDinamic1"),
-    up = document.getElementById("up");
+  wrapperSlider = document.getElementById("bebidas"),
+  box = document.getElementById("box"),
+  // perro = document.getElementById("perro"),
+  // dinamic1 = document.getElementById("dinamic1"),
+  elementDinamic1 = document.getElementById("elementDinamic1"),
+  up = document.getElementById("up");
 // Slider
 
 window.addEventListener("scroll", function () {
-
   let position = wrapperSlider.getBoundingClientRect().top;
   let pantalla = window.innerHeight / 2;
   if (position < pantalla) {
     slider.style.animation = "move 3s infinite";
   }
-
 });
-
 
 // Perro
 perro.style.transform = "translateX(300px)";
-
-window.addEventListener("scroll", function () {
-
-  let position = box.getBoundingClientRect().top;
-  let pantalla = window.innerHeight / 1.5;
-  if (position < pantalla) {
-    perro.style.transform = "translateX(0px)";
-  }else if(position < 0 || position<pantalla*3){
-    perro.style.transform = "translateX(300px)"
-  }
-});
-
 
 // Arepa
 
 elementDinamic1.style.scale = "0";
 
-window.addEventListener("scroll", () => {
 
-  let position = dinamic1.getBoundingClientRect().top;
-  let pantalla = window.innerHeight / 2;
+eventScrollOut({transition: "scale, transform, 1s",scale: "0",transform: "rotate(0),",},"dinamic1","elementDinamic1",1  );
+eventScrollIn({transition: "scale, transform, 1s",scale: "1",transform: "rotate(360deg),",},"dinamic1","elementDinamic1",1  );
 
-  if (position < pantalla) {
-    elementDinamic1.style.transition = "scale, transform, 1s";
-    elementDinamic1.style.scale = "1";
-    elementDinamic1.style.transform = "rotate(360deg)";
-  }else if(position < 0 || position<pantalla*3){
-    elementDinamic1.style.scale = "0";
-    elementDinamic1.style.transform = "rotate(0)";
-    }
-  
-});
 
 // Up
 let positionAnterior = window.scrollY;
-window.addEventListener("scroll",()=>{
-  positionActual = window.scrollY   
-  if(positionAnterior<positionActual){
-    up.style.transform ="translateX(17vw)"
-    up.style.transition= "transform 0.5s"
-  }else if(positionAnterior>positionActual){
-    up.style.transform ="translateX(0)"
-    up.style.transition= "transform 0.5s"
+window.addEventListener("scroll", () => {
+  let positionActual = window.scrollY;
+  if (positionAnterior < positionActual) {
+    up.style.transform = "translateX(17vw)";
+    up.style.transition = "transform 0.5s";
+  } else if (positionAnterior > positionActual) {
+    up.style.transform = "translateX(0)";
+    up.style.transition = "transform 0.5s";
   }
-  positionAnterior = positionActual
-})
+  positionAnterior = positionActual;
+});
 
+eventScrollOut({ transform: "translateX(300px)" }, "element2", "perro",2);
+eventScrollIn({ transform: "translateX(0)" }, "element2", "perro", 1);
