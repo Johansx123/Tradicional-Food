@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Bluestar';
+    src: local('Bluestar Regular'), local('Bluestar-Regular'),
+        url('Bluestar-Regular.woff2') format('woff2'),
+        url('Bluestar-Regular.woff') format('woff'),
+        url('Bluestar-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }

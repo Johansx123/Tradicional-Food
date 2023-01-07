@@ -1,3 +1,4 @@
+
 const usuario = {
     nombre: "Johan",
     edad: 30,
