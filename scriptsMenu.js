@@ -1,4 +1,4 @@
-import { eventScrollIn, eventScrollOut } from "./libreria.js";
+import { eventScrollIn, eventScrollOut, eventScrollZ } from "./libreria.js";
 
 // Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
@@ -27,49 +27,35 @@ barsMenu.addEventListener("click", function () {
 });
 
 // Elementos DOM
-
-let slider = document.getElementById("slider"),
-  wrapperSlider = document.getElementById("bebidas"),
-  box = document.getElementById("box"),
-  // perro = document.getElementById("perro"),
-  // dinamic1 = document.getElementById("dinamic1"),
-  elementDinamic1 = document.getElementById("elementDinamic1"),
-  up = document.getElementById("up");
-// Slider
-
-window.addEventListener("scroll", function () {
-  let position = wrapperSlider.getBoundingClientRect().top;
-  let pantalla = window.innerHeight / 2;
-  if (position < pantalla) {
-    slider.style.animation = "move 3s infinite";
-  }
-});
-
+let perro = document.getElementById("perro"),
+  elementDinamic1 = document.getElementById("elementDinamic1");
+// Up
+eventScrollZ(
+  "up",
+  { transform: "translateX(17vw)", transition: "transform 0.5s" },
+  { transform: "translateX(0)", transition: "transform 0.5s" }
+);
+// Arepa
+elementDinamic1.style.scale = "0";
+eventScrollOut(
+  "dinamic1",
+  "elementDinamic1",
+  { transition: "scale, transform, 1s", scale: "0", transform: "rotate(0)" },
+  1
+);
+eventScrollIn(
+  "dinamic1",
+  "elementDinamic1",
+  {
+    transition: "scale, transform, 1s",
+    scale: "1",
+    transform: "rotate(360deg)",
+  },
+  1
+);
 // Perro
 perro.style.transform = "translateX(300px)";
-
-// Arepa
-
-elementDinamic1.style.scale = "0";
-
-
-eventScrollOut({transition: "scale, transform, 1s",scale: "0",transform: "rotate(0),",},"dinamic1","elementDinamic1",1  );
-eventScrollIn({transition: "scale, transform, 1s",scale: "1",transform: "rotate(360deg),",},"dinamic1","elementDinamic1",1  );
-
-
-// Up
-let positionAnterior = window.scrollY;
-window.addEventListener("scroll", () => {
-  let positionActual = window.scrollY;
-  if (positionAnterior < positionActual) {
-    up.style.transform = "translateX(17vw)";
-    up.style.transition = "transform 0.5s";
-  } else if (positionAnterior > positionActual) {
-    up.style.transform = "translateX(0)";
-    up.style.transition = "transform 0.5s";
-  }
-  positionAnterior = positionActual;
-});
-
-eventScrollOut({ transform: "translateX(300px)" }, "element2", "perro",2);
-eventScrollIn({ transform: "translateX(0)" }, "element2", "perro", 1);
+eventScrollOut("element2", "perro", { transform: "translateX(300px)" }, 2);
+eventScrollIn("element2", "perro", { transform: "translateX(0)" }, 1.5);
+// Slider
+eventScrollIn("slider-jucie", "bebidas", { animation: "move 3s Infinite" }, 2);
