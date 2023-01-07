@@ -37,20 +37,10 @@ eventScrollZ(
 );
 // Arepa
 elementDinamic1.style.scale = "0";
-eventScrollOut(
-  "dinamic1",
-  "elementDinamic1",
-  { transition: "scale, transform, 1s", scale: "0", transform: "rotate(0)" },
+eventScrollOut(  "dinamic1",  "elementDinamic1",  { transition: "scale, transform, 1s", scale: "0", transform: "rotate(0)" },
   1
 );
-eventScrollIn(
-  "dinamic1",
-  "elementDinamic1",
-  {
-    transition: "scale, transform, 1s",
-    scale: "1",
-    transform: "rotate(360deg)",
-  },
+eventScrollIn(  "dinamic1",  "elementDinamic1",  {    transition: "scale, transform, 1s",    scale: "1",    transform: "rotate(360deg)",  },
   1
 );
 // Perro
