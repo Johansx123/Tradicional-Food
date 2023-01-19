@@ -35,7 +35,7 @@
     --size-header-h: 6.5vh;
     
 
-    --layout-90: 90vw;
+    --layout-90: 90%;
 
 }
 html{
@@ -65,15 +65,15 @@ main{
     position: fixed;
     padding:3% ;
 }
-.content-menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 25%;
-    
+.content-menu-mobile{
+    justify-self: flex-end;
 }
-.content-menu img{
+
+.content-menu-mobile img, .icon-login img{
     width: var(--size-icon-medium);
+}
+.icon-login{
+    margin-right: 0;
 }
 .up{
     z-index: 10;
@@ -82,8 +82,6 @@ main{
     margin:83vh 83vw; 
     
 }
-
-
 .up img{
     width: 50px;
 }
@@ -141,7 +139,7 @@ main{
     flex-direction: column;
     justify-content: space-between;
     padding: 0.3em;
-    width: var(--layout-90);;
+    width: 100%;
 }
 .back-menu1 img{
     width: 1.7em;
@@ -260,8 +258,7 @@ main{
 	display:flex;
 	overflow:visible;
 	justify-content:space-around;
-    
-
+    position: relative;
 }
 .element1{
 	
@@ -281,12 +278,14 @@ main{
 		align-items:center;
 }
 .wrapper-jucie{
-    margin: 200px auto 0;
+    margin: 200px auto 0 ;
     background-image: url(images/Mobile/Bebidas.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 550px;
-    width: 101vw;
+    width: 101%;
+    height: 140vw;
+    
+    
 }
 .content-jucie{
     position: relative;
@@ -360,4 +359,46 @@ main{
     font-family: var(--font-family-title);
 }
 
-
+@media (min-width: 400px) {
+    
+.wrapper-dinamic2{
+    width: auto;
+}
+.wrapper-dinamic2 .about-dinamic1{
+    width: 90%;
+    right: calc(5%);
+}
+.wrapper-main{
+    max-width: 600px;
+    margin: auto;
+}
+.wrapper-jucie{
+    max-height: 840px;
+}
+body{
+    background-size: 400px;
+}
+}
+@media (min-width:600px) {
+    .content-menu-mobile{
+        display: none;
+    }
+    .content-menu-600{
+        display:  flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+    .content-menu-600 a{
+        font-family: var(--font-family-title);
+        font-weight: bolder;
+        color: var(--color-black);
+    }
+}
+@media (max-width:600px) {
+    .content-menu-mobile{
+        display: flex;
+    }
+    .content-menu-600{
+        display: none;
+    }
+}
