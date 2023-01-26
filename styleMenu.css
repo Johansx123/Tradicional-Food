@@ -442,7 +442,7 @@ body{
     
    
 }
-@media (min-width:1400px) {
+@media (min-width:1200px) {
     .background{
         background-size: 30%;
     }
@@ -489,5 +489,6 @@ body{
     .up{
         display:none;
     }
+    
 }
 /* a */

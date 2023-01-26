@@ -44,8 +44,11 @@ eventScrollIn(  "dinamic1",  "elementDinamic1",  {    transition: "scale, transf
   1
 );
 // Perro
-perro.style.transform = "translateX(300px)";
-eventScrollOut("element2", "perro", { transform: "translateX(300px)" }, 2);
-eventScrollIn("element2", "perro", { transform: "translateX(0)" }, 1.5);
+
+if (window.innerWidth < 1200){
+  perro.style.transform = "translateX(300px)";
+  eventScrollOut("element2", "perro", { transform: "translateX(300px)" }, 2);
+  eventScrollIn("element2", "perro", { transform: "translateX(0)" }, 1.5);
+}
 // Slider
 // eventScrollIn("slider-jucie", "bebidas", { animation: "move 3s Infinite" }, 2);
