@@ -52,8 +52,6 @@ body{
     background-attachment:fixed;
     position: relative;
     margin: auto;
-    max-width: 1200px;
-    box-shadow: #F7C809 0 0 10px 30px;
     
     z-index: 1;
 }
@@ -487,6 +485,9 @@ body{
     }
     .wrapper-footer h2{
         padding: 5%;
+    }
+    .up{
+        display:none;
     }
 }
 /* a */
