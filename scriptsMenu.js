@@ -7,24 +7,24 @@ const body = document.getElementById("root");
 const closeModal = document.createElement("img");
 const content = document.createElement("section");
 
-barsMenu.addEventListener("click", function () {
-  closeModal.classList.add("closeModal");
-  closeModal.setAttribute("src", "images/mobile/Close.svg");
+// barsMenu.addEventListener("click", function () {
+//   closeModal.classList.add("closeModal");
+//   closeModal.setAttribute("src", "images/mobile/Close.svg");
 
-  content.classList.add("modal");
-  content.appendChild(closeModal);
+//   content.classList.add("modal");
+//   content.appendChild(closeModal);
 
-  modal.classList.add("wrapper-modal");
-  modal.appendChild(content);
+//   modal.classList.add("wrapper-modal");
+//   modal.appendChild(content);
 
-  body.appendChild(modal);
-  body.style.overflow = "hidden";
+//   body.appendChild(modal);
+//   body.style.overflow = "hidden";
 
-  closeModal.addEventListener("click", function () {
-    modal.remove();
-    body.style.overflow = "scroll";
-  });
-});
+//   closeModal.addEventListener("click", function () {
+//     modal.remove();
+//     body.style.overflow = "scroll";
+//   });
+// });
 
 // Elementos DOM
 let perro = document.getElementById("perro"),
@@ -48,4 +48,4 @@ perro.style.transform = "translateX(300px)";
 eventScrollOut("element2", "perro", { transform: "translateX(300px)" }, 2);
 eventScrollIn("element2", "perro", { transform: "translateX(0)" }, 1.5);
 // Slider
-eventScrollIn("slider-jucie", "bebidas", { animation: "move 3s Infinite" }, 2);
+// eventScrollIn("slider-jucie", "bebidas", { animation: "move 3s Infinite" }, 2);
