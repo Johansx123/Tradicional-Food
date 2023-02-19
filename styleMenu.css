@@ -293,18 +293,77 @@ main{
 		align-items:center;
 }
 .wrapper-jucie{
-    margin: 200px auto 0 ;
-    background-image: url(images/Mobile/Bebidas.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 101%;
-    height: 140vw;  
+    margin: 200px  0 ;
+    background-color: var(--color-black);
+    z-index: 2;
 }
-.content-jucie{
-    position: relative;
+.wrapper-jucie .subtitle{
+    font-size: var(--font-size-title-medium);
+    color: var(--color-white-font);
+    font-family: var(--font-family-title);
+    padding: 20%;
+    text-align: center;
+    
+}
+
+.slider {
+    padding: 20%;
     display: flex;
-    flex-direction: column;
-}
+    position: relative;
+    gap: 100%;
+    overflow: scroll;
+    
+  }
+  .slide img{
+    max-width: 200px;
+  }
+  .slider button {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+  }
+  .slider .slide{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   color: var(--color-white-font);
+
+   
+  }
+  .slide-d{
+    display: flex;
+    justify-content: center;
+    gap: 30%;
+  }
+  .slide h3, .slide span, .slide h2{
+    font-size:calc(var(--font-size-small)*2) ;
+    font-family: var(--font-family-img);
+  }
+  #prevButton, #nextButton{
+      width: 60px;
+      height: 60PX;
+      border-radius: 50%;
+      
+    }
+    #prevButton IMG, #nextButton img{
+        width: 60px;
+        height: 60PX;
+        position: absolute;
+        left: 0;
+      }
+  #prevButton {
+    left: 0;
+    transform: rotate(-90deg);
+    
+  }
+  
+  #nextButton {
+    right: 0;
+    transform: rotate(90deg);
+  }
+  
+
 .about{
     z-index: 1;
     width: 45%;
@@ -313,20 +372,20 @@ main{
     position: absolute;
     margin-right: 5%;
 }
-.slider-jucie{
+/* .slider-jucie{
     display: flex;
     width: 400%;
     animation: cambio 15s infinite alternate linear;
     padding-top: 60%;
-}
-.item-slider    {
+} */
+/* .item-slider    {
     padding-right: 10%;
 
-}
+} */
 
 
 
-@keyframes cambio {
+/* @keyframes cambio {
     0% {margin-left: 0;}
     20% {margin-left: 0;}
 
@@ -347,7 +406,7 @@ main{
 }
 .slider-jucie img{
     width: 100%;
-}
+} */
 /* .wrapper-jucie h2{
     margin: auto;
     background-image: url(images/Mobile/Back_jucie_title.svg);
@@ -369,7 +428,7 @@ main{
     align-items: center;
     gap: 2em;
     padding: 3em;
-    z-index: 5;
+    z-index: 0;
 }
 .wrapper-footer h2{
     padding: 10%;
@@ -407,12 +466,14 @@ main{
     max-width: 600px;
     margin: auto;
 }
-.wrapper-jucie{
-    max-height: 840px;
-}
+
 body{
     background-size: 400px;
 }
+.slider img {
+    width: 30vw;
+    object-fit: cover;
+  }
 }
 @media (min-width:600px) {
     .content-menu-mobile{
@@ -430,6 +491,15 @@ body{
     }
     .background{
         background-size: 50%;
+    }
+     .wrapper-jucie {
+        padding: 0 0 10% 0;
+    }
+    .wrapper-jucie .subtitle{
+        padding: 10%;
+    }
+    .slider{
+        padding: 0 20% 10% ;
     }
 }
 @media (max-width:600px) {
@@ -449,7 +519,7 @@ body{
     .grid-wrapper{
         display: grid;
         grid-template-columns: repeat(2,500px);
-        
+        grid-template-rows: auto;
         justify-content: center;
         overflow: hidden;
     }
@@ -459,7 +529,6 @@ body{
     .wrapper-jucie{
         grid-column-start: 1;
         grid-column-end: 3;
-        width: 600px;
         overflow: hidden;
     }
     .wrapper-header{
@@ -483,6 +552,14 @@ body{
     .dinamic2{
         overflow: hidden;
     }
+
+   
+    .slider{
+        padding: 0 10%;
+        gap:30%;
+        overflow: hidden;
+    }
+
     .wrapper-footer h2{
         padding: 5%;
     }
