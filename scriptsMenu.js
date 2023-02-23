@@ -1,4 +1,4 @@
-import { eventScrollIn, eventScrollOut, eventScrollZ } from "./libreria.js";
+import { eventScrollIn, eventScrollOut, eventScrollZ, sliderElement } from "./libreria.js";
 
 // Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
@@ -51,4 +51,10 @@ if (window.innerWidth < 1200){
   eventScrollIn("element2", "perro", { transform: "translateX(0)" }, 1.5);
 }
 // Slider
-// eventScrollIn("slider-jucie", "bebidas", { animation: "move 3s Infinite" }, 2);
+
+
+
+
+sliderElement(document.querySelector("#sliderOthersBeverage"));
+sliderElement(document.querySelector("#sliderJucie"));
+  
