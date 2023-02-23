@@ -1,31 +1,44 @@
-const scr = (i) =>{
 
-  const contSlider = document.querySelector('.wrapper-jucie')
-  const slider = document.getElementsByClassName('slider');
-  const slides = slider[i].getElementsByClassName('slide');
-  const buttonsPrev = document.getElementById('prevButton') 
-  const buttonsNext = document.getElementById('nextButton') 
-  console.log(buttonsNext)
+const sliderElement = (boxSlider) =>{
 
-  const prevButton = buttonsPrev[i].querySelector('#prevButton');
-  const nextButton = buttonsNext[i].querySelector('#nextButton');
+
+  const slider = boxSlider.querySelector("#slider");
+  let slide = boxSlider.querySelectorAll(".slide");
+  let slideLast = slide[slide.length -1];
   
-  let currentSlide = 0;
-  const slideInterval = setInterval(nextSlide, 3000);
-  function nextSlide() {
-    slides[currentSlide].style.opacity = 0;
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].style.opacity = 1;
+  
+  const prevBtn = boxSlider.querySelector ("#prevBtn");
+  const nextBtn = boxSlider.querySelector ("#nextBtn");
+  
+  slider.insertAdjacentElement( "afterbegin", slideLast)
+  
+  const moveNext = () =>{
+    let slideFirst = boxSlider.querySelectorAll(".slide")[0];
+    slider.style.marginLeft = "-200%"
+    slider.style.transition = "margin 0.5s"
+    setTimeout(()=>{
+      slider.style.transition = "none"
+      slider.insertAdjacentElement("beforeend", slideFirst)
+      slider.style.marginLeft = "-100%"
+  
+    }, 500);
+  }
+  const movePrev = () =>{
+    let slide = boxSlider.querySelectorAll(".slide");
+    let slideLast = slide[slide.length - 1];
+    slider.style.marginLeft = "0%"
+    slider.style.transition = "margin 0.5s"
+    setTimeout(()=>{
+      slider.style.transition = "none"
+      slider.insertAdjacentElement("afterbegin", slideLast)
+      slider.style.marginLeft= "-100%"
+    }, 500);
   }
   
-  function prevSlide() {
-    slides[currentSlide].style.opacity = 0;
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    slides[currentSlide].style.opacity = 1;
-  }
-  
-  prevButton.addEventListener('click', prevSlide);
-  nextButton.addEventListener('click', nextSlide);
+  nextBtn.addEventListener('click', ()=>{moveNext()})
+  prevBtn.addEventListener('click', ()=>{movePrev()})
 }
 
-scr(1)
+
+sliderElement(document.querySelector("#sliderJucie"));
+sliderElement(document.querySelector("#sliderOthersBeverage"))

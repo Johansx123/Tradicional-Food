@@ -309,37 +309,38 @@ main{
     position: relative;
 }
 .slider {
-    padding: 20%;
+    padding: 20% 0;
     display: flex;
     position: relative;
-    gap: 100%;
-    overflow: scroll;
-    
+    margin-left: -100%;
+    overflow: hidden;
   }
-  .slide img{
-    max-width: 200px;
-  }
- 
-  .slider .slide{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 100%;
-   color: var(--color-white-font);
-
-   
+  .slide{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      color: var(--color-white-font);
+      min-width: 100vw;
+      
+      
+    }
+    .slide img{
+      max-width: 200px;
+      
   }
   .slide-d{
     display: flex;
     justify-content: center;
-    gap: 30%;
+    
+    width: 200%;
     align-items: center;
   }
   .slide h3, .slide span, .slide h2{
     font-size:calc(var(--font-size-small)*2) ;
     font-family: var(--font-family-img);
   }
-  #prevButton, #nextButton{
+  .prevButton, .nextButton{
       width: 60px;
       height: 60PX;
       border-radius: 50%;
@@ -347,17 +348,17 @@ main{
       top: 45%;
       z-index: 10;
     }
-    #prevButton IMG, #nextButton img{
+    .prevButton IMG, .nextButton img{
         width: 60px;
         height: 60PX;
         
       }
-  #prevButton {
+  .prevButton {
     left: 0;
     transform: rotate(-90deg);
   }
   
-  #nextButton {
+  .nextButton {
     right: 0;
     transform: rotate(90deg);
   }
