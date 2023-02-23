@@ -499,8 +499,13 @@ body{
         padding: 10%;
     }
     .slider{
-        padding: 0 20% 10% ;
+        padding: 10% 0 ;
+        align-items: center;
     }
+    .slide{
+        min-width: 600px;
+    }
+    
     
 }
 @media (max-width:600px) {
@@ -510,6 +515,7 @@ body{
     .content-menu-600{
         display: none;
     }
+   
     
     
    
@@ -555,19 +561,14 @@ body{
         overflow: hidden;
     }
 
-   
-    .slider{
-        padding: 0 10%;
-        gap:30%;
-        overflow: hidden;
-    }
-
     .wrapper-footer h2{
         padding: 5%;
     }
     .up{
         display:none;
     }
-    
-}
+    .slide{
+        min-width: 500px;
+    }
+}   
 /* a */
