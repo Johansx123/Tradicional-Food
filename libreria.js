@@ -90,3 +90,5 @@ export const sliderElement = (boxSlider) =>{
   prevBtn.addEventListener('click', ()=>{movePrev()})
 }
 
+
+

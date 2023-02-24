@@ -1,4 +1,5 @@
-import { eventScrollIn, eventScrollOut, eventScrollZ, sliderElement } from "./libreria.js";
+import { eventScrollIn, eventScrollOut, eventScrollZ } from "./libreria.js";
+import { sliderElement } from "./Slider.js";
 
 // Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
