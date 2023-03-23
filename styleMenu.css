@@ -52,7 +52,6 @@ body{
     background-attachment:fixed;
     position: relative;
     margin: auto;
-    
     z-index: 1;
 }
 main{
@@ -455,6 +454,7 @@ main{
 
 @media (min-width: 400px) {
     
+
 .wrapper-dinamic2{
     width: auto;
 }
@@ -476,6 +476,7 @@ body{
   }
 }
 @media (min-width:600px) {
+    
     .content-menu-mobile{
         display: none;
     }
@@ -509,6 +510,9 @@ body{
     
 }
 @media (max-width:600px) {
+    .background{
+        background-image: url(./images/Desktop/Fondo.png);
+    }
     .content-menu-mobile{
         display: flex;
     }
