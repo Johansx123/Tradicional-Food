@@ -50,6 +50,29 @@ const aplicarEstilos = (elementos,objeto) => {
 
 // Slider
 
+const moveNext = () =>{
+  let slideFirst = boxSlider.querySelectorAll(".slide")[0];
+  slider.style.marginLeft = "-200%"
+  slider.style.transition = "margin 0.5s"
+  setTimeout(()=>{
+    slider.style.transition = "none"
+    slider.insertAdjacentElement("beforeend", slideFirst)
+    slider.style.marginLeft = "-100%"
+
+  }, 500);
+}
+const movePrev = () =>{
+  let slide = boxSlider.querySelectorAll(".slide");
+  let slideLast = slide[slide.length - 1];
+  slider.style.marginLeft = "0%"
+  slider.style.transition = "margin 0.5s"
+  setTimeout(()=>{
+    slider.style.transition = "none"
+    slider.insertAdjacentElement("afterbegin", slideLast)
+    slider.style.marginLeft= "-100%"
+  }, 500);
+}
+
 export const sliderElement = (boxSlider) =>{
 
 
@@ -63,32 +86,17 @@ export const sliderElement = (boxSlider) =>{
   
   slider.insertAdjacentElement( "afterbegin", slideLast)
   
-  const moveNext = () =>{
-    let slideFirst = boxSlider.querySelectorAll(".slide")[0];
-    slider.style.marginLeft = "-200%"
-    slider.style.transition = "margin 0.5s"
-    setTimeout(()=>{
-      slider.style.transition = "none"
-      slider.insertAdjacentElement("beforeend", slideFirst)
-      slider.style.marginLeft = "-100%"
-  
-    }, 500);
-  }
-  const movePrev = () =>{
-    let slide = boxSlider.querySelectorAll(".slide");
-    let slideLast = slide[slide.length - 1];
-    slider.style.marginLeft = "0%"
-    slider.style.transition = "margin 0.5s"
-    setTimeout(()=>{
-      slider.style.transition = "none"
-      slider.insertAdjacentElement("afterbegin", slideLast)
-      slider.style.marginLeft= "-100%"
-    }, 500);
-  }
   
   nextBtn.addEventListener('click', ()=>{moveNext()})
   prevBtn.addEventListener('click', ()=>{movePrev()})
 }
 
-
+export const getElement = (parentSelector,elementSelector) => {
+  let parent
+  if(parentSelector ==! false){
+    parent = document.querySelector(parentSelector)
+    return parent.querySelector(elementSelector)
+  }
+  return document.querySelector(elementSelector);
+}
 

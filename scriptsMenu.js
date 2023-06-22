@@ -1,5 +1,5 @@
 import { eventScrollIn, eventScrollOut, eventScrollZ } from "./libreria.js";
-import { sliderElement } from "./Slider.js";
+import { starSlider } from "./Slider.js";
 
 // Abrir y cerrar modal
 let barsMenu = document.getElementById("barsMenu");
@@ -56,6 +56,8 @@ if (window.innerWidth < 1200){
 
 
 
-sliderElement(document.querySelector("#sliderOthersBeverage"));
-sliderElement(document.querySelector("#sliderJucie"));
+// getSliderElement(document.querySelector("#sliderOthersBeverage"));
+// getSliderElement(document.querySelector("#sliderJucie"));
   
+starSlider("#OthersBeverage")
+starSlider("#Jucie")
