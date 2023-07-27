@@ -1,4 +1,6 @@
 @import url(./styles/styleJs.css);
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Atkinson+Hyperlegible:wght@700&family=Balsamiq+Sans&family=Barlow+Semi+Condensed:wght@800&display=swap');
 * {
     margin: 0;
     box-sizing: border-box;
@@ -46,7 +48,7 @@ body{
 }
 .background{
     background-color: var(--color-white-font);
-    background-image:url(../images/Mobile/Fondo.png);
+    background-image:url(../public/Fondo.png);
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
@@ -205,7 +207,7 @@ main{
 }
 .wrapper-dinamic1{
     position: relative;
-    background-image: url(../images/Mobile/Mancha.svg);
+    background-image: url(../public/Mancha.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 75%;
@@ -249,7 +251,7 @@ main{
 	align-items:center;
 }
 .wrapper-menu2 .title-menu1{
-	background-image:url(../images/Mobile/Menu2.png);
+	background-image:url(../public/Menu2.png);
 	background-repeat:no-repeat;
 	line-height: 0.9;
 	background-position:center;
