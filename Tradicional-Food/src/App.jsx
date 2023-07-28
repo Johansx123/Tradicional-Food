@@ -6,11 +6,9 @@ import { PageMenu } from "./Pages/PageMenu";
 function App() {
   return (
     <>
-      <div className="background">
-        <Header></Header>
-        <ScrollTop />
-        <PageMenu/>
-      </div>
+      <Header/>
+      <ScrollTop/>
+      <PageMenu/>
       <Footer/>
     </>
   );

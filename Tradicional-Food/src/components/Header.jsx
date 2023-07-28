@@ -9,9 +9,9 @@ export function Header() {
              <span><a href="">Pide en Linea</a></span>
              <span><a href="">Seguir</a></span>
            </nav>
-           <a className="icon-login" href=""><img src="images/Mobile/Icon-login.svg" alt="Inicio de Sesión" /></a>
+           <a className="icon-login" href=""><img src="../public/Icon-login.svg" alt="Inicio de Sesión" /></a>
            <nav className="content-menu-mobile">
-             <img id="barsMenu" className="icon-menu" src="images/Mobile/IconMenu.svg" alt="Menu" />
+             <img id="barsMenu" className="icon-menu" src="../public/IconMenu.svg" alt="Menu" />
            </nav> */}
 
 

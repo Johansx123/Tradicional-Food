@@ -1,15 +1,14 @@
+import imgCornCake from '../../public/Arepa-Index.png'
+import imgHotDog from '../../public/Perro-Index.png'
+import imgJucie from '../../public/Jugo-index.png'
+import { ItemIndexMenu } from './ItemIndexMenu';
+
 export function IndexMenu() {
   return (
     <section className="wrapper-index">
-      <a href="#menu1" className="item-index">
-        <img src="../public/Arepa-Index.png" alt="Ir a menu arepas" />
-      </a>
-      <a href="#bebidas" className="item-index">
-        <img src="../public/Jugo-index.png" alt="Ir a menu bebidas" />
-      </a>
-      <a href="#perros" className="item-index">
-        <img src="../public/Perro-Index.png" alt="Ir a menu perros" />
-      </a>
+      <ItemIndexMenu href={'#menu1'} img={imgCornCake}/>
+      <ItemIndexMenu href={'#bebidas'} img={imgJucie}/>
+      <ItemIndexMenu href={'#perros'} img={imgHotDog}/>
     </section>
   );
 }

@@ -8,16 +8,18 @@ import { Bebidas } from "../components/Bebidas";
 
 export function PageMenu() {
   return (
-    <main id="top" className="wrapper-main">
-      <TitleMain />
-      <IndexMenu />
-      <section className="grid-wrapper">
-        <Menu1 />
-        <Dinamic1 />
-        <Menu2 />
-        <Dinamic2 />
-        <Bebidas />
-      </section>
-    </main>
+    <div className="background">
+      <main id="top" className="wrapper-main">
+        <TitleMain />
+        <IndexMenu/>
+        <section className="grid-wrapper">
+          <Menu1 />
+          <Dinamic1 />
+          <Menu2 />
+          <Dinamic2 />
+          <Bebidas />
+        </section>
+      </main>
+    </div>
   );
 }
