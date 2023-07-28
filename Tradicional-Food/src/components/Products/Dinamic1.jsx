@@ -4,7 +4,8 @@ import { useFilter } from "../../hooks/useFilter";
 // eslint-disable-next-line react/prop-types
 export function Dinamic1({products}) {
   
-  const filteredByDinamic = useFilter(products,'category', 'Dinamic') 
+  const filteredByDinamic = useFilter(products,'category', 'Dinamic',0,1) 
+
   return (
     <section className="wrapper-dinamic1">
       <img

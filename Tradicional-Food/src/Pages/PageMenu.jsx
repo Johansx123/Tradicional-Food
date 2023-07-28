@@ -18,7 +18,7 @@ export function PageMenu() {
          <TableMenu products={products}/>
           <Dinamic1 products={products}/>
           <TableMenu version={'BLACK'} products={products}/>
-          <Dinamic2 />
+          <Dinamic2 products={products}/>
           <Bebidas />
         </section>
       </main>

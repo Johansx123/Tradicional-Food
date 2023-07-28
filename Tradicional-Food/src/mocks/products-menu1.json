@@ -62,6 +62,13 @@
             "title" : "Mega",
             "description" : "Queso, jamón, carne de hamburguesa, carne de res, pollo, cebolla caramelizada, papas y huevo de codorniz.",
             "price" : "$12.000"
+        },
+        {
+            "id" : 10,
+            "category": "Dinamic",
+            "title" : "Súper Choriperro",
+            "description" : "Pan perro, mortadela, jamón, queso, chorizo, carne de res, pollo, cebolla caramelizada y papas.",
+            "price" : "$12.000"
         }
 
     ]

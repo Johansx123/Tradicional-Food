@@ -1,6 +1,6 @@
 export function useFilter(db, prop, value, start, end) {
-
-  const elementsFiletered = db.filter(e => e?.[prop] == value);
+  
+  const elementsFiletered =  db.filter(e => e?.[prop] == value);
   const elementsSlice = end ? elementsFiletered.slice(start, end) : elementsFiletered.slice(start);
   let elements = [];
   if (!start && start !== 0) {

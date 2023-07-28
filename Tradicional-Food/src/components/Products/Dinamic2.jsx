@@ -1,8 +1,15 @@
+import { useFilter } from "../../hooks/useFilter";
+import { Products } from "./Products";
 
-export function Dinamic2() {
+// eslint-disable-next-line react/prop-types
+export function Dinamic2({products}) {
+
+  const filteredByDinamic = useFilter(products, 'category', 'Dinamic', 1, 2)
+
   return (
     <section id="box" className="wrapper-dinamic2">
       <div className="dinamic2">
+
         <img className="element1" src="./../public/Mantel 1.png" alt="Mantel" />
         <img
           id="perro"
@@ -13,18 +20,7 @@ export function Dinamic2() {
 
       <div className="about-dinamic1">
         
-        <div className="group-menu1 ">
-          <div>
-            <h3>Súper Choriperro</h3>
-
-            <span className="description">
-              Pan perro, mortadela, jamón, queso, chorizo, carne de res, pollo,
-              cebolla caramelizada y papas.
-            </span>
-          </div>
-
-          <span className="price">$12.000</span>
-        </div>
+         <Products products={filteredByDinamic} />
       </div>
     </section>
   );
