@@ -513,7 +513,7 @@ body{
 }
 @media (max-width:600px) {
     .background{
-        background-image: url(../images/Desktop/Fondo.png);
+        background-image: url(../public/Fondo.png);
     }
     .content-menu-mobile{
         display: flex;
