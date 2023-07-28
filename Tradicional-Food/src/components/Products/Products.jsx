@@ -1,4 +1,4 @@
-import { ProductMenu } from "./ProductMenu";
+import { Product } from "./Product";
 
 // eslint-disable-next-line react/prop-types
 export function Products({ products }) {
@@ -8,12 +8,12 @@ export function Products({ products }) {
         // eslint-disable-next-line react/prop-types
         products.map((product) => {
           return (
-            <ProductMenu
-              key={product.id}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-            />
+              <Product
+                key={product.id}
+                title={product.title}
+                description={product.description}
+                price={product.price}
+              />
           );
         })
       ) : (

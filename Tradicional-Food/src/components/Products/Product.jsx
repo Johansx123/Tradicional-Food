@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export function ProductMenu({ title, description, price }) {
+export function Product({ title, description, price }) {
   return (
     <div className="group-menu1">
       <div className="contentL">

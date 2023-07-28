@@ -55,6 +55,13 @@
             "title" : "Doble Carne",
             "description" : "Queso, jamón, doble carne de hamburguesa, carne de res, pollo,cebolla caramelizada, papas y huevo de codorniz.",
             "price" : "$14.900"
+        },
+        {
+            "id" : 9,
+            "category": "Dinamic",
+            "title" : "Mega",
+            "description" : "Queso, jamón, carne de hamburguesa, carne de res, pollo, cebolla caramelizada, papas y huevo de codorniz.",
+            "price" : "$12.000"
         }
 
     ]

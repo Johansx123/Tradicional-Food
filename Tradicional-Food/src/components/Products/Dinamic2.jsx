@@ -1,3 +1,4 @@
+
 export function Dinamic2() {
   return (
     <section id="box" className="wrapper-dinamic2">
@@ -11,7 +12,7 @@ export function Dinamic2() {
       </div>
 
       <div className="about-dinamic1">
-        {/* <h2>Super Perros</h2>  */}
+        
         <div className="group-menu1 ">
           <div>
             <h3>Súper Choriperro</h3>
