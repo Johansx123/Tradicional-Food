@@ -5,6 +5,7 @@ import { Dinamic2 } from "../components/Products/Dinamic2";
 import { Bebidas } from "../components/Bebidas";
 import { TableMenu } from "../components/Products/TableMenu";
 import responseProducts from '../mocks/products-menu1.json'
+import Beverage from "../components/Beverage";
 
 export function PageMenu() {
   const products = responseProducts?.Products
@@ -19,7 +20,7 @@ export function PageMenu() {
           <Dinamic1 products={products}/>
           <TableMenu version={'BLACK'} products={products}/>
           <Dinamic2 products={products}/>
-          <Bebidas />
+          <Beverage/>
         </section>
       </main>
     </div>

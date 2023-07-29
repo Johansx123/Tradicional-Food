@@ -1,4 +1,5 @@
 @import url(./styles/styleJs.css);
+@import url(./styles/utilities.css);
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Atkinson+Hyperlegible:wght@700&family=Balsamiq+Sans&family=Barlow+Semi+Condensed:wght@800&display=swap');
 * {
@@ -58,6 +59,9 @@ body{
 }
 main{
     overflow: hidden;
+}
+.grid-wrapper{
+    margin-bottom: 30px
 }
 .wrapper-header{
     z-index: 10;
@@ -217,6 +221,7 @@ main{
     padding-top: 15%;
     width: var(--layout-90);
     margin: auto;
+    margin-bottom: 200px;
 }
 .wrapper-dinamic1 img{
     width: 75%;
@@ -268,7 +273,7 @@ main{
 	position:relative;
     width: var(--layout-90);
     margin: auto;
-	
+	margin-bottom: 200px;
 }
 .dinamic2{
 	display:flex;
@@ -291,136 +296,23 @@ main{
     transition: 1s;
 }
 .wrapper-dinamic2 .group-menu1{
-		align-items:center;
+	align-items:center;
 }
-.wrapper-jucie{
-    margin: 200px  0 ;
-    background-color: var(--color-black);
-    z-index: 2;
-}
-.wrapper-jucie .subtitle{
-    font-size: var(--font-size-title-medium);
-    color: var(--color-white-font);
-    font-family: var(--font-family-title);
-    padding: 20%;
-    text-align: center;
-    
-}
-.wrapper-slider{
-    position: relative;
-}
-.slider {
-    padding: 20% 0;
+.beverage-wrapper{
     display: flex;
-    position: relative;
-    margin-left: -100%;
-    overflow: hidden;
-  }
-  .slide{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      
-      color: var(--color-white-font);
-      min-width: 100vw;
-      
-      
-    }
-    .slide img{
-      max-width: 200px;
-      
-  }
-  .slide-d{
-    display: flex;
+    flex-direction: column;
     justify-content: center;
-    
-    width: 200%;
     align-items: center;
-  }
-  .slide h3, .slide span, .slide h2{
-    font-size:calc(var(--font-size-small)*2) ;
-    font-family: var(--font-family-img);
-  }
-  .prevButton, .nextButton{
-      width: 60px;
-      height: 60PX;
-      border-radius: 50%;
-      position: absolute;
-      top: 45%;
-      z-index: 10;
-    }
-    .prevButton IMG, .nextButton img{
-        width: 60px;
-        height: 60PX;
-        
-      }
-  .prevButton {
-    left: 0;
-    transform: rotate(-90deg);
-  }
-  
-  .nextButton {
-    right: 0;
-    transform: rotate(90deg);
-  }
-  
-
-.about{
-    z-index: 1;
-    width: 45%;
-    align-self: flex-end;
-    margin-top: 36%;
-    position: absolute;
-    margin-right: 5%;
-}
-/* .slider-jucie{
-    display: flex;
-    width: 400%;
-    animation: cambio 15s infinite alternate linear;
-    padding-top: 60%;
-} */
-/* .item-slider    {
-    padding-right: 10%;
-
-} */
-
-
-
-/* @keyframes cambio {
-    0% {margin-left: 0;}
-    20% {margin-left: 0;}
-
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
-
-    50% {margin-left: -200%;}
-    70% {margin-left: -200%;}
-
-    75%{margin-left: -300%;}
-    100%{margin-left: -300%;}
-}
-
-@keyframes move {
-    to{
-        transform: translateX(-94vw);
-    }
-}
-.slider-jucie img{
-    width: 100%;
-} */
-/* .wrapper-jucie h2{
-    margin: auto;
-    background-image: url(images/Mobile/Back_jucie_title.svg);
-    background-size: cover;
+    background-image:url(../public/Mesa.png) ;
     background-repeat: no-repeat;
-    font-size: var(--font-size-title-medium);
-    font-family: var(--font-family-title);
-} */
-/* .content-jucie h3{
-    font-family: var(--font-family-img);
-    color: var(--color-white);
-    -webkit-text-stroke:0.05em   #ED3237;   
-} */
+    background-position: center;
+    background-size: var(--layout-90);
+    gap: 20px;
+    
+}
+.beverage-wrapper footer .group-menu1{
+    width: 70%;
+}
 .wrapper-footer{
     position: relative;
     background-color: var(--color-black);
@@ -428,7 +320,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    padding: 3em;
+    padding: 3em;   
     z-index: 0;
 }
 .wrapper-footer h2{
@@ -472,10 +364,7 @@ main{
 body{
     background-size: 400px;
 }
-.slider img {
-    width: 30vw;
-    object-fit: cover;
-  }
+
 }
 @media (min-width:600px) {
     
@@ -576,5 +465,4 @@ body{
     .slide{
         min-width: 500px;
     }
-   
 }   

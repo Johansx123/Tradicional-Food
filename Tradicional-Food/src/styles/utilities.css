@@ -1,0 +1,54 @@
+:root{
+    --color-white:#FEFEFE;
+    --color-black:#262425;
+    --color-black-0:#262425c1;
+    --color-yellow:#F7C809;
+    --color-red:#ed3238;
+
+    --color-black-font:#000000;
+    --color-white-font:#fefefe;
+
+    --font-size-main:69px;
+    --font-size-title-big:51px;
+    --font-size-title-medium:30px;
+    --font-size-title-small:15px;
+    --font-size-small:12px;
+
+    --font-family-main:'Antonio', sans-serif;
+    --font-family-title:'Atkinson Hyperlegible', 'sans-serif';
+    --font-family-paragraph:'Balsamiq Sans', cursive;
+    --font-family-price:'Barlow Semi Condensed', sans-serif;
+    --font-family-img:'Bluestar';
+
+    --size-icon-medium:36px;
+    --size-brach-medium: 45px;
+    --size-brach-big: 75px;
+
+    --size-header-h: 6.5vh;
+    
+
+    --layout-90: 90%;
+}
+.Title-30{
+    background-image:url(../public/Menu2.png);
+	background-repeat:no-repeat;
+	line-height: 0.9;
+	background-position:center;
+	font-size:var(--font-size-title-medium);
+    font-family: var(--font-family-title);
+	color: var( --color-white);
+	width:10em;
+	padding:10% 0px;
+	text-align:center;
+	align-self:center;
+}
+.about-black{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    align-items: center;
+    padding: 6%;
+    width: var(--layout-90);
+    gap: 10px;
+}
