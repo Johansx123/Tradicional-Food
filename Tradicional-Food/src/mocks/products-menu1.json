@@ -70,6 +70,14 @@
             "description" : "Pan perro, mortadela, jamón, queso, chorizo, carne de res, pollo, cebolla caramelizada y papas.",
             "price" : "$12.000"
         }
+        ,
+        {
+            "id":11,
+            "category":"Dinamic",
+            "title": "Daniel",
+            "description":"Back-End Developer",
+            "price":" $11.000 "
+        }
 
     ]
 }

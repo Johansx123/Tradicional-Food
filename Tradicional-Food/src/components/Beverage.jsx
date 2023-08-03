@@ -1,13 +1,12 @@
 import { Product } from "./Products/Product";
-import JugoDeFresa from "../../public/Jugo de Fresa.png"
+import SliderBeverage from "./Products/slider-berverage";
+
 export default function Beverage () {
     return(
         <section className="beverage-wrapper">
-            <h2 className="Title-30">BEBIDAS</h2>
+            <h2 className="Title-30">JUGOS</h2>
             <div className="slider">
-                <div className="carousel">
-                    <img src={JugoDeFresa}  alt="" />
-                </div>
+                <SliderBeverage/>
             </div>
             <footer className="fontWhite about-black">
                 <Product title={'Agua'} price={'$2.500'}/>    
@@ -16,4 +15,4 @@ export default function Beverage () {
 
         </section>
     )
-}
+} 
