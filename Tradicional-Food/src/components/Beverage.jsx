@@ -3,7 +3,7 @@ import SliderBeverage from "./Products/slider-berverage";
 
 export default function Beverage () {
     return(
-        <section className="beverage-wrapper">
+        <section id="bebidas" className="beverage-wrapper" >
             <h2 className="Title-30">JUGOS</h2>
             <div className="slider">
                 <SliderBeverage/>
