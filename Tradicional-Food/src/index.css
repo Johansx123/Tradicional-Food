@@ -209,6 +209,11 @@ main{
     font-family: var(--font-family-price);
     font-size: var(--font-size-title-medium);
 }
+.products-loader{
+    font-size : var(--font-size-title-medium);
+    font-family : var(--font-family-price);
+    text-align: center;
+}
 .wrapper-dinamic1{
     position: relative;
     background-image: url(../public/Mancha.svg);
@@ -410,7 +415,12 @@ body{
     .content-menu-600{
         display: none;
     }
-   
+    .grid-wrapper{
+        display: grid;
+        grid-template-rows: auto;
+        justify-content: center;
+        overflow: hidden;
+    } 
     
     
    
@@ -421,7 +431,7 @@ body{
     }
     .grid-wrapper{
         display: grid;
-        grid-template-columns: repeat(2,500px);
+        grid-template-columns: repeat(3,1fr);
         grid-template-rows: auto;
         justify-content: center;
         overflow: hidden;

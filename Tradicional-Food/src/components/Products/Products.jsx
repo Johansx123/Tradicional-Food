@@ -17,7 +17,7 @@ export function Products({ products }) {
           );
         })
       ) : (
-        <h2>Cargando..</h2>
+        <h1 className='products-loader' >Cargando..</h1>
       )}
     </>
   );

@@ -77,6 +77,48 @@
             "title": "Daniel",
             "description":"Back-End Developer",
             "price":" $11.000 "
+        },
+        {
+            "id":12,
+            "category":"soda",
+            "title": "Coca-Cola",
+            "description":"400ml",
+            "price":" $2.000"
+        },
+        {
+            "id":13,
+            "category":"soda",
+            "title": "Coca-Cola",
+            "description":"1L",
+            "price":" $4.000"
+        },
+        {
+            "id":14,
+            "category":"soda",
+            "title": "Colombiana",
+            "description":"400ml",
+            "price":" $2.000"
+        },
+        {
+            "id":15,
+            "category":"soda",
+            "title": "Colombiana",
+            "description":"1.5L",
+            "price":" $4.000"
+        },
+        {
+            "id":16,
+            "category":"soda",
+            "title": "Manzana",
+            "description":"400ml",
+            "price":" $2.000"
+        },
+        {
+            "id":17,
+            "category":"soda",
+            "title": "Manzana",
+            "description":"1.5L",
+            "price":" $4.000"
         }
 
     ]
