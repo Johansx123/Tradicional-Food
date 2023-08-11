@@ -1,5 +1,6 @@
 @import url(./styles/styleJs.css);
 @import url(./styles/utilities.css);
+@import url(./styles/Forms.css);
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Atkinson+Hyperlegible:wght@700&family=Balsamiq+Sans&family=Barlow+Semi+Condensed:wght@800&display=swap');
 * {
@@ -57,6 +58,13 @@ body{
     margin: auto;
     z-index: 1;
 }
+.placeCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 main{
     overflow: hidden;
 }
@@ -67,7 +75,7 @@ main{
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: var(--color-white);
     height: var(--size-header-h);
     width: 100vw;
@@ -83,15 +91,7 @@ main{
 .content-menu-mobile img, .icon-login img{
     width: var(--size-icon-medium);
 }
-.wrapper-header .logo{
-    position: relative;
-    top: -40%;
-    width: 70px;
-}
-.wrapper-header .logo img{
-    position: absolute;
-    width: 100%;
-}
+
 .icon-login{
     margin-right: 0;
 }

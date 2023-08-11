@@ -7,7 +7,7 @@ export function Header() {
     <header className="wrapper-header">
       <Link className="logo" to = '/'><img src={logo} alt="Logo de Tradicional Food" /></Link>
       <nav className="content-menu-600">
-             <span><Link to='/'>Inicio</Link></span>
+             <span><Link to='/'>Menu</Link></span>
              {/* <span><a href="">Pide en Linea</a></span>
              <span><a href="">Seguir</a></span> */}
            </nav>

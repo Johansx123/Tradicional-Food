@@ -1,0 +1,45 @@
+.wrapper-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:48px ;
+}
+.hgroup-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hgroup-form p{
+    margin-top: 17px;
+}
+.hgroup-form a{
+    text-decoration: underline;
+}
+.form .page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+form .fieldForm{
+    display: flex;
+    flex-direction: column;
+}
+form .fieldForm a,p:last-child{
+    margin: auto;
+    margin-top: 9px;
+    }
+.fieldForm .fieldForm-input{
+    display: flex;
+    width: 209px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid #BDBDBD;
+    background: var(--base-white, #FEFEFE);
+}
+.otherLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
