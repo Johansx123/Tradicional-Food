@@ -11,8 +11,7 @@ export function LogIn() {
         <p className="Font-slim-15">¿Es tu primera vez?<Link to={'/Registerer'} className="Font-slim-15">Registrate</Link></p>
       </hgroup>
 
-      <form action="" className="form">
-        <section className="page">
+      <form action="" className="form ">
           <InputForm
             name={"userEmail"}
             label={"Correo"}
@@ -32,7 +31,6 @@ export function LogIn() {
             <p className="Font-slim-15">o ingresa con</p>
             <GoogleLogIn />
           </aside>
-        </section>
       </form>
     </div>
   );

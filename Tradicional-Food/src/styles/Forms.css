@@ -6,7 +6,10 @@
 }
 .form{
     display: flex;
-    gap: 80px;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .hgroup-form{
     display: flex;
@@ -19,12 +22,20 @@
 .hgroup-form a{
     text-decoration: underline;
 }
-.form .page{
+.form .pages{
+    display: flex;
+    width: 214px;
+    gap: 5px;
+    /* overflow: hidden; */
+
+}
+.pages .page{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
+
 form .fieldForm{
     display: flex;
     flex-direction: column;
@@ -46,4 +57,22 @@ form .fieldForm a,p:last-child{
     flex-direction: column;
     align-items: center;
     gap: 30px;
+}
+.form-stepsLine{
+    display: flex;
+    justify-content: left;
+    height: 5px;
+    width: 90%;
+    background-color: gray;
+}
+.form-stepsLine.center{
+    justify-content: center;
+}
+.form-stepsLine.right{
+    justify-content: right;
+}
+.form-stepsLine .form-stepsLine-step{
+    background-color: rgb(30, 205, 30);
+    height: 100%;
+    width: calc(100% / 3);
 }
