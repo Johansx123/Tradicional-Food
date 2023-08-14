@@ -40,7 +40,7 @@ function RegistererFrom () {
       </hgroup>
 
       <form action="" className="form">
-        <section className="page">
+        <section className="page1">
           <InputForm
             name={"userName"}
             label={"Nombre"}
@@ -56,7 +56,41 @@ function RegistererFrom () {
           <Button >
             Siguiente
           </Button>
-        </section>
+        </section> 
+        <section className="page2">
+          <InputForm
+            name={"userName"}
+            label={"Nombre"}
+            type={"text"} />
+          <InputForm
+            name={"userLastName"}
+            label={"Apellido"}
+            type={"text"}
+          />
+          <div className="form-stepsLine">
+            <div className="form-stepsLine-step"></div>
+          </div>
+          <Button >
+            Siguiente
+          </Button>
+        </section> 
+        <section className="page3">
+          <InputForm
+            name={"userName"}
+            label={"Nombre"}
+            type={"text"} />
+          <InputForm
+            name={"userLastName"}
+            label={"Apellido"}
+            type={"text"}
+          />
+          <div className="form-stepsLine">
+            <div className="form-stepsLine-step"></div>
+          </div>
+          <Button >
+            Siguiente
+          </Button>
+        </section> 
       </form>
     </div>
   )

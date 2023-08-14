@@ -4,6 +4,10 @@
     align-items: center;
     gap:48px ;
 }
+.form{
+    display: flex;
+    gap: 80px;
+}
 .hgroup-form{
     display: flex;
     flex-direction: column;
