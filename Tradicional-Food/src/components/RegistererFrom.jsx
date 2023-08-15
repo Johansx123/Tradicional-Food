@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "./atoms/Button";
 import { PageForms } from "./PageForms";
-import { useState } from "react";
+import {  useState } from "react";
 import { StepsLineForm } from "./atoms/StepsLineForm";
 
 export function RegistererFrom() {
@@ -14,11 +14,13 @@ const className = {
 
 
 const handleClick = () =>{
-  
   setNumPage(numPage + 1)
 }
 const handleSubmit = (e) =>{
-  console.log(e)
+  e.preventDefault()
+  const fields = Object.fromEntries(new window.FormData(e.target))
+  
+  console.log(fields)
 }
 const handleInvalid = (e) =>{
   const inputs = e.target
@@ -35,7 +37,7 @@ const handleInvalid = (e) =>{
         <p className="Font-slim-15">¿Ya tienes una?<Link to={'/LogIn'} className="Font-slim-15">Inicia Sesión </Link></p>
       </hgroup>
 
-      <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid}>
+      <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid} >
         <div className= {`pages ${className[numPage]}`} >
 
           <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},

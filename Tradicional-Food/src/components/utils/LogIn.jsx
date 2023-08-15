@@ -4,6 +4,13 @@ import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 
 export function LogIn() {
+
+
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    const fields = Object.fromEntries(new window.FormData(e.target))
+    console.log(fields)
+  }
   return (
     <div className="wrapper-form">
       <hgroup className="hgroup-form">
@@ -11,7 +18,7 @@ export function LogIn() {
         <p className="Font-slim-15">¿Es tu primera vez?<Link to={'/Registerer'} className="Font-slim-15">Registrate</Link></p>
       </hgroup>
 
-      <form action="" className="form ">
+      <form action="" className="form " onSubmit={handleSubmit} >
           <InputForm
             name={"userEmail"}
             label={"Correo"}
