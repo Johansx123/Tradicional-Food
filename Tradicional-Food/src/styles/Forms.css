@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     gap:48px ;
+    overflow: hidden;
+    padding-left:2px ;
 }
 .form{
     display: flex;
@@ -10,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 .hgroup-form{
     display: flex;
@@ -24,10 +27,9 @@
 }
 .form .pages{
     display: flex;
+    
     width: 214px;
     gap: 5px;
-    /* overflow: hidden; */
-
 }
 .pages .page{
     display: flex;
@@ -52,11 +54,20 @@ form .fieldForm a,p:last-child{
     border: 1px solid #BDBDBD;
     background: var(--base-white, #FEFEFE);
 }
+.fieldForm .fieldForm-input.invalid{
+    border: solid 2px red;
+}
 .otherLogin{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+}
+.form .pages.center{
+    transform: translateX(-100%);
+}
+.form .pages.right{
+    transform: translateX(-200%);
 }
 .form-stepsLine{
     display: flex;

@@ -2,16 +2,30 @@ import { Link } from "react-router-dom";
 import { Button } from "./atoms/Button";
 import { PageForms } from "./PageForms";
 import { useState } from "react";
+import { StepsLineForm } from "./atoms/StepsLineForm";
 
 export function RegistererFrom() {
 const[numPage,setNumPage] = useState(1)
+const className = {
+  '1':'',
+  '2':'center',
+  '3':'right'
+}
 
 
 const handleClick = () =>{
+  
   setNumPage(numPage + 1)
 }
-const handleSubmmit = () =>{
-  window.location.pathname = '/a'
+const handleSubmit = (e) =>{
+  console.log(e)
+}
+const handleInvalid = (e) =>{
+  const inputs = e.target
+  
+  inputs.classList.add('invalid')
+  inputs.value = ''
+  setNumPage(1)
 }
 
   return (
@@ -21,20 +35,11 @@ const handleSubmmit = () =>{
         <p className="Font-slim-15">¿Ya tienes una?<Link to={'/LogIn'} className="Font-slim-15">Inicia Sesión </Link></p>
       </hgroup>
 
-      <form action="" className="form" onSubmit={handleSubmmit}>
-        <div className="pages">
+      <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid}>
+        <div className= {`pages ${className[numPage]}`} >
 
-          <PageForms numPage={1} inputs={[
-            {
-              name: "userName",
-              label: "Nombre",
-              type: "text"
-            },
-            {
-              name: "userLastName",
-              label: "Apellido",
-              type: "text"
-            }
+          <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
+            {name: "uscalerLastName",label: "Apellido",type: "text"}
           ]} />
           <PageForms numPage={2} inputs={[
             {
@@ -62,28 +67,13 @@ const handleSubmmit = () =>{
           ]} />
         </div>
         <StepsLineForm step={numPage}/>
-        <Link onClick={handleClick} >
-        <Button type={numPage < 2 ? '':'submit'}>
+        <Button type={numPage < 4 ? 'button':'submit'} onClick={handleClick}>
           {
             numPage < 3 ? 'Siguiente': 'Registrarse'
           }
         </Button>
-        </Link>
+        
       </form>
     </div>
   );
-}
-// eslint-disable-next-line react/prop-types
-function StepsLineForm ({step}) {
-  const positions = {
-    '1':'',
-    '2':'center',
-    '3':'right'
-  }
-  const className = positions[step]
-  return(
-    <div className={`form-stepsLine ${className}`}>
-          <div className="form-stepsLine-step"></div>
-        </div>
-  )
 }
