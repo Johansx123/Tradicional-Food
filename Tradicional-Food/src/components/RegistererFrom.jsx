@@ -1,34 +1,28 @@
 import { Link } from "react-router-dom";
 import { Button } from "./atoms/Button";
-// import { PageForms } from "./PageForms";
+import { PageForms } from "./PageForms";
 import {  useState } from "react";
-// import { StepsLineForm } from "./atoms/StepsLineForm";
-import { InputForm } from "./atoms/InputForm";
+import { StepsLineForm } from "./atoms/StepsLineForm";
 
 export function RegistererFrom() {
 const[numPage,setNumPage] = useState(1)
-// const className = {
-//   '1':'',
-//   '2':'center',
-//   '3':'right'
-// }
 
-const createUser = (data) =>{
-  return fetch('https://api.tradicionalfood.com/api/users/register',
-  {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    origin: "http://localhost:5173/Registerer",
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: JSON.stringify(data)
-   })
-   .then(res => res.json())
-   .then( data => console.log(data))
+
+const createUser = async (data) =>{
+  const res = await fetch('https://api.tradicionalfood.com/api/users/register',
+    {
+      method: "POST",
+      mode: "cors",
+      origin: "http://localhost:5173/Registerer",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    });
+  const data_1 = await res.json();
+  return console.log(data_1);
    
 }
 
@@ -49,7 +43,7 @@ const handleSubmit = (e) =>{
     Phone: phone,
     Name : name
   }
-  password == passwordValidate 
+  password == passwordValidate && numPage == 3
   ? createUser(data)
   : console.log('eerror')
 }
@@ -59,8 +53,9 @@ const handleInvalid = (e) =>{
   
   inputs.classList.add('invalid')
   inputs.value = ''
-  setNumPage(1)
 }
+
+
 
   return (
     <div className="wrapper-form">
@@ -70,44 +65,18 @@ const handleInvalid = (e) =>{
       </hgroup>
 
       <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid} >
-        {/* <div className= {`pages ${className[numPage]}`} >
-
-          <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
-            {name: "uscalerLastName",label: "Apellido",type: "text"}
-          ]} />
-          <PageForms numPage={2} inputs={[
-            {
-              name: "userPhone",
-              label: "Telfono",
-              type: "tel"
-            },
-            {
-              name: "userEmail",
-              label: "Correo",
-              type: "email"
-            }
-          ]} />
-          <PageForms numPage={3} inputs={[
-            {
-              name: "userPassword",
-              label: "Contraseña",
-              type: "password"
-            },
-            {
-              name: "userConfirmPassword",
-              label: "Confirma tu contraseña",
-              type: "password"
-            }
-          ]} />
+        <div className= {`pages `} >
+             
+         <FormSteps numPage={numPage} />
         </div>
         <StepsLineForm step={numPage}/>
-        <Button type={numPage < 4 ? 'button':'submit'} onClick={handleClick}>
+        <Button type={'submit'} onClick={handleClick}>
           {
             numPage < 3 ? 'Siguiente': 'Registrarse'
           }
         </Button>
-         */}
-         <InputForm name={'nameUser'} type={'text'} label={'Nombre'}/>
+        
+         {/* <InputForm name={'nameUser'} type={'text'} label={'Nombre'}/>
          <InputForm name={'emailUser'} type={'email'} label={'Correo'}/>
          <InputForm name={'phoneUser'} type={'tel'} label={'Telefono'}/>
          <InputForm name={'passwordUser'} type={'password'} label={'Contraseña'}/>
@@ -117,7 +86,7 @@ const handleInvalid = (e) =>{
           {
             'Registrarse'
           }
-        </Button>
+        </Button> */}
       </form>
     </div>
   );
@@ -126,3 +95,47 @@ const handleInvalid = (e) =>{
 
 
   
+const FormSteps  =({numPage}) =>{
+  switch (numPage) {
+    case 1:
+      return(
+      <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
+      {name: "userLastName",label: "Apellido",type: "text"}
+    ]} />)
+    
+    case 2:
+      return(
+      <PageForms numPage={2} inputs={[
+        {
+          name: "userPhone",
+          label: "Telfono",
+          type: "tel"
+        },
+        {
+          name: "userEmail",
+          label: "Correo",
+          type: "email"
+        }
+      ]} />)
+      case 3:
+        return(
+        <PageForms numPage={3} inputs={[
+          {
+            name: "userPassword",
+            label: "Contraseña",
+            type: "password"
+          },
+          {
+            name: "userConfirmPassword",
+            label: "Confirma tu contraseña",
+            type: "password"
+          }
+        ]} />)
+    default:
+      
+      <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
+      {name: "uscalerLastName",label: "Apellido",type: "text"}
+    ]} />
+      break;
+  }
+}
