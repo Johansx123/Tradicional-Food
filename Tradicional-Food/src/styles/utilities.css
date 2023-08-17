@@ -85,4 +85,5 @@
     background: var(--base-900, #383838);
     color: var(--color-white-font);
     border: none;
+    cursor: pointer;
 }

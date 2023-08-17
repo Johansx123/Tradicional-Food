@@ -5,11 +5,32 @@ import { Button } from "../atoms/Button";
 
 export function LogIn() {
 
+ 
 
   const handleSubmit = (e) =>{
     e.preventDefault()
     const fields = Object.fromEntries(new window.FormData(e.target))
-    console.log(fields)
+    const email = fields?.userEmail
+    const password = fields?.userPassword
+    const data = {
+      email,
+      password
+    }
+    fetch('https://api.tradicionalfood.com/api/users/login',{
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    origin: "http://localhost:5173/Registerer",
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+      body: JSON.stringify(data)
+    } )
+    .then(response => response.json())
+    .then(message => console.log(message))
+
   }
   return (
     <div className="wrapper-form">

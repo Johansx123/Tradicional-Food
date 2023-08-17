@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 export function InputForm({ name, label, placeholder, type, children }) {
