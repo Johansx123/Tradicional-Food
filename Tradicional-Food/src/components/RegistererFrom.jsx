@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "./atoms/Button";
-import { PageForms } from "./PageForms";
 import {  useState } from "react";
 import { StepsLineForm } from "./atoms/StepsLineForm";
+import { InputForm } from "./atoms/InputForm";
 
 export function RegistererFrom() {
 const[numPage,setNumPage] = useState(1)
@@ -21,15 +21,16 @@ const createUser = async (data) =>{
       },
       body: JSON.stringify(data)
     });
-  const data_1 = await res.json();
-  return console.log(data_1);
+  const message = await res.json();
+
+  return {message,res};
    
 }
 
 const handleClick = () =>{
   setNumPage(numPage + 1)
 }
-const handleSubmit = (e) =>{
+const handleSubmit = async (e) =>{
   e.preventDefault()
   const fields = Object.fromEntries(new window.FormData(e.target))
   const name = fields?.nameUser
@@ -40,12 +41,13 @@ const handleSubmit = (e) =>{
   const data =  {
     Email: email,
     Password: password,
-    Phone: phone,
-    Name : name
+    Name : name,
+    Phone: phone
   }
-  password == passwordValidate && numPage == 3
-  ? createUser(data)
-  : console.log('eerror')
+  if(password == passwordValidate){
+  const {message,res} = await createUser(data)
+  res.status = 201 ? window.location.href = '/Login':null
+  }
 }
 
 const handleInvalid = (e) =>{
@@ -67,8 +69,13 @@ const handleInvalid = (e) =>{
       <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid} >
         <div className= {`pages `} >
              
-         <FormSteps numPage={numPage} />
+         {/* <FormSteps numPage={numPage} /> */}
         </div>
+          <InputForm name={'nameUser'} type={'text'} label={'Nombre'}/>
+          <InputForm name={'emailUser'} type={'email'} label={'Correo'}/>
+          <InputForm name={'phoneUser'} type={'tel'} label={'Telefono'}/>
+          <InputForm name={'passwordUser'} type={'password'} label={'Contraseña'}/>
+          <InputForm name={'passwordUserValidate'} type={'password'} label={'Confirma tu Contraseña'}/>
         <StepsLineForm step={numPage}/>
         <Button type={'submit'} onClick={handleClick}>
           {
@@ -76,66 +83,19 @@ const handleInvalid = (e) =>{
           }
         </Button>
         
-         {/* <InputForm name={'nameUser'} type={'text'} label={'Nombre'}/>
-         <InputForm name={'emailUser'} type={'email'} label={'Correo'}/>
-         <InputForm name={'phoneUser'} type={'tel'} label={'Telefono'}/>
-         <InputForm name={'passwordUser'} type={'password'} label={'Contraseña'}/>
-         <InputForm name={'passwordUserValidate'} type={'password'} label={'Confirma tu Contraseña'}/>
 
-         <Button type={'submit'} onClick={handleClick}>
-          {
-            'Registrarse'
-          }
-        </Button> */}
       </form>
     </div>
   );
 }
 
+function RegisterMessage ({message,res}){
 
+  const className = 1;
 
-  
-const FormSteps  =({numPage}) =>{
-  switch (numPage) {
-    case 1:
-      return(
-      <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
-      {name: "userLastName",label: "Apellido",type: "text"}
-    ]} />)
-    
-    case 2:
-      return(
-      <PageForms numPage={2} inputs={[
-        {
-          name: "userPhone",
-          label: "Telfono",
-          type: "tel"
-        },
-        {
-          name: "userEmail",
-          label: "Correo",
-          type: "email"
-        }
-      ]} />)
-      case 3:
-        return(
-        <PageForms numPage={3} inputs={[
-          {
-            name: "userPassword",
-            label: "Contraseña",
-            type: "password"
-          },
-          {
-            name: "userConfirmPassword",
-            label: "Confirma tu contraseña",
-            type: "password"
-          }
-        ]} />)
-    default:
-      
-      <PageForms numPage={1} inputs={[{name: "userName",label: "Nombre",type: "text"},
-      {name: "uscalerLastName",label: "Apellido",type: "text"}
-    ]} />
-      break;
+  return(
+    <div className="registerOK">
+        <h2>hola</h2>
+    </div>
+  );
   }
-}
