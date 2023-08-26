@@ -8,8 +8,8 @@ export function RegistererFrom() {
 const[numPage,setNumPage] = useState(1)
 
 
-const createUser = async (data) =>{
-  const res = await fetch('https://api.tradicionalfood.com/api/users/register',
+const createUser =  (data) =>{
+  return fetch('https://api.tradicionalfood.com/api/users/register',
     {
       method: "POST",
       mode: "cors",
@@ -20,10 +20,10 @@ const createUser = async (data) =>{
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
-    });
-  const message = await res.json();
+    })
+    .then( message => message.json())
+    .then (message => console.log(message))
 
-  return {message,res};
    
 }
 
@@ -44,11 +44,13 @@ const handleSubmit = async (e) =>{
     Name : name,
     Phone: phone
   }
-  if(password == passwordValidate){
-  const {message,res} = await createUser(data)
-  res.status = 201 ? window.location.href = '/Login':null
+
+  const message = createUser(data)
+  console.log(message)
+
+  // res.status = 201 ? window.location.href = '/Login':null
   }
-}
+
 
 const handleInvalid = (e) =>{
   const inputs = e.target
