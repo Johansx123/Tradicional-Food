@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export function InputForm({ name, label, placeholder, type, children }) {
+export function InputForm({ name, label, placeholder, type , pattern, children }) {
   const [value, setValue] = useState('')
   const inputRef = useRef()
   const handleChange = (e) =>{
@@ -17,7 +17,7 @@ useEffect(()=>{
   return (
     <div className="fieldForm">
       <label htmlFor={name} className="Font-small-15">{label}</label>
-      <input className="fieldForm-input" onChange={handleChange} type={type} name={name} id={name} placeholder={placeholder} ref={inputRef} value={value} required/>
+      <input className="fieldForm-input" onChange={handleChange} type={type} name={name} id={name} placeholder={placeholder} ref={inputRef} value={value} pattern ={pattern} required/>
       {children
         ? children
         : null}
