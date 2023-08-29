@@ -1,8 +1,9 @@
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import GoogleLogIn from "../atoms/google-login";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { useState } from "react";
+import { setToken } from "../../js/Token";
 
 export function LogIn() {
   const [error, setError] = useState()
@@ -29,8 +30,9 @@ export function LogIn() {
       body: JSON.stringify(data)
     } )
     .then(response => response.json())
-    .then(message => {window.localStorage.setItem( 'loggedTradicionalFoodUser' , JSON.stringify(message))
-    window.location.pathname = "/"
+    .then(message => {
+      setToken(JSON.stringify(message))
+     window.location.pathname = "/"
   })
     .catch(e => setError(e))
   }
