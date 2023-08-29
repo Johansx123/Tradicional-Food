@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import GoogleLogIn from "../atoms/google-login";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
+import { useState } from "react";
 
 export function LogIn() {
-
- 
+  const [error, setError] = useState()
 
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -29,9 +29,12 @@ export function LogIn() {
       body: JSON.stringify(data)
     } )
     .then(response => response.json())
-    .then(message => console.log(message))
-
+    .then(message => {window.localStorage.setItem( 'loggedTradicionalFoodUser' , JSON.stringify(message))
+    window.location.pathname = "/"
+  })
+    .catch(e => setError(e))
   }
+
   return (
     <div className="wrapper-form">
       <hgroup className="hgroup-form">
@@ -39,7 +42,13 @@ export function LogIn() {
         <p className="Font-slim-15">¿Es tu primera vez?<Link to={'/Registerer'} className="Font-slim-15">Registrate</Link></p>
       </hgroup>
 
-      <form action="" className="form " onSubmit={handleSubmit} >
+        {
+          error ?
+          <h2>{error}</h2>
+          :<></>
+        }        
+
+      <form className="form " onSubmit={handleSubmit} >
           <InputForm
             name={"userEmail"}
             label={"Correo"}
