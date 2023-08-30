@@ -18,7 +18,7 @@ export function LogIn() {
       password
     }
     fetch('https://api.tradicionalfood.com/api/users/login',{
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/Registerer",
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -31,10 +31,12 @@ export function LogIn() {
     } )
     .then(response => response.json())
     .then(message => {
-      setToken(JSON.stringify(message))
-     window.location.pathname = "/"
+      // alert()
+      console.log(message)
+      // setToken(JSON.stringify(message))
+    //  window.location.pathname = "/"
   })
-    .catch(e => setError(e))
+    .catch(e => console.log(e))
   }
 
   return (

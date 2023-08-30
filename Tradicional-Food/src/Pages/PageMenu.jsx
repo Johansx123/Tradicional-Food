@@ -7,6 +7,7 @@ import responseProducts from '../mocks/products-menu1.json'
 import Beverage from "../components/Beverage";
 
 export default function PageMenu() {
+
   const products = responseProducts?.Products
   
   return (
