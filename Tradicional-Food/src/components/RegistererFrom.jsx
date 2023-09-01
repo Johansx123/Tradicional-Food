@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "./atoms/Button";
 import { InputForm } from "./atoms/InputForm";
+import { Error } from "./utils/Error";
+import { useState } from "react";
 
 export function RegistererFrom() {
+  const [error, setError] = useState()
 
 
-const createUser =  async (data) =>{
-  const statusCrated = 201
+const createUser =(data) =>{
 
-  const message = await fetch('https://api.tradicionalfood.com/api/users/register',
+ 
+  fetch('https://api.tradicionalfood.com/api/users/register',
     {
       method: "POST",
       mode: "cors",
@@ -19,17 +22,20 @@ const createUser =  async (data) =>{
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
-    });
-  const response = await message.json();
-  alert(response.message)
-  console.log(message.status == statusCrated)
-  message.status == statusCrated ?  window.location.pathname = '/Login'   : null
-
+    })
+    .then(response=>response.json())
+    .then(message => {
+      message.message == 'Usuario Registrado exitosamente'
+      ? window.location.pathname = '/logIn'
+      : setError(message.message)
+    })
+   
 }
 
 
-  async function  handleSubmit (e) {
+   function  handleSubmit (e) {
     e.preventDefault();
+    setError()
     const fields = Object.fromEntries(new window.FormData(e.target));
     const name = fields?.nameUser;
     const email = fields?.emailUser;
@@ -45,6 +51,7 @@ const createUser =  async (data) =>{
     if (password == passwordValidate) {
        createUser(data);
     } else {
+      setError('Tus contraseñas no coinciden')
       e.target.passwordUserValidate.classList.add('invalid');
       e.target.passwordUserValidate.value = '';
     }
@@ -65,11 +72,12 @@ const createUser =  async (data) =>{
         <h1 className="Title-30">Crea tu Cuenta</h1>
         <p className="Font-slim-15">¿Ya tienes una?<Link to={'/LogIn'} className="Font-slim-15">Inicia Sesión </Link></p>
       </hgroup>
+      <Error error={error}/>
       <form action="" className="form" onSubmit={handleSubmit} onInvalid={handleInvalid} >
 
           <InputForm name={'nameUser'} type={'text'} label={'Nombre'}/>
           <InputForm name={'emailUser'} type={'email'} label={'Correo'}/>
-          <InputForm name={'phoneUser'} type={'tel'} label={'Telefono'} pattern={"^[3][0-9]{9}"}/>
+          <InputForm name={'phoneUser'} type={'tel'} label={'Telefono'}/>
           <InputForm name={'passwordUser'} type={'password'} label={'Contraseña'}/>
           <InputForm name={'passwordUserValidate'} type={'password'} label={'Confirma tu Contraseña'}/>
         <Button type={'submit'} >Registrarse </Button>

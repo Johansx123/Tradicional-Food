@@ -4,12 +4,25 @@ import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { useState } from "react";
 import { setToken } from "../../js/Token";
+import { Error } from "./Error";
+
+
+
+
+
 
 export function LogIn() {
+
+
+
+
   const [error, setError] = useState()
 
-  const handleSubmit = (e) =>{
+
+
+    const handleSubmit = (e) =>{
     e.preventDefault()
+    setError()
     const fields = Object.fromEntries(new window.FormData(e.target))
     const email = fields?.userEmail
     const password = fields?.userPassword
@@ -17,6 +30,9 @@ export function LogIn() {
       email,
       password
     }
+    
+
+
     fetch('https://api.tradicionalfood.com/api/users/login',{
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
@@ -31,10 +47,9 @@ export function LogIn() {
     } )
     .then(response => response.json())
     .then(message => {
-      // alert()
-      console.log(message)
-      // setToken(JSON.stringify(message))
-    //  window.location.pathname = "/"
+      message.Token
+      ? correctLogin(message , setToken)
+      : setError(message.message)
   })
     .catch(e => console.log(e))
   }
@@ -46,11 +61,7 @@ export function LogIn() {
         <p className="Font-slim-15">¿Es tu primera vez?<Link to={'/Registerer'} className="Font-slim-15">Registrate</Link></p>
       </hgroup>
 
-        {
-          error ?
-          <h2>{error}</h2>
-          :<></>
-        }        
+        <Error error={error}/>     
 
       <form className="form " onSubmit={handleSubmit} >
           <InputForm
@@ -75,4 +86,10 @@ export function LogIn() {
       </form>
     </div>
   );
+}
+
+
+const correctLogin =  (message, setToken) =>{
+    window.location.pathname = "/"
+   setToken( JSON.stringify(message))
 }
