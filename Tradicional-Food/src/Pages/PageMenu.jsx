@@ -11,7 +11,7 @@ import iconCancel from  '../../public/cancel.svg'
 import iconCheck from '../../public/check.svg'
 
 export default function PageMenu({isLogged}) {
-  const [isEditable, setIsEditable] = useState(false)
+  const [allowEdit, setAllowEdit] = useState(false)
 
 
 
@@ -19,27 +19,29 @@ export default function PageMenu({isLogged}) {
   
   return (
     <div className="background">
-      <Optios/>
+      <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit}/>
       <main id="top" className="wrapper-main">
         <TitleMain />
         <IndexMenu/>
         <section className="grid-wrapper">
-         <TableMenu products={products} filter={'Tradicional'}/>
-          <Dinamic1 products={products}/>
+         <TableMenu products={products} filter={'Tradicional'} allowEdit={allowEdit}/>
+          <Dinamic1 products={products} allowEdit={allowEdit}/>
           <TableMenu 
             version={'BLACK'} 
             products={products} 
             title={"SUPER TRADICIONALES"}
             filter={'SuperTradicional'}
+            allowEdit={allowEdit}
             />
 
-          <Dinamic2 products={products}/>
-          <Beverage/>
+          <Dinamic2 products={products} allowEdit={allowEdit}/>
+          <Beverage allowEdit={allowEdit}/>
           <TableMenu
             version={'BLACK'}
             products={products}
             title = {'GASEOSA'}
             filter = {'Soda'}
+            allowEdit={allowEdit}
             />
         </section>
       </main>
@@ -47,23 +49,23 @@ export default function PageMenu({isLogged}) {
   );
 }
 
-function Optios (){
-  const [isEditable, setIsEditable] = useState(false)
+function Optios ({allowEdit, setAllowEdit}){
   
   const handleClick = () =>{
-    setIsEditable(!isEditable)
+    setAllowEdit(!allowEdit)
   }
 
   return(
     <aside className="optionsEdit">
       {
-        isEditable 
+        allowEdit 
         ?<>
-          <img src={iconCheck} alt="Guardar" />
-          <img src={iconCancel} alt="Cancelar" onClick={handleClick} />
+          <img src={iconCheck} alt="Guardar" style={{cursor:'pointer'}} />
+          <img src={iconCancel} alt="Cancelar" style={{cursor:'pointer'}}  onClick={handleClick} />
         </> 
-        : <img src={iconEdit} alt="Editar" onClick={handleClick}/>
+        : <img src={iconEdit} alt="Editar" style={{cursor:'pointer'}}  onClick={handleClick}/>
       }
     </aside>
   )
+  
 }
