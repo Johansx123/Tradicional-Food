@@ -12,17 +12,12 @@ import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
 
 
-// const useProducts = ()  => {
-//    const [data, setData] = useState()
-//     getProducts().then((data) => {setData(data)});
-//    return {data} 
-// }
 
 export default function PageMenu({ isLogged }) {
   const [allowEdit, setAllowEdit] = useState(false);
   const [products, setProducts] = useState();
   const [render, setRender] =  useState (true)
-  // const {data} = useProducts()
+
 
 
   useEffect(() => {
