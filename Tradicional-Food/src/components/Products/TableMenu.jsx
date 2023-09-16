@@ -12,7 +12,9 @@ const menu = {
 
 // eslint-disable-next-line react/prop-types
 export function TableMenu({ version ,title, products, filter, allowEdit}) {
-
+    
+    
+    
     const versionValue = menu.version[version];
     const filterBySuper  = useFilter(products,'category','SuperTradicional')
     const filterByTradicional  = useFilter(products,'category','Tradicional')
@@ -37,4 +39,5 @@ export function TableMenu({ version ,title, products, filter, allowEdit}) {
                     <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
                 </Menu1>)
     }
+    
 }

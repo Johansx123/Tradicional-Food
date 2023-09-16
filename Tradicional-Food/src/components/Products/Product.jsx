@@ -2,7 +2,7 @@ import { useState } from "react";
 import iconEdit from "../../../public/edit.svg";
 import iconDelete from "../../../public/delete.svg";
 /* eslint-disable react/prop-types */
-export function Product({ title, description, price, allowEdit }) {
+export function Product({ name, description, price, allowEdit }) {
   const [isEditable, setEditable] = useState(true);
   const [update, setUpdate] = useState();
   const [isVisible, setIsVisible] = useState("none");
@@ -51,7 +51,7 @@ export function Product({ title, description, price, allowEdit }) {
       )}
 
       <div className="contentL">
-        <h3>{title}</h3>
+        <h3>{name}</h3>
         <span className="description">{description}</span>
       </div>
       <span className="price price-menu1">{price}</span>
@@ -63,7 +63,7 @@ export function Product({ title, description, price, allowEdit }) {
         <div className="contentL">
           <h3>
             {" "}
-            <input type="text" defaultValue={title} onChange={handleChange} />
+            <input type="text" defaultValue={name} onChange={handleChange} />
           </h3>
           <span className="description">
             <textarea
