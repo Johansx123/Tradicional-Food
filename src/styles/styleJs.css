@@ -1,0 +1,65 @@
+.wrapper-modal{
+    position: fixed;
+    z-index: 11;
+    background-color: var(--color-black-0);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    align-content: center;
+    animation: open 1s  ;
+    
+}
+
+@keyframes open {
+    from    {
+        height: 0;
+        top: 50%;
+        opacity: 0.5;
+        
+    }
+    to{
+        height: 100vh;
+        opacity: 1; 
+    }
+    
+}
+
+.modal{
+    display: flex;
+    margin: auto;
+    height: 70vh;
+    width: 70vw;
+    max-width: 400px;
+    max-height: 700px;
+    background-color: var(--color-white);
+    border-radius: 1em;
+    justify-content: flex-end;
+    padding: 2%;
+    animation:openModal 1s;
+}
+@keyframes openModal {
+    from{
+        height: 0;
+        
+    }
+    to{
+        height: 70vh;
+
+    }
+}
+    .closeModal{
+    align-self: flex-start;
+    width: 13%;
+    animation: non 1s;
+}
+@keyframes non{
+    from{
+        scale: 0;
+    }
+    to{
+       scale: 1;
+    }
+}
+
+
