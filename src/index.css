@@ -69,7 +69,9 @@ main{
     overflow: hidden;
 }
 .grid-wrapper{
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    position: relative;
+    
 }
 .wrapper-header{
     z-index: 10;
@@ -108,9 +110,9 @@ main{
 .optionsEdit{
     z-index: 10;
     position: fixed;
-    margin-left: 100vw; 
+    margin-left: 90vw; 
     transform: translateX(-160%);
-    margin-top: 50vh;
+    /* margin-top: 50vh; */
 }
 .wrapper-main{
     padding-top: var(--size-header-h);

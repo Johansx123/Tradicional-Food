@@ -12,33 +12,29 @@ import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
 
 
-// const useProducts = ()  => {
-//    const [data, setData] = useState()
-//     getProducts().then((data) => {setData(data)});
-//    return {data} 
-// }
 
 export default function PageMenu({ isLogged }) {
   const [allowEdit, setAllowEdit] = useState(false);
   const [products, setProducts] = useState();
   const [render, setRender] =  useState (true)
-  // const {data} = useProducts()
 
 
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
   }, [render]);
 
+  const handleSubmit  = () =>{
+    alert('enviado')
+  }
   
   
   return (
     <div className="background">
-      <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} />
       <main id="top" className="wrapper-main">
         <TitleMain />
         <IndexMenu />
-        <button >action</button>
-        <section className="grid-wrapper">
+        <form className="grid-wrapper" onSubmit={handleSubmit}>
+         <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} /> 
           {products ? (
             <>
               <TableMenu
@@ -68,7 +64,7 @@ export default function PageMenu({ isLogged }) {
           ) : (
             <h1>cargando...</h1>
           )}
-        </section>
+        </form>
       </main>
     </div>
   );
@@ -83,8 +79,7 @@ function Optios({ allowEdit, setAllowEdit }) {
     <aside className="optionsEdit">
       {allowEdit ? (
         <>
-          <img src={iconCheck} alt="Guardar" style={{ cursor: "pointer" }} />
-          <img
+         <img
             src={iconCancel}
             alt="Cancelar"
             style={{ cursor: "pointer" }}
