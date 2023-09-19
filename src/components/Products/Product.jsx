@@ -1,14 +1,13 @@
 import { useState } from "react";
 import iconEdit from "../../../public/edit.svg";
 import iconDelete from "../../../public/delete.svg";
-import { InputForm } from "../atoms/InputForm";
-import { Button } from "../atoms/Button";
-import { updateProduct } from "../../js/Products";
+import { OverlayEdit } from "./OverlayEdit";
+import { removeProduct } from "../../js/Products";
 /* eslint-disable react/prop-types */
 export function Product({id, name, description, price, allowEdit }) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenEdit , setIsOpenEdit] = useState(false)
-  
+
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
   }
@@ -17,6 +16,11 @@ export function Product({id, name, description, price, allowEdit }) {
     setIsVisible("none");
   };
 
+  const handleDelete = async() =>{
+    const message = await removeProduct(id)
+    console.log(message)
+    
+  }
   
 
   return  (
@@ -48,7 +52,7 @@ export function Product({id, name, description, price, allowEdit }) {
             onClick={() => {setIsOpenEdit(true)}}
             alt=""
           />
-          <img src={iconDelete} style={{ cursor: "pointer" }} alt="" />
+          <img src={iconDelete} style={{ cursor: "pointer" }} alt="Eliminar " onClick={handleDelete} />
         </span>
       ) : (
         <></>
@@ -65,41 +69,4 @@ export function Product({id, name, description, price, allowEdit }) {
 }
 
 
-export function OverlayEdit ({id, name, description, price, setIsOpenEdit}){
 
-
-  const handleSubmit = (e) => {
-    console.log(e)
-    alert('a')
-    e.preventDefault()
-    const fields = Object.fromEntries(new window.FormData(e.target))
-    const name = fields?.name
-    const description = fields?.description
-    const price = fields?.price
-    const data = {
-      name,
-      description,
-      price
-    }
-    alert( updateProduct(id, data))
-  }
-
-  const closeOverlay = () =>{
-    setIsOpenEdit(false)
-  }
-
-  return(
-   <div className="overlayEdit" >
-      <form style={{padding : '2em', display:'flex' , flexDirection:'column', gap:'1.5em', alignItems:'center'}} onSubmit={handleSubmit}>
-        <InputForm name={'name'} label={"Nombre"} placeholder={name} type={'text'} key={1}/>
-        <InputForm name={'description'} label={"Descripción"} placeholder={description} type={'text'} />
-        <InputForm name={'price'} label={"Precio"} placeholder={price} type={'number'} />
-        
-        <div style={{display:'flex', width:'100%', gap:'1em'}}>
-        <Button color="green" type={'submit'}>Actualizar</Button>
-        <Button color="red" type={'button'} onClick={closeOverlay}>Cancelar</Button>
-        </div>
-        
-      </form>
-   </div>)
-}

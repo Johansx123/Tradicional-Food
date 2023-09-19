@@ -10,7 +10,7 @@ import iconEdit from "../../public/edit.svg";
 import iconCancel from "../../public/cancel.svg";
 import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
-import { OverlayEdit } from "../components/Products/Product";
+import { OverlayEdit } from "../components/Products/OverlayEdit";
 
 
 

@@ -66,7 +66,7 @@ export const updateProduct = (id, data) =>{
   .then(response => response.json())
   .then(message => {return message})
   .catch(e =>{
-    console.log ( e + "error")
+    return e
   })
 
 }
