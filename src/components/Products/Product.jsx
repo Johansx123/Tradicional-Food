@@ -6,7 +6,7 @@ import { removeProduct } from "../../js/Products";
 /* eslint-disable react/prop-types */
 export function Product({id, name, description, price, allowEdit }) {
   const [isVisible, setIsVisible] = useState("none");
-  const [isOpenEdit , setIsOpenEdit] = useState(false)
+  const [isOpenOverlay , setIsOpenOverlay] = useState(false)
 
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
@@ -31,7 +31,7 @@ export function Product({id, name, description, price, allowEdit }) {
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
-      {isOpenEdit ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenEdit={setIsOpenEdit}/> : null}
+      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay}/> : null}
       {allowEdit ? (
         <span
           style={{
@@ -49,7 +49,7 @@ export function Product({id, name, description, price, allowEdit }) {
           <img
             src={iconEdit}
             style={{ cursor: "pointer" }}
-            onClick={() => {setIsOpenEdit(true)}}
+            onClick={() => {setIsOpenOverlay(true)}}
             alt=""
           />
           <img src={iconDelete} style={{ cursor: "pointer" }} alt="Eliminar " onClick={handleDelete} />

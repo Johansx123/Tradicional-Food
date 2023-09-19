@@ -31,6 +31,7 @@ export function TableMenu({ version ,title, products, filter, allowEdit}) {
             return (
                 <Menu2 title={title}>
                  <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
+
                 </Menu2>
             )
         default:
@@ -39,5 +40,6 @@ export function TableMenu({ version ,title, products, filter, allowEdit}) {
                     <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
                 </Menu1>)
     }
+    
     
 }

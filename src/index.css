@@ -117,8 +117,8 @@ main{
 .overlayEdit{
     display: flex;
     position: fixed;
-    height: 50vh;
-    width: 80vw;
+    
+    
     max-width: 400px;
     background-color: var(--color-white);
     z-index: 10;

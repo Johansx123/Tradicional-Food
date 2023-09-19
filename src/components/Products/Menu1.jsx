@@ -1,10 +1,16 @@
+import { useState } from "react";
+import { BtnAdd } from "../atoms/BtnAdd";
+import { OverlayEdit } from "./OverlayEdit";
 
 
 // eslint-disable-next-line react/prop-types
 export function Menu1({children}) {
 
+ const [isOpenAdd, setIsOpenAdd]  = useState(false)
 
-
+  const handleBtnAdd = () => {
+    setIsOpenAdd(true)
+  }
 
   return (
     <section id="menu1" className="wrapper-menu1">
@@ -27,7 +33,9 @@ export function Menu1({children}) {
         </span>
       
       {children}
-      </div>
+      <BtnAdd onClick={handleBtnAdd}/>
+      { isOpenAdd ? <OverlayEdit setIsOpenOverlay={setIsOpenAdd}/> :null} 
+      </div>  
     </section>
   );
 }

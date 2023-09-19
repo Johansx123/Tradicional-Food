@@ -4,7 +4,7 @@ import { updateProduct } from "../../js/Products";
 
 
 
-export function OverlayEdit({ id, name, description, price, setIsOpenEdit }) {
+export function OverlayEdit({ id, name, description, price, setIsOpenOverlay }) {
 
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ export function OverlayEdit({ id, name, description, price, setIsOpenEdit }) {
   };
 
   const closeOverlay = () => {
-    setIsOpenEdit(false);
+    setIsOpenOverlay(false);
   };
 
   return (
