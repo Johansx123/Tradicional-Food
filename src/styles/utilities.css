@@ -6,7 +6,7 @@
     --base-900 : #383838;
     --color-yellow:#F7C809;
     --color-red:#ed3238;
-
+    --color-green:#05FF21;
     --color-black-font:#131313;
     --color-white-font:#fefefe;
 
@@ -86,4 +86,28 @@
     color: var(--color-white-font);
     border: none;
     cursor: pointer;
+}
+.button-green{
+    display: inline-flex;
+    padding: 0.9em 1em;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-green, #05FF21);
+    color: var(--color-white-font);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.button-red{
+    display: inline-flex;
+    padding: 0.9em 1em;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-red, #ed3238);
+    color: var(--color-white-font);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }

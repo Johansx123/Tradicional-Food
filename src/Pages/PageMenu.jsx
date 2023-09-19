@@ -10,6 +10,7 @@ import iconEdit from "../../public/edit.svg";
 import iconCancel from "../../public/cancel.svg";
 import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
+import { OverlayEdit } from "../components/Products/Product";
 
 
 
@@ -33,7 +34,8 @@ export default function PageMenu({ isLogged }) {
       <main id="top" className="wrapper-main">
         <TitleMain />
         <IndexMenu />
-        <form className="grid-wrapper" onSubmit={handleSubmit}>
+        
+        <div className="grid-wrapper" onSubmit={handleSubmit}>
          <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} /> 
           {products ? (
             <>
@@ -64,7 +66,7 @@ export default function PageMenu({ isLogged }) {
           ) : (
             <h1>cargando...</h1>
           )}
-        </form>
+        </div>
       </main>
     </div>
   );

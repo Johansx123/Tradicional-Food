@@ -10,6 +10,7 @@ export function Products({ products, allowEdit }) {
           return (
               <Product
                 key={product.id}
+                id={product.id}
                 name={product.Name}
                 description={product.description}
                 price={product.price}
