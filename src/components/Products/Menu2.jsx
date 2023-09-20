@@ -14,8 +14,7 @@ export function Menu2({title,children,  allowEdit}) {
       <h2 className="title-menu1">{title}</h2>
       {children}
       {allowEdit ? <BtnAdd onClick={handleClick}/> : null}
-      {isOpen ? <OverlayEdit setIsOpenOverlay={setIsOpen
-      }/> : null}
+      {isOpen ? <OverlayEdit setIsOpenOverlay={setIsOpen} type={'add'}/> : null}
     </section>
   );
 }

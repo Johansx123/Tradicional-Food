@@ -34,7 +34,7 @@ export function Menu1({children, allowEdit}) {
       
       {children}
       {allowEdit ? <BtnAdd onClick={handleBtnAdd}/>: null}
-      { isOpenAdd ? <OverlayEdit setIsOpenOverlay={setIsOpenAdd}/> :null} 
+      { isOpenAdd ? <OverlayEdit setIsOpenOverlay={setIsOpenAdd} type={'add'}/> :null} 
       </div>  
     </section>
   );

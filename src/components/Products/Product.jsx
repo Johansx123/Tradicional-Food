@@ -1,8 +1,8 @@
 import { useState } from "react";
-import iconEdit from "../../../public/edit.svg";
-import iconDelete from "../../../public/delete.svg";
 import { OverlayEdit } from "./OverlayEdit";
 import { removeProduct } from "../../js/Products";
+import BtnDelete from "../atoms/BtnDelete";
+import { BtnEdit } from "../atoms/BtnEdit";
 /* eslint-disable react/prop-types */
 export function Product({id, name, description, price, allowEdit }) {
   const [isVisible, setIsVisible] = useState("none");
@@ -31,11 +31,10 @@ export function Product({id, name, description, price, allowEdit }) {
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
-      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay}/> : null}
+      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'}/> : null}
       {allowEdit ? (
-        <span
-          style={{
-            display: isVisible,
+        <span style={{ display: isVisible,
+            padding : '1rem',
             gap: "10px",
             justifyContent: "flex-end",
             alignItems: "center ",
@@ -46,13 +45,8 @@ export function Product({id, name, description, price, allowEdit }) {
             height: "100%",
           }}
         >
-          <img
-            src={iconEdit}
-            style={{ cursor: "pointer" }}
-            onClick={() => {setIsOpenOverlay(true)}}
-            alt=""
-          />
-          <img src={iconDelete} style={{ cursor: "pointer" }} alt="Eliminar " onClick={handleDelete} />
+          <BtnEdit onClick={()=>setIsOpenOverlay(true)}/>
+          <BtnDelete onClick={handleDelete}/>
         </span>
       ) : (
         <></>
@@ -67,6 +61,4 @@ export function Product({id, name, description, price, allowEdit }) {
   
   )
 }
-
-
 

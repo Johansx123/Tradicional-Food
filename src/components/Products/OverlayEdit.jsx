@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 
 
 
-export function OverlayEdit({ id, name, description, price, setIsOpenOverlay }) {
+export function OverlayEdit({ id, name, description, price, setIsOpenOverlay, type }) {
 
+  const types = {
+    edit : 'edit',
+    add : 'add'
+  }
   const [categories , setCategories] = useState()
-  
   const {handleUpdate, handleAdd} = useSendProducts({id})
+  const handle = type == types.edit ? handleUpdate : handleAdd
   
 
 
@@ -27,7 +31,7 @@ export function OverlayEdit({ id, name, description, price, setIsOpenOverlay }) 
 
   return (
     <div className="overlayEdit">
-      <form style={{ padding: '2em', display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handleAdd}>
+      <form style={{ padding: '2em', display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handle}>
         <InputForm defaultValue={name} name={'name'} label={"Nombre"}  placeholder={name} type={'text'}  />
         <div className="fieldForm">
         <label className='Font-small-15'htmlFor="category">Categoria</label>
