@@ -28,21 +28,21 @@ export function OverlayEdit({ id, name, description, price, setIsOpenOverlay }) 
   return (
     <div className="overlayEdit">
       <form style={{ padding: '2em', display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handleAdd}>
-        <InputForm name={'name'} label={"Nombre"} placeholder={name} type={'text'}  />
+        <InputForm defaultValue={name} name={'name'} label={"Nombre"}  placeholder={name} type={'text'}  />
         <div className="fieldForm">
         <label className='Font-small-15'htmlFor="category">Categoria</label>
-        <select className=" fieldForm-input" name="category" id="category">
+        <select  className=" fieldForm-input" name="category" id="category">
           <option value="-1">Seleccione una Categoria</option>
           {categories
             ? categories.map(e => {
-              return <option value={e.categoty_name} key={e.category_id}>{e.categoty_name}</option>
+              return <option value={e.category_id} key={e.category_id}>{e.categoty_name}</option>
             })
             : null
           }
         </select>
         </div>
-        <InputForm name={'description'} label={"Descripción"} placeholder={description} type={'text'} />
-        <InputForm name={'price'} label={"Precio"} placeholder={price} type={'number'} />
+        <InputForm defaultValue={description} name={'description'} label={"Descripción"} placeholder={description} type={'text'} />
+        <InputForm defaultValue={price} name={'price'} label={"Precio"} placeholder={price} type={'number'} />
 
         <div style={{ display: 'flex', width: '100%', gap: '1em' }}>
           <Button color="green" type={'submit'}>Actualizar</Button>
@@ -64,7 +64,7 @@ const useSendProducts = ({ id}) =>{
     const category = fields?.category
     const data = {
       name,
-      category,
+      category: parseFloat (category),
       description,
       price: parseFloat(price)
     };
@@ -83,7 +83,7 @@ const useSendProducts = ({ id}) =>{
     const data = {
       name,
       description,
-      category :'Tradicional',
+      category :parseFloat (category),
       price: parseFloat(price)
     };
     const message = await addProduct(data);

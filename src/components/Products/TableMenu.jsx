@@ -29,14 +29,14 @@ export function TableMenu({ version ,title, products, filter, allowEdit}) {
     switch (versionValue) {
         case menu.version.BLACK:
             return (
-                <Menu2 title={title}>
+                <Menu2 title={title} allowEdit={allowEdit}>
                  <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
 
                 </Menu2>
             )
         default:
             return (
-                <Menu1 >
+                <Menu1 allowEdit={allowEdit}>
                     <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
                 </Menu1>)
     }

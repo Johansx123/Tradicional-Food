@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { BtnAdd } from '../atoms/BtnAdd';
 import { OverlayEdit } from './OverlayEdit';
 // eslint-disable-next-line react/prop-types
-export function Menu2({title,children}) {
+export function Menu2({title,children,  allowEdit}) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick =() => {
@@ -13,7 +13,7 @@ export function Menu2({title,children}) {
 
       <h2 className="title-menu1">{title}</h2>
       {children}
-      <BtnAdd onClick={handleClick} />
+      {allowEdit ? <BtnAdd onClick={handleClick}/> : null}
       {isOpen ? <OverlayEdit setIsOpenOverlay={setIsOpen
       }/> : null}
     </section>
