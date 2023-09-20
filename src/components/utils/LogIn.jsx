@@ -65,7 +65,7 @@ export function LogIn() {
 
         <aside className="otherLogin">
           <p className="Font-slim-15">o ingresa con</p>
-          <GoogleLogIn />
+          <GoogleLogIn/>
         </aside>
       </form>
     </div>

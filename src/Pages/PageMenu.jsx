@@ -6,11 +6,10 @@ import { TableMenu } from "../components/Products/TableMenu";
 import responseProducts from "../mocks/products-menu1.json";
 import Beverage from "../components/Beverage";
 import { useEffect, useState } from "react";
-import iconEdit from "../../public/edit.svg";
-import iconCancel from "../../public/cancel.svg";
 import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
 import { OverlayEdit } from "../components/Products/OverlayEdit";
+import { Optios } from "../components/Products/Optios";
 
 
 
@@ -32,6 +31,7 @@ export default function PageMenu({ isLogged }) {
   return (
     <div className="background">
       <main id="top" className="wrapper-main">
+        <MessageOverlay/>
         <TitleMain />
         <IndexMenu />
         
@@ -72,30 +72,17 @@ export default function PageMenu({ isLogged }) {
   );
 }
 
-function Optios({ allowEdit, setAllowEdit }) {
-  const handleClick = () => {
-    setAllowEdit(!allowEdit);
-  };
+function MessageOverlay ({message}){
+const [color, setColor] = useState('green')
+
+  const classNameColor = message ? 'green' : 'red'
 
   return (
-    <aside className="optionsEdit">
-      {allowEdit ? (
-        <>
-         <img
-            src={iconCancel}
-            alt="Cancelar"
-            style={{ cursor: "pointer" }}
-            onClick={handleClick}
-          />
-        </>
-      ) : (
-        <img
-          src={iconEdit}
-          alt="Editar"
-          style={{ cursor: "pointer" }}
-          onClick={handleClick}
-        />
-      )}
-    </aside>
-  );
+    <div className={`MessageOverlay ${classNameColor} `}>
+      <img src={iconCheck} alt="" />
+      <h4 className={`message ${color}`}>
+         Producto actualizado exitosamenta.
+      </h4>
+    </div>
+  )
 }
