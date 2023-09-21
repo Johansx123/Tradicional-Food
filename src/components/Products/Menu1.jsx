@@ -4,13 +4,16 @@ import { OverlayEdit } from "./OverlayEdit";
 
 
 // eslint-disable-next-line react/prop-types
-export function Menu1({children, allowEdit}) {
+export function Menu1({children, allowEdit ,setMessage}) {
 
  const [isOpenAdd, setIsOpenAdd]  = useState(false)
 
-  const handleBtnAdd = () => {
+  
+const handleBtnAdd = () => {
     setIsOpenAdd(true)
   }
+
+
 
   return (
     <section id="menu1" className="wrapper-menu1">
@@ -31,10 +34,9 @@ export function Menu1({children, allowEdit}) {
           <h2>Tradicional</h2>
           <img src="../public/viento.svg" alt="" />
         </span>
-      
       {children}
-      {allowEdit ? <BtnAdd onClick={handleBtnAdd}/>: null}
-      { isOpenAdd ? <OverlayEdit setIsOpenOverlay={setIsOpenAdd} type={'add'}/> :null} 
+      {allowEdit && <BtnAdd onClick={handleBtnAdd}/>}
+      { isOpenAdd && <OverlayEdit setIsOpenOverlay={setIsOpenAdd} type={'add'} setMessage={setMessage}/>} 
       </div>  
     </section>
   );

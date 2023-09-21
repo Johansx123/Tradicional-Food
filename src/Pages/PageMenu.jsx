@@ -16,6 +16,7 @@ import { Optios } from "../components/Products/Optios";
 export default function PageMenu({ isLogged }) {
   const [allowEdit, setAllowEdit] = useState(false);
   const [products, setProducts] = useState();
+  const [message, setMessage]= useState()
   const [render, setRender] =  useState (true)
 
 
@@ -26,12 +27,12 @@ export default function PageMenu({ isLogged }) {
   const handleSubmit  = () =>{
     alert('enviado')
   }
-  
+
   
   return (
     <div className="background">
       <main id="top" className="wrapper-main">
-        <MessageOverlay/>
+        {message ? <MessageOverlay message={message}/>:null } 
         <TitleMain />
         <IndexMenu />
         
@@ -43,6 +44,7 @@ export default function PageMenu({ isLogged }) {
                 products={products}
                 filter={"Tradicional"}
                 allowEdit={allowEdit}
+                setMessage={setMessage}
               />
               <Dinamic1 products={products} allowEdit={allowEdit} />
               <TableMenu
@@ -51,6 +53,7 @@ export default function PageMenu({ isLogged }) {
                 title={"SUPER TRADICIONALES"}
                 filter={"SuperTradicional"}
                 allowEdit={allowEdit}
+                setMessage={setMessage}
               />
 
               <Dinamic2 products={products} allowEdit={allowEdit} />
@@ -73,15 +76,15 @@ export default function PageMenu({ isLogged }) {
 }
 
 function MessageOverlay ({message}){
-const [color, setColor] = useState('green')
+const [color, setColor] = useState('red')
 
   const classNameColor = message ? 'green' : 'red'
 
   return (
-    <div className={`MessageOverlay ${classNameColor} `}>
+    <div className={`MessageOverlay ${color} `}>
       <img src={iconCheck} alt="" />
       <h4 className={`message ${color}`}>
-         Producto actualizado exitosamenta.
+         {message}
       </h4>
     </div>
   )

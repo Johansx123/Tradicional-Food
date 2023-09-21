@@ -25,8 +25,8 @@ export const addProduct = (data) => {
 
   })
   .then((response) =>response.json())
-  .then(message => console.log(message))
-  .catch(e => console.log(e))
+  .then(message => {return message})
+  .catch(e => {return e})
 };
 
 export const addArrayProducts = (products) => {
