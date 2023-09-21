@@ -1,7 +1,7 @@
 import { Product } from "./Product";
 
 // eslint-disable-next-line react/prop-types
-export function Products({ products, allowEdit }) {
+export function Products({ products, allowEdit, setMessage }) {
   return (
     <>
       {products ? (
@@ -15,6 +15,7 @@ export function Products({ products, allowEdit }) {
                 description={product.description}
                 price={product.price}
                 allowEdit={allowEdit}
+                setMessage={setMessage}
               />
           );
         })

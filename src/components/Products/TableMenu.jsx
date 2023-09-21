@@ -37,7 +37,7 @@ export function TableMenu({ version ,title, products, filter, allowEdit, setMess
             return (
                 <Menu1 allowEdit={allowEdit} setMessage={setMessage}>
                     
-                    <Products products={productsFiltered[filter]} allowEdit={allowEdit} />
+                    <Products products={productsFiltered[filter]} allowEdit={allowEdit} setMessage={setMessage}/>
                 </Menu1>)
     }
     

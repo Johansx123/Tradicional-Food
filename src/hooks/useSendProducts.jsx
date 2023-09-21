@@ -3,6 +3,7 @@ import { addProduct, updateProduct } from "../js/Products";
 export const useSendProducts = ({ id, setMessage }) => {
 
   const handleUpdate = async (e) => {
+    e.preventDefault()
     const fields = Object.fromEntries(new window.FormData(e.target));
     const name = fields?.name;
     const description = fields?.description;
@@ -15,7 +16,7 @@ export const useSendProducts = ({ id, setMessage }) => {
       price: parseFloat(price)
     };
     const message = await updateProduct(id, data);
-  // setMessage(message);
+   setMessage(message.message);
     console.log(message);
 
   };

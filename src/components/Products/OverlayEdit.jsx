@@ -32,7 +32,7 @@ export function OverlayEdit({setMessage, id, name, description, price, setIsOpen
   return (
     <div className="overlayEdit">
      
-      <form style={{ padding: '2em', display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handle}>
+      <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handle}>
         <InputForm defaultValue={name} name={'name'} label={"Nombre"}  placeholder={name} type={'text'}  />
         <div className="fieldForm">
         <label className='Font-small-15'htmlFor="category">Categoria</label>

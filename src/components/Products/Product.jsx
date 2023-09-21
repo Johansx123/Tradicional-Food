@@ -3,10 +3,13 @@ import { OverlayEdit } from "./OverlayEdit";
 import { removeProduct } from "../../js/Products";
 import BtnDelete from "../atoms/BtnDelete";
 import { BtnEdit } from "../atoms/BtnEdit";
+import { json } from "react-router-dom";
+import { Button } from "../atoms/Button";
 /* eslint-disable react/prop-types */
-export function Product({id, name, description, price, allowEdit }) {
+export function Product({id, name, description, price, allowEdit, setMessage}) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenOverlay , setIsOpenOverlay] = useState(false)
+  const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
 
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
@@ -31,7 +34,8 @@ export function Product({id, name, description, price, allowEdit }) {
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
-      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'}/> : null}
+      <OverlayComfirm/>
+      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage}/> : null}
       {allowEdit ? (
         <span style={{ display: isVisible,
             padding : '1rem',
@@ -62,3 +66,19 @@ export function Product({id, name, description, price, allowEdit }) {
   )
 }
 
+function OverlayComfirm () {
+  return(
+    <div className="overlayEdit">
+      <h3>¿Estas Seguro?</h3>
+      <span style={{display:'flex',gap:'2em'}}>
+
+      <Button color="green">
+        Si
+      </Button>
+      <Button color="red">
+        No
+      </Button>
+      </span>
+    </div>
+  )
+}
