@@ -3,10 +3,9 @@ import { OverlayEdit } from "./OverlayEdit";
 import { removeProduct } from "../../js/Products";
 import BtnDelete from "../atoms/BtnDelete";
 import { BtnEdit } from "../atoms/BtnEdit";
-import { json } from "react-router-dom";
 import { Button } from "../atoms/Button";
 /* eslint-disable react/prop-types */
-export function Product({id, name, description, price, allowEdit, setMessage}) {
+export function Product({id, name, description, price, allowEdit, setMessage, setRender}) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenOverlay , setIsOpenOverlay] = useState(false)
   const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
@@ -17,12 +16,15 @@ export function Product({id, name, description, price, allowEdit, setMessage}) {
   
   const mouseLeave = () => {
     setIsVisible("none");
-  };
+  }; 
+
+
 
   const handleDelete = async() =>{
     const message = await removeProduct(id)
-    console.log(message)
-    
+    setOpenOverlayDelete(false)
+    setMessage(message.message)
+    setRender()
   }
   
 
@@ -34,8 +36,8 @@ export function Product({id, name, description, price, allowEdit, setMessage}) {
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
-      <OverlayComfirm/>
-      {isOpenOverlay ? <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage}/> : null}
+      {openOverlayDelete && <OverlayComfirm onYes={handleDelete} /> } 
+      {isOpenOverlay && <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
       {allowEdit ? (
         <span style={{ display: isVisible,
             padding : '1rem',
@@ -50,7 +52,7 @@ export function Product({id, name, description, price, allowEdit, setMessage}) {
           }}
         >
           <BtnEdit onClick={()=>setIsOpenOverlay(true)}/>
-          <BtnDelete onClick={handleDelete}/>
+          <BtnDelete onClick={()=>setOpenOverlayDelete(true)}/>
         </span>
       ) : (
         <></>
@@ -66,16 +68,16 @@ export function Product({id, name, description, price, allowEdit, setMessage}) {
   )
 }
 
-function OverlayComfirm () {
+function OverlayComfirm ({onYes, onNot}) {
   return(
     <div className="overlayEdit">
       <h3>¿Estas Seguro?</h3>
       <span style={{display:'flex',gap:'2em'}}>
 
-      <Button color="green">
+      <Button color="green" onClick={onYes}>
         Si
       </Button>
-      <Button color="red">
+      <Button color="red" onClick={onNot}>
         No
       </Button>
       </span>

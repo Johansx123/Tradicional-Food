@@ -16,8 +16,7 @@ export const useSendProducts = ({ id, setMessage }) => {
       price: parseFloat(price)
     };
     const message = await updateProduct(id, data);
-   setMessage(message.message);
-    console.log(message);
+    setMessage(message.message);
 
   };
 
@@ -37,7 +36,6 @@ export const useSendProducts = ({ id, setMessage }) => {
     const message = await addProduct(data);
     setMessage(message.message);
     
-    console.log(message.message);
   };
 
   return { handleUpdate, handleAdd };

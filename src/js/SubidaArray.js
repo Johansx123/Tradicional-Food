@@ -105,3 +105,9 @@ export const Products = [
         }
 
     ]
+export const first  = [{
+    category : "Tradicional",
+    Name : "Chorizo",
+    description : "Chorizo ahumado con carne de res y cerdo.",
+    price : 4000
+}]

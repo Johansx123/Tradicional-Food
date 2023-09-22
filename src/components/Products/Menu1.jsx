@@ -4,7 +4,7 @@ import { OverlayEdit } from "./OverlayEdit";
 
 
 // eslint-disable-next-line react/prop-types
-export function Menu1({children, allowEdit ,setMessage}) {
+export function Menu1({children, allowEdit ,setMessage, setRender}) {
 
  const [isOpenAdd, setIsOpenAdd]  = useState(false)
 
@@ -36,7 +36,7 @@ const handleBtnAdd = () => {
         </span>
       {children}
       {allowEdit && <BtnAdd onClick={handleBtnAdd}/>}
-      { isOpenAdd && <OverlayEdit setIsOpenOverlay={setIsOpenAdd} type={'add'} setMessage={setMessage}/>} 
+      { isOpenAdd && <OverlayEdit setRender={setRender} setIsOpenOverlay={setIsOpenAdd} type={'add'} setMessage={setMessage}/>} 
       </div>  
     </section>
   );

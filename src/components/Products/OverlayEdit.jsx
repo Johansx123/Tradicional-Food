@@ -6,7 +6,7 @@ import { useSendProducts } from "../../hooks/useSendProducts";
 
 
 
-export function OverlayEdit({setMessage, id, name, description, price, setIsOpenOverlay, type}) {
+export function OverlayEdit({setMessage, id, name, description, price, setIsOpenOverlay, type, setRender}) {
 
   const types = {
     edit : 'edit',
@@ -17,6 +17,11 @@ export function OverlayEdit({setMessage, id, name, description, price, setIsOpen
   const {handleUpdate, handleAdd} = useSendProducts({id, setMessage})
   const handle = type == types.edit ? handleUpdate : handleAdd
   
+  const handleClick = async(e)=>{
+    const awaitAction  = await handle(e)
+    setIsOpenOverlay(false)
+    setRender()
+  }
 
   useEffect(()=>{
     fetch ('https://api.tradicionalfood.com/categories')
@@ -32,7 +37,7 @@ export function OverlayEdit({setMessage, id, name, description, price, setIsOpen
   return (
     <div className="overlayEdit">
      
-      <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handle}>
+      <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handleClick}>
         <InputForm defaultValue={name} name={'name'} label={"Nombre"}  placeholder={name} type={'text'}  />
         <div className="fieldForm">
         <label className='Font-small-15'htmlFor="category">Categoria</label>

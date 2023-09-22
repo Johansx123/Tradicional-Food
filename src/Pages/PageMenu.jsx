@@ -6,10 +6,11 @@ import { TableMenu } from "../components/Products/TableMenu";
 import responseProducts from "../mocks/products-menu1.json";
 import Beverage from "../components/Beverage";
 import { useEffect, useState } from "react";
-import iconCheck from "../../public/check.svg";
 import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
 import { OverlayEdit } from "../components/Products/OverlayEdit";
 import { Optios } from "../components/Products/Optios";
+import { MessageOverlay } from "../components/MessageOverlay";
+import {Products, first} from "../js/SubidaArray.js"
 
 
 
@@ -23,20 +24,28 @@ export default function PageMenu({ isLogged }) {
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
   }, [render]);
+  
+  useEffect(()=>{
+    setTimeout(()=>{
+      setMessage(null)
+    },2000)
+  },[message])
 
-  const handleSubmit  = () =>{
-    alert('enviado')
+  const handleRender = () =>{
+    setRender(!render)
   }
-
   
   return (
     <div className="background">
       <main id="top" className="wrapper-main">
-        {message ? <MessageOverlay message={message}/>:null } 
+        {message && <MessageOverlay message={message}/>} 
         <TitleMain />
         <IndexMenu />
-        
-        <div className="grid-wrapper" onSubmit={handleSubmit}>
+        {/* <button onClick={()=>{
+          console.log(first)
+          addArrayProducts(first)
+        }}>subir array</button> */}
+        <div className="grid-wrapper" >
          <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} /> 
           {products ? (
             <>
@@ -45,8 +54,9 @@ export default function PageMenu({ isLogged }) {
                 filter={"Tradicional"}
                 allowEdit={allowEdit}
                 setMessage={setMessage}
+                setRender={handleRender}
               />
-              <Dinamic1 products={products} allowEdit={allowEdit} />
+              <Dinamic1 products={products} allowEdit={allowEdit} setRender={handleRender} setMessage={setMessage}/>
               <TableMenu
                 version={"BLACK"}
                 products={products}
@@ -54,16 +64,18 @@ export default function PageMenu({ isLogged }) {
                 filter={"SuperTradicional"}
                 allowEdit={allowEdit}
                 setMessage={setMessage}
+                setRender={handleRender}
               />
 
-              <Dinamic2 products={products} allowEdit={allowEdit} />
-              <Beverage allowEdit={allowEdit} />
+              <Dinamic2 products={products} allowEdit={allowEdit} setRender={handleRender} setMessage={setMessage}/>
+              <Beverage allowEdit={allowEdit} setRender={handleRender} />
               <TableMenu
                 version={"BLACK"}
                 products={products}
                 title={"GASEOSA"}
                 filter={"Soda"}
                 allowEdit={allowEdit}
+                setRender={handleRender}
               />
             </>
           ) : (
@@ -75,17 +87,4 @@ export default function PageMenu({ isLogged }) {
   );
 }
 
-function MessageOverlay ({message}){
-const [color, setColor] = useState('red')
 
-  const classNameColor = message ? 'green' : 'red'
-
-  return (
-    <div className={`MessageOverlay ${color} `}>
-      <img src={iconCheck} alt="" />
-      <h4 className={`message ${color}`}>
-         {message}
-      </h4>
-    </div>
-  )
-}
