@@ -3,9 +3,9 @@ import { OverlayEdit } from "./OverlayEdit";
 import { removeProduct } from "../../js/Products";
 import BtnDelete from "../atoms/BtnDelete";
 import { BtnEdit } from "../atoms/BtnEdit";
-import { Button } from "../atoms/Button";
+import { OverlayComfirm } from "../utils/OverlayComfirm";
 /* eslint-disable react/prop-types */
-export function Product({id, name, description, price, allowEdit, setMessage, setRender}) {
+export function Product({id, name,category,  description, price, allowEdit, setMessage, setRender}) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenOverlay , setIsOpenOverlay] = useState(false)
   const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
@@ -17,7 +17,6 @@ export function Product({id, name, description, price, allowEdit, setMessage, se
   const mouseLeave = () => {
     setIsVisible("none");
   }; 
-
 
 
   const handleDelete = async() =>{
@@ -37,7 +36,7 @@ export function Product({id, name, description, price, allowEdit, setMessage, se
       onMouseLeave={mouseLeave}
     >
       {openOverlayDelete && <OverlayComfirm onYes={handleDelete} /> } 
-      {isOpenOverlay && <OverlayEdit key={id} id={id} name={name} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
+      {isOpenOverlay && <OverlayEdit key={id} id={id} name={name} category={category} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
       {allowEdit ? (
         <span style={{ display: isVisible,
             padding : '1rem',
@@ -68,19 +67,3 @@ export function Product({id, name, description, price, allowEdit, setMessage, se
   )
 }
 
-function OverlayComfirm ({onYes, onNot}) {
-  return(
-    <div className="overlayEdit">
-      <h3>¿Estas Seguro?</h3>
-      <span style={{display:'flex',gap:'2em'}}>
-
-      <Button color="green" onClick={onYes}>
-        Si
-      </Button>
-      <Button color="red" onClick={onNot}>
-        No
-      </Button>
-      </span>
-    </div>
-  )
-}
