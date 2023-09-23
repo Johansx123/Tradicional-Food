@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import GoogleLogIn from "../atoms/google-login";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { useState } from "react";
 import { setToken } from "../../js/Token";
 import { Error } from "./Error";
-import { correctLogin } from "./correctLogin";
 
 export function LogIn() {
   const [error, setError] = useState();
+  const [user , setUser] = useState()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setError();
+    e.preventDefault()
+    setError()
     const fields = Object.fromEntries(new window.FormData(e.target));
     const email = fields?.userEmail;
     const password = fields?.userPassword;
@@ -20,7 +20,6 @@ export function LogIn() {
       email,
       password,
     };
-
     fetch("https://api.tradicionalfood.com/api/users/login", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
@@ -36,14 +35,20 @@ export function LogIn() {
       .then((response) => response.json())
       .then((message) => {
         message.Token
-          ? correctLogin(message.Token, setToken)
+          ? correctLogin(message, message.Token)
           : setError(message.message);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => setError(e));
   };
+
+const correctLogin = (message,Token) =>{
+  setUser(message)
+  setToken(Token)
+}
 
   return (
     <div className="wrapper-form">
+      {user && <Navigate to={'/'} />}
       <hgroup className="hgroup-form">
         <h1 className="Title-30">Inicia Sesión</h1>
         <p className="Font-slim-15">

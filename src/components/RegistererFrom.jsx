@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Button } from "./atoms/Button";
 import { InputForm } from "./atoms/InputForm";
 import { Error } from "./utils/Error";
@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export function RegistererFrom() {
   const [error, setError] = useState()
-
+  const [register, setRegister] = useState(false)
 
 const createUser =(data) =>{
 
@@ -26,7 +26,7 @@ const createUser =(data) =>{
     .then(response=>response.json())
     .then(message => {
       message.message == 'Usuario Registrado exitosamente'
-      ? window.location.pathname = '/logIn'
+      ? setRegister(true)
       : setError(message.message)
     })
    
@@ -68,6 +68,7 @@ const createUser =(data) =>{
 
   return (
     <div className="wrapper-form">
+      {register && <Navigate to={'/LogIn'}/>}
       <hgroup className="hgroup-form">
         <h1 className="Title-30">Crea tu Cuenta</h1>
         <p className="Font-slim-15">¿Ya tienes una?<Link to={'/LogIn'} className="Font-slim-15">Inicia Sesión </Link></p>
