@@ -54,7 +54,7 @@ body{
 }
 .background{
     background-color: var(--color-white-font);
-    background-image:url(../public/Fondo.png);
+    background-image:url(../public/images/Fondo.png);
     background-repeat: repeat;
     background-size:100%;
     background-attachment:fixed;
@@ -292,7 +292,7 @@ main{
 }
 .wrapper-dinamic1{
     position: relative;
-    background-image: url(../public/Mancha.svg);
+    background-image: url(../public/images/Mancha.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 75%;
@@ -337,7 +337,7 @@ main{
 	align-items:center;
 }
 .wrapper-menu2 .title-menu1{
-	background-image:url(../public/Menu2.png);
+	background-image:url(../public/images/Menu2.png);
 	background-repeat:no-repeat;
 	line-height: 0.9;
 	background-position:center;
@@ -384,7 +384,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image:url(../public/Mesa.png) ;
+    background-image:url(../public/images/Mesa.png) ;
     background-repeat: no-repeat;
     background-position: center;
     background-size: var(--layout-90);
@@ -483,7 +483,7 @@ body{
 }
 @media (max-width:600px) {
     .background{
-        background-image: url(../public/Fondo.png);
+        background-image: url(../public/images/Fondo.png);
     }
     .content-menu-mobile{
         display: flex;

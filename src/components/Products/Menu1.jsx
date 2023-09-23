@@ -19,12 +19,12 @@ const handleBtnAdd = () => {
     <section id="menu1" className="wrapper-menu1">
       <div id="" className="back-menu1 back-size">
         <div className="top-back-menu1">
-          <img src="../public/lt.svg" alt="" className="backLt" />
-          <img src="../public/rt.svg" alt="" className="backRt" />
+          <img src="../../../public/images/lt.svg" alt="" className="backLt" />
+          <img src="../../../public/images/rt.svg" alt="" className="backRt" />
         </div>
         <div className="bottom-back-menu1">
-          <img src="../public/lb.svg" alt="" className="backLb" />
-          <img src="../public/rb.svg" alt="" className="backRb" />
+          <img src="../../../public/images/lb.svg" alt="" className="backLb" />
+          <img src="../../../public/images/rb.svg" alt="" className="backRb" />
         </div>
       </div>
       <div className="content-menu1 back-size">
@@ -32,7 +32,7 @@ const handleBtnAdd = () => {
 
         <span className="subtitle-menu1">
           <h2>Tradicional</h2>
-          <img src="../public/viento.svg" alt="" />
+          <img src="../../../public/images/viento.svg" alt="" />
         </span>
       {children}
       {allowEdit && <BtnAdd onClick={handleBtnAdd}/>}

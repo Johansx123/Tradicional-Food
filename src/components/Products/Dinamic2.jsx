@@ -10,11 +10,11 @@ export function Dinamic2({products, allowEdit, setMessage, setRender}) {
     <section id="box" className="wrapper-dinamic2">
       <div className="dinamic2">
 
-        <img className="element1" src="./../public/Mantel 1.png" alt="Mantel" />
+        <img className="element1" src="./../public/images/Mantel 1.png" alt="Mantel" />
         <img
           id="perro"
           className="element2"
-          src="./../public/Perro animado.png"
+          src="./../public/images/Perro animado.png"
           alt="Super chori perro" />
       </div>
 

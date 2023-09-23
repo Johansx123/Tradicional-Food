@@ -1,5 +1,5 @@
-import iconEdit from "../../../public/edit.svg";
-import iconCancel from "../../../public/cancel.svg";
+import iconEdit from "../../../public/images/edit.svg";
+import iconCancel from "../../../public/images/cancel.svg";
 
 export function Optios({ allowEdit, setAllowEdit }) {
   const handleClick = () => {

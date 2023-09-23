@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import logo from '../../public/Branch.svg';
-import iconLogIn from '../../public/Icon-login.svg';
-import iconMenuBars from '../../public/IconMenu.svg'
+import logo from '../../public/images/Branch.svg';
+import iconLogIn from '../../public/images/Icon-login.svg';
+import iconMenuBars from '../../public/images/IconMenu.svg'
 export function Header() {
   return (
     <header className="wrapper-header">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import iconCheck from "../../public/check.svg";
+import iconCheck from "../../public/images/check.svg";
 
 export function MessageOverlay({ message }) {
   const [color, setColor] = useState('green');

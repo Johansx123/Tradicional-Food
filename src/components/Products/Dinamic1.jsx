@@ -11,7 +11,7 @@ export function Dinamic1({products, allowEdit, setMessage, setRender}) {
       <img
         className="dinamic1"
         id="elementDinamic1"
-        src="../public/Arepa 1.png"
+        src="../public/images/Arepa 1.png"
       alt="Arepa" />
       <div className="about-dinamic1">
       <Products products={filteredByDinamic} allowEdit={allowEdit} setMessage={setMessage} setRender={setRender}/>

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { forwardRef} from 'react';
 import { useSlider } from '../../hooks/useSlider';
-import JugoDeFresa from "../../../public/Jugo de Fresa.png"
+import JugoDeFresa from "../../../public/images/Jugo de Fresa.png"
 
 // eslint-disable-next-line react/prop-types, react-refresh/only-export-components
 function SliderBeverage({children}, refslider) {

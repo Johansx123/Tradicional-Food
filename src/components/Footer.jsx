@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="wrapper-footer">
-      <h2>Contáctenos</h2>
+      <h2>Cotactanos</h2>
       <section className="wrapper-social">
         <div className="item-social">
           <a
@@ -10,7 +10,7 @@ export function Footer() {
             target="_blank"
           >
             <span className="icon-social">
-              <img src="../public/Whatsapp.svg" alt="" />
+              <img src="../public/images/Whatsapp.svg" alt="" />
             </span>
             <p>3196095864</p>
           </a>
@@ -18,7 +18,7 @@ export function Footer() {
         <div className="item-social">
           <a href="mailto:tradicionalfoodarepasymas@gmail.com">
             <span className="icon-social">
-              <img src="../public/Gmiail.svg" alt="" />
+              <img src="../public/images/Gmiail.svg" alt="" />
             </span>
             <p>tradicionalfoodarepasymas@gmail.com</p>
           </a>
@@ -30,7 +30,7 @@ export function Footer() {
             rel="noreferrer"
           >
             <span className="icon-social">
-              <img src="../public/Instagram.svg" alt="" />
+              <img src="../public/images/Instagram.svg" alt="" />
             </span>
             <p>tradicional_food_arepas</p>
           </a>
@@ -38,7 +38,7 @@ export function Footer() {
         <div className="item-social">
           <a href="https://www.facebook.com/profile.php?id=100071820720640">
             <span className="icon-social">
-              <img src="../public/Facebook.svg" alt="" />
+              <img src="../public/images/Facebook.svg" alt="" />
             </span>
             <p>Tradicional Arepas Mas</p>
           </a>
@@ -46,7 +46,7 @@ export function Footer() {
       </section>
 
       <span>
-        <img src="../public/Branch-black.svg" alt="" />
+        <img src="../public/images/Branch-black.svg" alt="" />
       </span>
       <span id="botoom" className="cp">
         Copyright 2022 | Tradicional Food

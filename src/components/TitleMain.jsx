@@ -1,4 +1,4 @@
-import vectorTitleMain from "../../public/Rectangle 6.png";
+import vectorTitleMain from "../../public/images/Rectangle 6.png";
 
 export function TitleMain() {
   return (
