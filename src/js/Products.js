@@ -1,7 +1,7 @@
 import { getToken } from "./Token";
 
 const Token = getToken()
-
+  
 export const getProducts = () =>{
   
   return fetch('https://api.tradicionalfood.com/products')

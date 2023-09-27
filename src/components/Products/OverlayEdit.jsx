@@ -1,9 +1,10 @@
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { addArrayProducts } from "../../js/Products";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { useSendProducts } from "../../hooks/useSendProducts";
 import { FieldSelect } from "./FieldSelect";
+import { useUserContext } from "../../providers/userContext";
 
 
 
@@ -25,24 +26,20 @@ export function OverlayEdit({setMessage, id, name, category , description, price
     setIsOpenOverlay(false)
     setRender()
   }
-  
+
   useEffect(()=>{
     fetch ('https://api.tradicionalfood.com/categories')
     .then(res => res.json())
     .then(data => setCategories(data))
   },[])
-  
-  
-  
-    
-    const closeOverlay = () => {
-      setIsOpenOverlay(false);
-    };
+
+  const closeOverlay = () => {
+    setIsOpenOverlay(false);
+  };
 
   return (
     <div className="overlayEdit">
       <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5em', alignItems: 'center' }} onSubmit={handleClick}>
-
         <InputForm defaultValue={name} name={'name'} label={"Nombre"}  placeholder={name} type={'text'}  />
         <FieldSelect options={categories} name={'category'} defaultValue={category}/>
         <InputForm defaultValue={description} name={'description'} label={"Descripción"} placeholder={description} type={'text'} />
@@ -51,7 +48,6 @@ export function OverlayEdit({setMessage, id, name, category , description, price
           <Button color="green" type={'submit'}>Actualizar</Button>
           <Button color="red" type={'button'} onClick={closeOverlay}>Cancelar</Button>
         </div>
-
       </form>
     </div>);
 }

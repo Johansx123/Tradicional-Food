@@ -4,12 +4,13 @@ import { removeProduct } from "../../js/Products";
 import BtnDelete from "../atoms/BtnDelete";
 import { BtnEdit } from "../atoms/BtnEdit";
 import { OverlayComfirm } from "../utils/OverlayComfirm";
+import { useUserContext } from "../../providers/userContext";
 /* eslint-disable react/prop-types */
 export function Product({id, name,category,  description, price, allowEdit, setMessage, setRender}) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenOverlay , setIsOpenOverlay] = useState(false)
   const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
-
+  const user =  useUserContext()
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
   }
@@ -35,6 +36,7 @@ export function Product({id, name,category,  description, price, allowEdit, setM
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
+      <h1>{user && user.name}</h1>
       {openOverlayDelete && <OverlayComfirm onYes={handleDelete} /> } 
       {isOpenOverlay && <OverlayEdit key={id} id={id} name={name} category={category} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
       {allowEdit ? (

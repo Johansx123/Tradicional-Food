@@ -3,6 +3,7 @@ import {Route,RouterProvider,createBrowserRouter,createRoutesFromElements,} from
 import PageMenu from "./Pages/PageMenu";
 import { Root } from "./Root";
 import { PageRegisterer } from "./components/PageRegisterer";
+import { UserProvider } from "./providers/UserProvider";
 
 function App() {
   const router = createBrowserRouter(
@@ -15,7 +16,11 @@ function App() {
     )
   );
 
-  return <RouterProvider router={router} />;
+  return  (
+    <UserProvider>
+      <RouterProvider router={router}/>
+    </UserProvider>
+  )
 }
 
 export default App;

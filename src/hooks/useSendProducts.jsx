@@ -16,6 +16,7 @@ export const useSendProducts = ({ id, setMessage }) => {
       price: parseFloat(price)
     };
     const message = await updateProduct(id, data);
+    console.log(message)
     setMessage(message.message);
 
   };

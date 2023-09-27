@@ -3,14 +3,14 @@ import { TitleMain } from "../components/TitleMain";
 import { Dinamic1 } from "../components/Products/Dinamic1";
 import { Dinamic2 } from "../components/Products/Dinamic2";
 import { TableMenu } from "../components/Products/TableMenu";
-import responseProducts from "../mocks/products-menu1.json";
 import Beverage from "../components/Beverage";
 import { useEffect, useState } from "react";
-import { addArrayProducts, addProduct, getProducts, removeProduct, updateProduct } from "../js/Products";
-import { OverlayEdit } from "../components/Products/OverlayEdit";
+import { addArrayProducts, getProducts } from "../js/Products";
 import { Optios } from "../components/Products/Optios";
 import { MessageOverlay } from "../components/MessageOverlay";
 import {Products, first} from "../js/SubidaArray.js"
+import { useUserContext } from "../providers/userContext";
+import { ROL } from "../js/User";
 
 
 
@@ -19,6 +19,11 @@ export default function PageMenu({ isLogged }) {
   const [products, setProducts] = useState();
   const [message, setMessage]= useState()
   const [render, setRender] =  useState (true)
+
+  
+  const user = useUserContext()
+
+
 
 
   useEffect(() => {
@@ -34,19 +39,19 @@ export default function PageMenu({ isLogged }) {
   const handleRender = () =>{
     setRender(!render)
   }
-  
+  user?.Rol && console.log(user)
   return (
     <div className="background">
       <main id="top" className="wrapper-main">
         {message && <MessageOverlay message={message}/>} 
         <TitleMain />
         <IndexMenu />
-        {/* <button onClick={()=>{
+        <button onClick={()=>{
           console.log(first)
-          addArrayProducts(first)
-        }}>subir array</button> */}
+          addArrayProducts(Products)
+        }}>subir array</button>
         <div className="grid-wrapper" >
-         <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} /> 
+         {user?.Rol ==  ROL.ADMIN && <Optios allowEdit={allowEdit} setAllowEdit={setAllowEdit} /> }
           {products ? (
             <>
               <TableMenu
