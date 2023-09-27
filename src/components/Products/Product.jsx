@@ -4,13 +4,14 @@ import { removeProduct } from "../../js/Products";
 import BtnDelete from "../atoms/BtnDelete";
 import { BtnEdit } from "../atoms/BtnEdit";
 import { OverlayComfirm } from "../utils/OverlayComfirm";
-import { useUserContext } from "../../providers/userContext";
+import { useIsEditContext, useUserContext } from "../../providers/userContext";
 /* eslint-disable react/prop-types */
-export function Product({id, name,category,  description, price, allowEdit, setMessage, setRender}) {
+export function Product({id, name,category,  description, price, setMessage, setRender}) {
   const [isVisible, setIsVisible] = useState("none");
   const [isOpenOverlay , setIsOpenOverlay] = useState(false)
   const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
   const user =  useUserContext()
+  const allowEdit = useIsEditContext()
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
   }

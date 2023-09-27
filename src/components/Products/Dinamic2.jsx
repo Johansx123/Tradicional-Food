@@ -2,7 +2,7 @@ import { useFilter } from "../../hooks/useFilter";
 import { Products } from "./Products";
 
 // eslint-disable-next-line react/prop-types
-export function Dinamic2({products, allowEdit, setMessage, setRender}) {
+export function Dinamic2({products, setMessage, setRender}) {
 
   const filteredByDinamic = useFilter(products, 'category', 'Dinamic', 1, 2)
 
@@ -20,7 +20,7 @@ export function Dinamic2({products, allowEdit, setMessage, setRender}) {
 
       <div className="about-dinamic1">
         
-         <Products products={filteredByDinamic} allowEdit={allowEdit} setMessage={setMessage} setRender={setRender} />
+         <Products products={filteredByDinamic}  setMessage={setMessage} setRender={setRender} />
       </div>
     </section>
   );

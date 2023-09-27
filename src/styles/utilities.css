@@ -32,7 +32,7 @@
     --layout-90: 90%;
 }
 .TitleMenuBlack{
-    background-image:url(../public/Menu2.png);
+    background-image:url(../public/images/Menu2.png);
 	background-repeat:no-repeat;
 	background-position:center;
 	color: var( --color-white);

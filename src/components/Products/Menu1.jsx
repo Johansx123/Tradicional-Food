@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { BtnAdd } from "../atoms/BtnAdd";
 import { OverlayEdit } from "./OverlayEdit";
+import { useIsEditContext } from "../../providers/userContext";
 
 
 // eslint-disable-next-line react/prop-types
-export function Menu1({children, allowEdit ,setMessage, setRender}) {
+export function Menu1({children, setMessage, setRender}) {
 
  const [isOpenAdd, setIsOpenAdd]  = useState(false)
-
+const allowEdit = useIsEditContext()
   
 const handleBtnAdd = () => {
     setIsOpenAdd(true)

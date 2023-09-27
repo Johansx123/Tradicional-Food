@@ -11,7 +11,7 @@ const menu = {
 
 
 // eslint-disable-next-line react/prop-types
-export function TableMenu({ version ,title, products, filter, allowEdit, setMessage,setRender}) {
+export function TableMenu({ version ,title, products, filter, setMessage,setRender}) {
     
     
     const versionValue = menu.version[version];
@@ -28,14 +28,14 @@ export function TableMenu({ version ,title, products, filter, allowEdit, setMess
     switch (versionValue) {
         case menu.version.BLACK:
             return (
-                <Menu2 title={title} allowEdit={allowEdit} setMessage={setMessage} setRender={setRender} >
-                 <Products products={productsFiltered[filter]} allowEdit={allowEdit} setMessage={setMessage} setRender={setRender}/>
+                <Menu2 title={title} setMessage={setMessage} setRender={setRender} >
+                 <Products products={productsFiltered[filter]} setMessage={setMessage} setRender={setRender}/>
                 </Menu2>
             )
         default:
             return (
-                <Menu1 allowEdit={allowEdit} setMessage={setMessage} setRender={setRender}>
-                    <Products products={productsFiltered[filter]} allowEdit={allowEdit} setMessage={setMessage} setRender={setRender} />
+                <Menu1 setMessage={setMessage} setRender={setRender}>
+                    <Products products={productsFiltered[filter]} setMessage={setMessage} setRender={setRender} />
                 </Menu1>)
     }
     
