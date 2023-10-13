@@ -10,8 +10,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<PageMenu />} />
-        <Route path="LogIn" element={<PageLogIn />} />
-        <Route path="Registerer" element={<PageRegisterer/>} />
+        <Route path="/LogIn" element={<PageLogIn />} />
+        <Route path="/Registerer" element={<PageRegisterer/>} />
       </Route>
     )
   );
