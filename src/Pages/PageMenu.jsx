@@ -44,10 +44,10 @@ export default function PageMenu() {
         {message && <MessageOverlay message={message}/>} 
         <TitleMain />
         <IndexMenu />
-        <button onClick={()=>{ 
+        {/* <button onClick={()=>{ 
           console.log(first)
           addArrayProducts(Products)
-        }}>subir array</button>
+        }}>subir array</button> */}
         <div className="grid-wrapper" >
         
           {products ? (
