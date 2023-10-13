@@ -1,5 +1,4 @@
 import { Link, Navigate } from "react-router-dom";
-import GoogleLogIn from "../atoms/google-login";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { useState } from "react";
@@ -73,7 +72,6 @@ const correctLogin = (Token) =>{
 
         <aside className="otherLogin">
           <p className="Font-slim-15">o ingresa con</p>
-          <GoogleLogIn/>
         </aside>
       </form>
     </div>
