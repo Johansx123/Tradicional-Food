@@ -3,12 +3,14 @@ import GoogleLogIn from "../atoms/google-login";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
 import { useState } from "react";
-import { setToken } from "../../js/Token";
 import { Error } from "./Error";
+import { useUserUpdate } from "../../providers/userContext";
 
 export function LogIn() {
   const [error, setError] = useState();
-  const [user , setUser] = useState()
+  const [isLogged , setIsLogged] = useState(false)
+
+  const updateUser = useUserUpdate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -35,20 +37,21 @@ export function LogIn() {
       .then((response) => response.json())
       .then((message) => {
         message.Token
-          ? correctLogin(message, message.Token)
+          ? correctLogin(message.Token)
           : setError(message.message);
       })
       .catch((e) => setError(e));
   };
 
-const correctLogin = (message,Token) =>{
-  setUser(message)
-  setToken(Token)
+
+const correctLogin = (Token) =>{
+  setIsLogged(true)
+  updateUser(Token)
 }
 
   return (
     <div className="wrapper-form">
-      {user && <Navigate to={'/'} />}
+      {isLogged && <Navigate to={'/'} />}
       <hgroup className="hgroup-form">
         <h1 className="Title-30">Inicia Sesión</h1>
         <p className="Font-slim-15">

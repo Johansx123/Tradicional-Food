@@ -11,6 +11,7 @@ import { MessageOverlay } from "../components/MessageOverlay";
 import {Products, first} from "../js/SubidaArray.js"
 import { useUserContext } from "../providers/userContext";
 import { ROL } from "../js/User";
+// import dataMocks from "../mocks/products-menu1.json"
 
 
 
@@ -21,6 +22,7 @@ export default function PageMenu() {
 
   const user = useUserContext()
 
+
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
   }, [render]);
@@ -30,10 +32,10 @@ export default function PageMenu() {
       setMessage(null)
     },2000)
   },[message])
-
   const handleRender = () =>{
     setRender(!render)
   }
+    
 
   return (
     <div className="background">

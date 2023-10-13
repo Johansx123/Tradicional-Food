@@ -19,6 +19,7 @@ export function TableMenu({ version ,title, products, filter, setMessage,setRend
     const filterByTradicional  = useFilter(products,'category','Tradicional')
     const filterBySoda = useFilter(products,'category', 'soda')
 
+    
     const productsFiltered = {
         Tradicional: filterByTradicional,
         SuperTradicional: filterBySuper,
