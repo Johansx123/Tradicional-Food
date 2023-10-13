@@ -38,8 +38,8 @@ export function Product({id, name,category,  description, price, setMessage, set
       onMouseLeave={mouseLeave}
     >
       <h1>{user && user.name}</h1>
-      {openOverlayDelete && <OverlayComfirm onYes={handleDelete} /> } 
-      {isOpenOverlay && <OverlayEdit key={id} id={id} name={name} category={category} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
+      {openOverlayDelete && <OverlayComfirm onYes={handleDelete} onNot={()=>{setOpenOverlayDelete(false)}}/> } 
+      {isOpenOverlay && <OverlayEdit onUpdate={mouseLeave} key={id} id={id} name={name} category={category} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
       {allowEdit ? (
         <span style={{ display: isVisible,
             padding : '1rem',

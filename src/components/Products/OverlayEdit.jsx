@@ -8,7 +8,7 @@ import { useUserContext } from "../../providers/userContext";
 
 
 
-export function OverlayEdit({setMessage, id, name, category , description, price, setIsOpenOverlay, type, setRender}) {
+export function OverlayEdit({setMessage, id, name, category , description, price, setIsOpenOverlay, type, setRender, onUpdate}) {
 
   const types = {
     edit : 'edit',
@@ -45,7 +45,7 @@ export function OverlayEdit({setMessage, id, name, category , description, price
         <InputForm defaultValue={description} name={'description'} label={"Descripción"} placeholder={description} type={'text'} />
         <InputForm defaultValue={price} name={'price'} label={"Precio"} placeholder={price} type={'number'} />
         <div style={{ display: 'flex', width: '100%', gap: '1em' }}>
-          <Button color="green" type={'submit'}>Actualizar</Button>
+          <Button color="green" type={'submit'} onClick={onUpdate}>Actualizar</Button>
           <Button color="red" type={'button'} onClick={closeOverlay}>Cancelar</Button>
         </div>
       </form>
