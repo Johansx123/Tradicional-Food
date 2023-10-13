@@ -1,6 +1,6 @@
 import { useFilter } from "../../hooks/useFilter";
 import { Products } from "./Products";
-
+import imgDinamic from '../../../public/images/Perro animado.png'
 // eslint-disable-next-line react/prop-types
 export function Dinamic2({products, setMessage, setRender}) {
 
@@ -14,7 +14,7 @@ export function Dinamic2({products, setMessage, setRender}) {
         <img
           id="perro"
           className="element2"
-          src="./../public/images/Perro animado.png"
+          src={imgDinamic}
           alt="Super chori perro" />
       </div>
 
