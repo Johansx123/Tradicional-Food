@@ -1,3 +1,9 @@
+import iconGmail from '../../public/images/Gmiail.svg';
+import iconWhatsapp from '../../public/images/Whatsapp.svg'
+import iconInstagram from '../../public/images/Instagram.svg'
+import iconFacebook from '../../public/images/Facebook.svg'
+import iconBranchBlack from '../../public/images/Branch-black.svg'
+
 export function Footer() {
   return (
     <footer className="wrapper-footer">
@@ -10,7 +16,7 @@ export function Footer() {
             target="_blank"
           >
             <span className="icon-social">
-              <img src="../public/images/Whatsapp.svg" alt="" />
+              <img src={iconWhatsapp} alt="" />
             </span>
             <p>3196095864</p>
           </a>
@@ -18,7 +24,7 @@ export function Footer() {
         <div className="item-social">
           <a href="mailto:tradicionalfoodarepasymas@gmail.com">
             <span className="icon-social">
-              <img src="../public/images/Gmiail.svg" alt="" />
+              <img src={iconGmail} alt="" />
             </span>
             <p>tradicionalfoodarepasymas@gmail.com</p>
           </a>
@@ -30,7 +36,7 @@ export function Footer() {
             rel="noreferrer"
           >
             <span className="icon-social">
-              <img src="../public/images/Instagram.svg" alt="" />
+              <img src={iconInstagram} alt="" />
             </span>
             <p>tradicional_food_arepas</p>
           </a>
@@ -38,7 +44,7 @@ export function Footer() {
         <div className="item-social">
           <a href="https://www.facebook.com/profile.php?id=100071820720640">
             <span className="icon-social">
-              <img src="../public/images/Facebook.svg" alt="" />
+              <img src={iconFacebook} alt="" />
             </span>
             <p>Tradicional Arepas Mas</p>
           </a>
@@ -46,7 +52,7 @@ export function Footer() {
       </section>
 
       <span>
-        <img src="../public/images/Branch-black.svg" alt="" />
+        <img src={iconBranchBlack} alt="" />
       </span>
       <span id="botoom" className="cp">
         Copyright 2022 | Tradicional Food
