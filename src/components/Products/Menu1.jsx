@@ -2,7 +2,11 @@ import { useState } from "react";
 import { BtnAdd } from "../atoms/BtnAdd";
 import { OverlayEdit } from "./OverlayEdit";
 import { useIsEditContext } from "../../providers/userContext";
-
+import imgLt from '../../../public/images/lt.svg'
+import imgRt from '../../../public/images/rt.svg'
+import imgLb from '../../../public/images/lb.svg'
+import imgRb from '../../../public/images/rb.svg'
+import imgViento from '../../../public/images/viento.svg'
 
 // eslint-disable-next-line react/prop-types
 export function Menu1({children, setMessage, setRender}) {
@@ -20,12 +24,12 @@ const handleBtnAdd = () => {
     <section id="menu1" className="wrapper-menu1">
       <div id="" className="back-menu1 back-size">
         <div className="top-back-menu1">
-          <img src="../../../public/images/lt.svg" alt="" className="backLt" />
-          <img src="../../../public/images/rt.svg" alt="" className="backRt" />
+          <img src={imgLt} alt="" className="backLt" />
+          <img src={imgRt} alt="" className="backRt" />
         </div>
         <div className="bottom-back-menu1">
-          <img src="../../../public/images/lb.svg" alt="" className="backLb" />
-          <img src="../../../public/images/rb.svg" alt="" className="backRb" />
+          <img src={imgLb} alt="" className="backLb" />
+          <img src={imgRb} alt="" className="backRb" />
         </div>
       </div>
       <div className="content-menu1 back-size">
@@ -33,7 +37,7 @@ const handleBtnAdd = () => {
 
         <span className="subtitle-menu1">
           <h2>Tradicional</h2>
-          <img src="../../../public/images/viento.svg" alt="" />
+          <img src={imgViento} alt="" />
         </span>
       {children}
       {allowEdit && <BtnAdd onClick={handleBtnAdd}/>}

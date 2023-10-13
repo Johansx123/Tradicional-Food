@@ -57,7 +57,7 @@ export default function PageMenu() {
               <TableMenu version={"BLACK"} products={products} title={"SUPER TRADICIONALES"} filter={"SuperTradicional"}  setMessage={setMessage} setRender={handleRender}/>
               <Dinamic2 products={products}  setRender={handleRender} setMessage={setMessage}/>
               <Beverage  setRender={handleRender} />
-              <TableMenu version={"BLACK"} products={products} title={"GASEOSA"} filter={"Soda"}  setRender={handleRender}/>
+              <TableMenu version={"BLACK"} products={products} title={"GASEOSA"} filter={"Soda"}  setMessage={setMessage} setRender={handleRender}/>
             </>
           ) : (
             <h3>cargando...</h3>
