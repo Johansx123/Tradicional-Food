@@ -1,8 +1,9 @@
 import iconEdit from "../../../public/images/edit.svg";
 import iconCancel from "../../../public/images/cancel.svg";
+import '../../styles/switch.css'
 import { useIsEditContext, useIsEditToggleContext } from "../../providers/userContext";
 
-export function Options() {
+export function Switch() {
 
   const allowEdit = useIsEditContext()
   const setAllowEdit = useIsEditToggleContext()
@@ -12,12 +13,13 @@ export function Options() {
   };
 
   return (
-    <aside className="optionsEdit">
-      {allowEdit ? (
-          <img src={iconCancel} alt="Cancelar" style={{ cursor: "pointer" }} onClick={handleClick} /> 
-      ) : (
-        <img src={iconEdit} alt="Editar" style={{ cursor: "pointer" }} onClick={handleClick} />
-      )}
-    </aside>
+    
+      <span className="optionsEdit">
+        <label htmlFor="chkSwitch" onClick={handleClick}></label>
+        <input type="checkbox" id="chkSwitch"/>
+        <img className="icon edit" src={iconEdit} alt="Editar"/>
+        <img className="icon cancel" src={iconCancel} alt="Cancelar" /> 
+      </span>
   );
 }
+

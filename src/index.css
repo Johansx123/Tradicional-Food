@@ -153,13 +153,6 @@ main{
 .message.red{
     color: var(--color-red-900);
 }
-.optionsEdit{
-    z-index: 10;
-    position: fixed;
-    margin-left: 100px;
-    transform: translateX(-160%);
-    /* margin-top: 50vh; */
-}
 .overlayEdit{
     display: flex;
     position: fixed;

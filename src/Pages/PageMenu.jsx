@@ -6,7 +6,6 @@ import { TableMenu } from "../components/Products/TableMenu";
 import Beverage from "../components/Beverage";
 import { useEffect, useState } from "react";
 import { addArrayProducts, getProducts } from "../js/Products";
-import { Options } from "../components/Products/Options";
 import { MessageOverlay } from "../components/MessageOverlay";
 import {Products, first} from "../js/SubidaArray.js"
 import { useUserContext } from "../providers/userContext";
@@ -20,8 +19,11 @@ export default function PageMenu() {
   const [message, setMessage]= useState()
   const [render, setRender] =  useState (true)
 
-  const user = useUserContext()
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }
+  ,
+    [])
 
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
@@ -35,7 +37,6 @@ export default function PageMenu() {
   const handleRender = () =>{
     setRender(!render)
   }
-    
 
   return (
     <div className="background">
@@ -48,7 +49,7 @@ export default function PageMenu() {
           addArrayProducts(Products)
         }}>subir array</button>
         <div className="grid-wrapper" >
-         {user?.Rol ==  ROL.ADMIN && <Options /> }
+        
           {products ? (
             <>
               <TableMenu products={products} filter={"Tradicional"}  setMessage={setMessage} setRender={handleRender} />
