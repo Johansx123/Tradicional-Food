@@ -1,6 +1,7 @@
 import { useFilter } from "../../hooks/useFilter";
 import { Products } from "./Products";
 import imgDinamic from '../../../public/images/Perro animado.png'
+import imgElement from '../../../public/images/Mantel 1.png'
 // eslint-disable-next-line react/prop-types
 export function Dinamic2({products, setMessage, setRender}) {
 
@@ -10,7 +11,7 @@ export function Dinamic2({products, setMessage, setRender}) {
     <section id="box" className="wrapper-dinamic2">
       <div className="dinamic2">
 
-        <img className="element1" src="./../public/images/Mantel 1.png" alt="Mantel" />
+        <img className="element1" src={imgElement} alt="Mantel" />
         <img
           id="perro"
           className="element2"
