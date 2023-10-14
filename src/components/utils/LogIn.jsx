@@ -45,6 +45,7 @@ export function LogIn() {
 
 const correctLogin = (Token) =>{
   setIsLogged(true)
+  console.log('Loginpafg  ' + Token)
   updateUser(Token)
 }
 

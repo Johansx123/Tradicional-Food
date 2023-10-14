@@ -6,7 +6,8 @@ import iconLogOut from '../../public/images/check-out.png'
 import {useUserContext, useUserOutContext } from '../providers/userContext';
 import { useState } from 'react';
 import { ROL } from '../js/User';
-import {  Switch } from './Products/Switch';
+import Switch from './atoms/Switch';
+
 export function Header() {
   
   const user = useUserContext();
@@ -21,7 +22,7 @@ export function Header() {
   return (
     <header className="wrapper-header">
       <Link className="logo" to = '/'><img src={logo} alt="Logo de Tradicional Food" /></Link>
-      {user?.Rol ==  ROL.ADMIN && <Switch /> }
+      {user?.Rol ==  ROL.ADMIN && <Switch/> }
       {/* <nav className="content-menu-600">
               <span><Link to='/'>Menu</Link></span> 
               <span><a href="">Pide en Linea</a></span>

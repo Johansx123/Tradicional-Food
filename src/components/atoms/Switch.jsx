@@ -3,7 +3,7 @@ import iconCancel from "../../../public/images/cancel.svg";
 import '../../styles/switch.css'
 import { useIsEditContext, useIsEditToggleContext } from "../../providers/userContext";
 
-export function Switch() {
+export default function Switch() {
 
   const allowEdit = useIsEditContext()
   const setAllowEdit = useIsEditToggleContext()

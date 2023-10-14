@@ -13,12 +13,12 @@ export const getUser = (TOKEN) =>{
     })
     .then(response => response.json())
     .then(message => {return message})
-    
 }
 
 export const logOutUser = () =>{
     deleteToken()
 }
 export const sendUser = (Token) =>  {
+    console.log('entiti ' + Token)
     setToken(Token)
 }
