@@ -6,43 +6,74 @@ import { BtnEdit } from "../atoms/BtnEdit";
 import { OverlayComfirm } from "../utils/OverlayComfirm";
 import { useIsEditContext, useUserContext } from "../../providers/userContext";
 /* eslint-disable react/prop-types */
-export function Product({id, name,category,  description, price, setMessage, setRender}) {
+export function Product({
+  id,
+  name,
+  category,
+  description,
+  price,
+  setMessage,
+  setRender,
+}) {
+
+
   const [isVisible, setIsVisible] = useState("none");
-  const [isOpenOverlay , setIsOpenOverlay] = useState(false)
-  const [openOverlayDelete, setOpenOverlayDelete]= useState(false)
-  const user =  useUserContext()
-  const allowEdit = useIsEditContext()
+  const [isOpenOverlay, setIsOpenOverlay] = useState(false);
+  const [openOverlayDelete, setOpenOverlayDelete] = useState(false);
+
+  const user = useUserContext();
+  const allowEdit = useIsEditContext();
+
   function hover() {
     allowEdit ? setIsVisible("flex") : null;
   }
-  
+
   const mouseLeave = () => {
     setIsVisible("none");
-  }; 
+  };
 
+  const handleDelete = async () => {
+    const message = await removeProduct(id);
+    setOpenOverlayDelete(false);
+    setMessage(message.message);
+    setRender();
+  };
 
-  const handleDelete = async() =>{
-    const message = await removeProduct(id)
-    setOpenOverlayDelete(false)
-    setMessage(message.message)
-    setRender()
-  }
-  
-
-  return  (
-    
+  return (
     <div
       className="group-menu1"
       style={{ position: "relative" }}
       onMouseEnter={hover}
       onMouseLeave={mouseLeave}
     >
-      <h1>{user && user.name}</h1>
-      {openOverlayDelete && <OverlayComfirm onYes={handleDelete} onNot={()=>{setOpenOverlayDelete(false)}}/> } 
-      {isOpenOverlay && <OverlayEdit onUpdate={mouseLeave} key={id} id={id} name={name} category={category} description={description} price={price} setIsOpenOverlay={setIsOpenOverlay} type={'edit'} setMessage={setMessage} setRender={setRender}/> }
-      {allowEdit ? (
-        <span style={{ display: isVisible,
-            padding : '1rem',
+       {openOverlayDelete && user && (
+        <OverlayComfirm
+          onYes={handleDelete}
+          onNot={() => {
+            setOpenOverlayDelete(false);
+          }}
+        />
+      )}
+      {isOpenOverlay && user &&(
+        <OverlayEdit
+          onUpdate={mouseLeave}
+          key={id}
+          id={id}
+          name={name}
+          category={category}
+          description={description}
+          price={price}
+          setIsOpenOverlay={setIsOpenOverlay}
+          type={"edit"}
+          setMessage={setMessage}
+          setRender={setRender}
+        />
+      )}
+      {allowEdit && user ? (
+        <span
+          style={{
+            display: isVisible,
+            padding: "1rem",
             gap: "10px",
             justifyContent: "flex-end",
             alignItems: "center ",
@@ -53,8 +84,8 @@ export function Product({id, name,category,  description, price, setMessage, set
             height: "100%",
           }}
         >
-          <BtnEdit onClick={()=>setIsOpenOverlay(true)}/>
-          <BtnDelete onClick={()=>setOpenOverlayDelete(true)}/>
+          <BtnEdit onClick={() => setIsOpenOverlay(true)} />
+          <BtnDelete onClick={() => setOpenOverlayDelete(true)} />
         </span>
       ) : (
         <></>
@@ -66,7 +97,5 @@ export function Product({id, name,category,  description, price, setMessage, set
       </div>
       <span className="price price-menu1">{price}</span>
     </div>
-  
-  )
+  );
 }
-

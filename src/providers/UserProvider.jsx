@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
   const [user,  setUser] = useState();
   const [isEdit, setIsEdit] = useState();
   const [isLogged, setIsLogged] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -41,6 +42,7 @@ export const UserProvider = ({ children }) => {
   }
   function updateUser(Token) {
     setIsLogged(!isLogged);
+    console.log('provider '+ Token)
     sendUser(Token);
   }
   const changeIsEdit = () => {
