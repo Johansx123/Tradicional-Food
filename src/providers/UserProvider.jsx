@@ -21,7 +21,12 @@ export const UserProvider = ({ children }) => {
     const fetchData = async () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { newUser } = await useGetUser();
-      setUser(newUser);
+      if(newUser?.ID){
+        setUser(newUser)
+      }
+      else{
+        logOutUser()
+      }
     };
 
     fetchData();
