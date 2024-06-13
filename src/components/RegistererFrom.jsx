@@ -11,7 +11,7 @@ export function RegistererFrom() {
 const createUser =(data) =>{
 
  
-  fetch('https://api.tradicionalfood.com/api/users/register',
+  fetch('/api/api/api/users/register',
     {
       method: "POST",
       mode: "cors",

@@ -21,7 +21,7 @@ export function LogIn() {
       email,
       password,
     };
-    fetch("https://api.tradicionalfood.com/api/users/login", {
+    fetch("/api/api/users/login", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       origin: "http://localhost:5173/Registerer",
@@ -45,7 +45,6 @@ export function LogIn() {
 
 const correctLogin = (Token) =>{
   setIsLogged(true)
-  console.log('Loginpafg  ' + Token)
   updateUser(Token)
 }
 

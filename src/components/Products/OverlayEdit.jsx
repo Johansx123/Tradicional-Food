@@ -28,7 +28,7 @@ export function OverlayEdit({setMessage, id, name, category , description, price
   }
 
   useEffect(()=>{
-    fetch ('https://api.tradicionalfood.com/categories')
+    fetch ('/api/api/categories')
     .then(res => res.json())
     .then(data => setCategories(data))
   },[])

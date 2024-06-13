@@ -4,7 +4,7 @@ const Token = getToken()
   
 export const getProducts = () =>{
   
-  return fetch('https://api.tradicionalfood.com/products')
+  return fetch('/api/products')
        .then(response => response.json())
        .then( data => {return data})
        .catch(e => e);
@@ -12,7 +12,7 @@ export const getProducts = () =>{
 
 export const addProduct = (data) => {
 
-  return fetch("https://api.tradicionalfood.com/api/products", {
+  return fetch("api/api/products", {
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/",
@@ -30,7 +30,7 @@ export const addProduct = (data) => {
 };
 
 export const addArrayProducts = (products) => {
-  return fetch("https://api.tradicionalfood.com/api/products/array",{
+  return fetch("/api/api/products/array",{
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/",
@@ -50,7 +50,7 @@ export const addArrayProducts = (products) => {
 }
 
 export const updateProduct = (id, data) =>{
-  return fetch(`https://api.tradicionalfood.com/api/products/${id}`,{
+  return fetch(`/api/api/products/${id}`,{
 
     method : "PATCH",
     mode: "cors", // no-cors, *cors, same-origin
@@ -72,7 +72,7 @@ export const updateProduct = (id, data) =>{
 }
 
 export const removeProduct = (id) => {
-  return fetch(`https://api.tradicionalfood.com/api/products/${id}`,{
+  return fetch(`/api/api/products/${id}`,{
     method: "DELETE",
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/",

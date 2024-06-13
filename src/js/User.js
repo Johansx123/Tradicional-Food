@@ -6,7 +6,7 @@ export const ROL = {
 
 
 export const getUser = (TOKEN) =>{
-    return fetch('https://api.tradicionalfood.com/users/info', {
+    return fetch('/api/api/users/info', {
         headers : {
             'Authorization' : TOKEN
         }
@@ -19,6 +19,5 @@ export const logOutUser = () =>{
     deleteToken()
 }
 export const sendUser = (Token) =>  {
-    console.log('entiti ' + Token)
     setToken(Token)
 }

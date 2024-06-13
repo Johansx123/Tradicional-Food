@@ -1,6 +1,6 @@
 export default function useCategories () {
   const getCategories = () => {
-    return fetch('https://api.tradicionalfood.com/categories')
+    return fetch('/api/api/categories')
       .then(res => res.json())
       .then(data => { return data; });
   };

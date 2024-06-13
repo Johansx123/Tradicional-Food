@@ -36,7 +36,6 @@ export const UserProvider = ({ children }) => {
       setUser(false);
     } else {
       setUser(user);
-      console.log(user);
     }
   }
 
@@ -46,7 +45,6 @@ export const UserProvider = ({ children }) => {
   }
   function updateUser(Token) {
     setIsLogged(!isLogged);
-    console.log('provider '+ Token)
     sendUser(Token);
   }
   const changeIsEdit = () => {
