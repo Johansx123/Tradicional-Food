@@ -1,13 +1,10 @@
+import axios from "axios";
 import { getToken } from "./Token";
 
 const Token = getToken()
   
 export const getProducts = () =>{
-  
-  return fetch('/api/products')
-       .then(response => response.json())
-       .then( data => {return data})
-       .catch(e => e);
+  return axios.get('/api/products').then(response => response.data).catch(e => console.log(e));
 }
 
 export const addProduct = (data) => {
@@ -15,7 +12,6 @@ export const addProduct = (data) => {
   return fetch("api/api/products", {
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
-    origin: "http://localhost:5173/",
     credentials: "same-origin",
     headers: {
       "Authorization": Token,
