@@ -6,11 +6,17 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: true,
+    strictPort: true,
     proxy: {
-      '/api': {
+      "/api": {
         target: 'http://127.0.0.1:3167',
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        changeOrigin: true,
+        
+        rewrite: (path) => {
+          const newPath = path.replace(/^\/api/, "/api");
+          return newPath;
+        },
       }
     },
-  }})
+  }
+})

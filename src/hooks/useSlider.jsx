@@ -58,7 +58,7 @@ export function useSlider() {
   const dragging = (e) => {
     if (!isDragStart) return;
     e.preventDefault();
-    console.log();
+    
     isDragging = true;
     carousel.current.classList.add("dragging");
     positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;

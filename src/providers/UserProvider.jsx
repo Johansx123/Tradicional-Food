@@ -8,6 +8,7 @@ import {
   isEditToggleContext,
   userOutContext,
   userUpdate,
+  isUserLogged,
 } from "./userContext";
 import { logOutUser, sendUser } from "../js/User";
 
@@ -17,19 +18,23 @@ export const UserProvider = ({ children }) => {
   const [isEdit, setIsEdit] = useState();
   const [isLogged, setIsLogged] = useState(false);
   
+  
   useEffect(() => {
     const fetchData = async () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { newUser } = await useGetUser();
+      console.log("newUser", await newUser)
       if(newUser?.ID){
         setUser(newUser)
       }
       else{
-        logOutUser()
+        // logOutUser()
       }
     };
     fetchData();
+    
   }, [isLogged]);
+  
 
   function changeUser() {
     if (user) {
@@ -44,7 +49,7 @@ export const UserProvider = ({ children }) => {
     logOutUser();
   }
   function updateUser(Token) {
-    setIsLogged(!isLogged);
+    setIsLogged(Token !== null);
     sendUser(Token);
   }
   const changeIsEdit = () => {
@@ -54,6 +59,7 @@ export const UserProvider = ({ children }) => {
   return (
     <userContext.Provider value={user}>
       <userUpdate.Provider value={updateUser}>
+        <isUserLogged.Provider value={isLogged}>
         <userToggleContext.Provider value={changeUser}>
           <userOutContext.Provider value={outUser}>
             <isEditContext.Provider value={isEdit}>
@@ -63,6 +69,7 @@ export const UserProvider = ({ children }) => {
             </isEditContext.Provider>
           </userOutContext.Provider>
         </userToggleContext.Provider>
+        </isUserLogged.Provider>
       </userUpdate.Provider>
     </userContext.Provider>
   );

@@ -4,7 +4,6 @@ import iconLogIn from '../../public/images/Icon-login.svg';
 import iconMenuBars from '../../public/images/IconMenu.svg'
 import iconLogOut from '../../public/images/check-out.png'
 import {useUserContext, useUserOutContext } from '../providers/userContext';
-import { useState } from 'react';
 import { ROL } from '../js/User';
 import Switch from './atoms/Switch';
 
@@ -12,13 +11,13 @@ export function Header() {
   
   const user = useUserContext();
   const outUser = useUserOutContext();
+  console.log("user", user)
   
-  const [isLogged,setIsLogged]= useState(true)
 
   const handleLogOut = () =>{
-    setIsLogged(!isLogged)
     outUser()
   }
+  
   return (
     <header className="wrapper-header">
       <Link className="logo" to = '/'><img src={logo} alt="Logo de Tradicional Food" /></Link>

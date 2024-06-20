@@ -8,8 +8,8 @@ export const getProducts = () =>{
 }
 
 export const addProduct = (data) => {
-
-  return fetch("api/api/products", {
+  
+  return fetch("api/prv/products", {
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
     credentials: "same-origin",
@@ -26,7 +26,7 @@ export const addProduct = (data) => {
 };
 
 export const addArrayProducts = (products) => {
-  return fetch("/api/api/products/array",{
+  return fetch("/api/prv/products/array",{
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/",
@@ -46,29 +46,13 @@ export const addArrayProducts = (products) => {
 }
 
 export const updateProduct = (id, data) =>{
-  return fetch(`/api/api/products/${id}`,{
-
-    method : "PATCH",
-    mode: "cors", // no-cors, *cors, same-origin
-    origin: "http://localhost:5173/",
-    credentials: "same-origin",
-    headers: {
-      "Authorization": Token,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data)
-  }
-  )
-  .then(response => response.json())
-  .then(message => {return message})
-  .catch(e =>{
-    return e
-  })
-
+  
+  return axios.patch(`/api/prv/products/${id}`, data).then(response => response.message).catch(e => console.log(e));
+  
 }
 
 export const removeProduct = (id) => {
-  return fetch(`/api/api/products/${id}`,{
+  return fetch(`/api/prv/products/${id}`,{
     method: "DELETE",
     mode: "cors", // no-cors, *cors, same-origin
     origin: "http://localhost:5173/",

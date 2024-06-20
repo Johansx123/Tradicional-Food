@@ -5,6 +5,7 @@ import {  useEffect, useState } from "react";
 import { useSendProducts } from "../../hooks/useSendProducts";
 import { FieldSelect } from "./FieldSelect";
 import { useUserContext } from "../../providers/userContext";
+import useCategories from "../../hooks/useCategories";
 
 
 
@@ -15,8 +16,8 @@ export function OverlayEdit({setMessage, id, name, category , description, price
     add : 'add'
   }
   const [categories , setCategories] = useState()
-  
-  const {handleUpdate, handleAdd} = useSendProducts({id, setMessage})
+  const hookCategories = useCategories()
+    const {handleUpdate, handleAdd} = useSendProducts({id, setMessage})
   const handle = type == types.edit ? handleUpdate : handleAdd
   
   
@@ -28,9 +29,7 @@ export function OverlayEdit({setMessage, id, name, category , description, price
   }
 
   useEffect(()=>{
-    fetch ('/api/api/categories')
-    .then(res => res.json())
-    .then(data => setCategories(data))
+    hookCategories.getCategories().then(data => setCategories(data))
   },[])
 
   const closeOverlay = () => {

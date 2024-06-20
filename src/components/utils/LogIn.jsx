@@ -1,19 +1,17 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
-import { useState } from "react";
-import { Error } from "./Error";
-import { useUserUpdate } from "../../providers/userContext";
+import { loginUser } from "../../js/User";
+import {  useUserUpdate } from "../../providers/userContext";
+
 
 export function LogIn() {
-  const [error, setError] = useState();
-  const [isLogged , setIsLogged] = useState(false)
-
+  
+  
   const updateUser = useUserUpdate()
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setError()
+    
     const fields = Object.fromEntries(new window.FormData(e.target));
     const email = fields?.userEmail;
     const password = fields?.userPassword;
@@ -21,36 +19,19 @@ export function LogIn() {
       email,
       password,
     };
-    fetch("/api/api/users/login", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      origin: "http://localhost:5173/Registerer",
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((message) => {
-        message.Token
-          ? correctLogin(message.Token)
-          : setError(message.message);
-      })
-      .catch((e) => setError(e));
+
+    const response = await loginUser(data)
+    if(response.Token){ 
+      updateUser(response.Token)
+      window.location.href = '/'
+    }
+   
+    
   };
-
-
-const correctLogin = (Token) =>{
-  setIsLogged(true)
-  updateUser(Token)
-}
 
   return (
     <div className="wrapper-form">
-      {isLogged && <Navigate to={'/'} />}
+      
       <hgroup className="hgroup-form">
         <h1 className="Title-30">Inicia Sesión</h1>
         <p className="Font-slim-15">
@@ -61,7 +42,7 @@ const correctLogin = (Token) =>{
         </p>
       </hgroup>
 
-      <Error error={error} />
+      {/* <Error error={error} /> */}
 
       <form className="form " onSubmit={handleSubmit}>
         <InputForm name={"userEmail"} label={"Correo"} type={"email"} />

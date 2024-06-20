@@ -7,6 +7,7 @@ export const userToggleContext = createContext();
 export const isEditContext = createContext();
 export const isEditToggleContext = createContext();
 export const userOutContext = createContext();
+export const isUserLogged = createContext();
 
 export function useUserContext() {
     return useContext(userContext);
@@ -25,4 +26,7 @@ export function useUserOutContext() {
 }
 export function useUserUpdate() {
     return useContext(userUpdate)
+}
+export function useIsLogged() {
+    return useContext(isUserLogged)
 }
