@@ -1,4 +1,4 @@
-import { RegistererFrom } from "./RegistererFrom";
+import { RegistererFrom } from "../components/RegistererFrom";
 
 export function PageRegisterer() {
   return (
