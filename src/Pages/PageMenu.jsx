@@ -5,9 +5,7 @@ import { MessageOverlay } from "../components/MessageOverlay";
 
 export default function PageMenu() {
   const [products, setProducts] = useState();
-  const [message, setMessage]= useState()
   
-
   useEffect(()=>{
     window.scrollTo(0,0)
   }
