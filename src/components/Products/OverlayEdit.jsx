@@ -1,10 +1,8 @@
 import { InputForm } from "../atoms/InputForm";
 import { Button } from "../atoms/Button";
-import { addArrayProducts } from "../../js/Products";
 import {  useEffect, useState } from "react";
 import { useSendProducts } from "../../hooks/useSendProducts";
 import { FieldSelect } from "./FieldSelect";
-import { useUserContext } from "../../providers/userContext";
 import useCategories from "../../hooks/useCategories";
 
 

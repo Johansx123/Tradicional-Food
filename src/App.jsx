@@ -1,12 +1,17 @@
  import { PageLogIn } from "./Pages/PageLogIn";
 import {Route,RouterProvider,createBrowserRouter,createRoutesFromElements,} from "react-router-dom";
-import PageMenu from "./Pages/PageMenu";
 import { Root } from "./Root";
 import { PageRegisterer } from "./Pages/PageRegisterer";
 import { UserProvider } from "./providers/UserProvider";
 import Home from "./Pages/Home";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
+
+  
+
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
@@ -16,14 +21,16 @@ function App() {
       </Route>
     )
   );
-
- 
-
-  return  (
-    <UserProvider>
-      <RouterProvider router={router}/>
-    </UserProvider>
-  )
+  
+  
+  
+  return (
+    <Provider store={store}>
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
+    </Provider>
+  );
 }
 
 export default App;

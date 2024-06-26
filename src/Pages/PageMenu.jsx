@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-import { addArrayProducts, getProducts } from "../js/Products";
+import {  getProducts } from "../js/Products";
 import { MessageOverlay } from "../components/MessageOverlay";
-import {Products, first} from "../js/SubidaArray.js"
-import { useUserContext } from "../providers/userContext";
-import { ROL } from "../js/User";
 // import dataMocks from "../mocks/products-menu1.json"
-
-
 
 export default function PageMenu() {
   const [products, setProducts] = useState();
@@ -23,16 +18,12 @@ export default function PageMenu() {
     getProducts().then((data) => setProducts(data));
   }, []);
   
-  useEffect(()=>{
-    setTimeout(()=>{
-      setMessage(null)
-    },2000)
-  },[message])
+
 
   return (
     <div className="background">
       <main id="top" className="wrapper-main">
-        {message && <MessageOverlay message={message}/>} 
+        
      
        
      
