@@ -1,31 +1,46 @@
 import axios from "axios"
 import { getToken } from "../js/Token"
+import { useDispatch } from "react-redux"
+import { MessageTypes, setMessage } from "../redux/states/message.state"	
+import { useEffect } from "react"
 
-
-export function AxiosInterceptor () {
-    const updateHeader = (request) => {
-        const token = getToken()
-        const newHeader = {
-            ...request.headers,
-            Authorization: `${token}`,
-            "Content-Type": "application/json"
-        }
-        request.headers = newHeader
-        
-        return request
-    }
+function AxiosInterceptor () {
+    const dispatcher = useDispatch()
     
-    axios.interceptors.request.use((request ) => {
-        console.log("request", request)
-        if(request.url.includes("prv")) updateHeader(request)
-        return request
-    })
+    useEffect(() => {
+        const updateHeader = (request) => {
+            const token = getToken()
+            const newHeader = {
+                ...request.headers,
+                Authorization: `${token}`,
+                "Content-Type": "application/json"
+            }
+            request.headers = newHeader
+            
+            return request
+        }
+        
 
-    axios.interceptors.response.use((response) => {
-        console.log("response",response)
-        return response
-    }, (error) => {
-        console.log("error", error.code)
-        return Promise.reject(error)}
-    )
+
+        const requetInterceptor = axios.interceptors.request.use((request ) => {
+            if(request.url.includes("prv")) updateHeader(request)
+            return request
+        })
+    
+        const responseInterceptor = axios.interceptors.response.use((response) => {
+            return response
+        }, (error) => {
+            dispatcher(setMessage({message: error.response.data.message , type: MessageTypes.error}))
+            return Promise.reject(error)}
+        )
+
+        return () => {
+            axios.interceptors.request.eject(requetInterceptor)
+            axios.interceptors.response.eject(responseInterceptor)
+        }
+    },[])
+    
+    return null
 }
+
+export default AxiosInterceptor

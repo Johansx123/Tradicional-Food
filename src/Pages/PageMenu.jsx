@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {  getProducts } from "../js/Products";
-import { MessageOverlay } from "../components/MessageOverlay";
+
 // import dataMocks from "../mocks/products-menu1.json"
 
 export default function PageMenu() {

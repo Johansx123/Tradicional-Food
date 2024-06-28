@@ -13,7 +13,8 @@ export const messageSlice = createSlice( {
     name: 'message',
     initialState: MessageEmptyState,
     reducers: {
-        setMessage: (state, action) => action.payload
+        setMessage: (state, action) => action.payload,
+        clearMessage: () => MessageEmptyState
     }
 })
-export const { setMessage } = messageSlice.actions
+export const { setMessage, clearMessage} = messageSlice.actions

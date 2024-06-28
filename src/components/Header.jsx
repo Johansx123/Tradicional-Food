@@ -11,7 +11,6 @@ export function Header() {
   
   const user = useUserContext();
   const outUser = useUserOutContext();
-  console.log("user", user)
   
 
   const handleLogOut = () =>{

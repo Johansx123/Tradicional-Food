@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import { useEffect } from "react";
 import iconCheck from "../../public/images/check.svg";
-import { MessageTypes, setMessage } from "../redux/states/message.state";
+import { MessageTypes, clearMessage} from "../redux/states/message.state";
 import { useDispatch } from "react-redux";
+
 
 
 
 
 export function MessageOverlay({ message, type = MessageTypes.success }) {
     const dispatcher = useDispatch()
-    
-    console.log("message", message, type)
+       
     const classNameColor = type === MessageTypes.success ? 'green' : 'red';
     useEffect(()=>{
       setTimeout(()=>{
-        dispatcher(setMessage(''))
+        dispatcher(clearMessage())
         },2000)
-    },[message])
+    },[])
 
   return (
     <div className={`MessageOverlay ${classNameColor} `}>

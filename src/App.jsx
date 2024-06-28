@@ -6,6 +6,7 @@ import { UserProvider } from "./providers/UserProvider";
 import Home from "./Pages/Home";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import AxiosInterceptor from "./interceptors/axios.interceptor";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <Provider store={store}>
       <UserProvider>
+        <AxiosInterceptor/>
         <RouterProvider router={router} />
       </UserProvider>
     </Provider>
