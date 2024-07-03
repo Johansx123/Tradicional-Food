@@ -16,9 +16,9 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<Home />} />
-        <Route path="/LogIn" element={<PageLogIn />} />
-        <Route path="/Registerer" element={<PageRegisterer/>} />
+          <Route index element={<Home />} />
+          <Route path="/LogIn" element={<PageLogIn />} />
+          <Route path="/Registerer" element={<PageRegisterer />} />
       </Route>
     )
   );
@@ -29,7 +29,7 @@ function App() {
     <Provider store={store}>
       <UserProvider>
         <AxiosInterceptor/>
-        <RouterProvider router={router} />
+          <RouterProvider router={router} />
       </UserProvider>
     </Provider>
   );

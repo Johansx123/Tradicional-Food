@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import {  getProducts } from "../js/Products";
+import {  getProducts } from "../../js/Products";
+import Banner from "../../components/Banner";
 
 // import dataMocks from "../mocks/products-menu1.json"
 
-export default function PageMenu() {
+export default function Menu() {
   const [products, setProducts] = useState();
   
   useEffect(()=>{
@@ -22,7 +23,7 @@ export default function PageMenu() {
     <div className="background">
       <main id="top" className="wrapper-main">
         
-     
+      <Banner/>
        
      
       </main>

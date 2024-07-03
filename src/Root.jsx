@@ -14,8 +14,12 @@ export function Root() {
     <>
       <Header />
       <ScrollTop />
-      {message.message && <MessageOverlay message={message.message} type={message.type} />}
-      <Outlet />
+      {message.message && (
+        <MessageOverlay message={message.message} type={message.type} />
+      )}
+      <main className="wrapper-main">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

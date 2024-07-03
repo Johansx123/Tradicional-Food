@@ -431,7 +431,6 @@ main{
     right: calc(5%);
 }
 .wrapper-main{
-    max-width: 600px;
     margin: auto;
 }
 
@@ -505,9 +504,7 @@ body{
         justify-content: center;
         overflow: hidden;
     }
-    .wrapper-main{
-       max-width: 80vw;
-    }
+   
     .wrapper-jucie{
         grid-column-start: 1;
         grid-column-end: 3;

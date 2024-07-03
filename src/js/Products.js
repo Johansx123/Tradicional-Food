@@ -12,7 +12,7 @@ export const addProduct = (data) => {
   return fetch("api/prv/products", {
     method: "POST",
     mode: "cors", // no-cors, *cors, same-origin
-    credentials: "same-origin",
+    credentials: "same-origin", 
     headers: {
       "Authorization": Token,
       "Content-Type": "application/json",
