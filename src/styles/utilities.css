@@ -31,6 +31,55 @@
 
     --layout-90: 90%;
 }
+.desktop-display, h1{
+    font-size: 48px;
+    font-family: Atkinson Hyperlegible, sans-serif;
+    font-weight: 700;
+    line-height: 160.0000023841858;
+  }
+  .desktop-subtitle, h2{
+    font-size: 32px;
+    font-family: Atkinson Hyperlegible, sans-serif;
+    font-weight: 00;
+    line-height: 50px;
+  }
+  .desktop-item, h3{
+    font-size: 20px;
+    font-family: Atkinson Hyperlegible, sans-serif;
+    font-weight: 700;
+    line-height: 160.0000023841858;
+  }
+  .desktop-normal, h4{
+    font-size: 16px;
+    font-family: Atkinson Hyperlegible, sans-serif;
+    font-weight: 700;
+    line-height: 200;
+  }
+  .desktop-descriptions, p{
+    font-size: 16px;
+    font-family: Balsamiq Sans, sans-serif;
+    font-weight: 400;
+    line-height: 160.0000023841858;
+  }
+  .desktop-small{
+    font-size: 14px;
+    font-family: Atkinson Hyperlegible, sans-serif;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  .desktop-variant-Small{
+    font-size: 14px;
+    font-family: Balsamiq Sans, sans-serif;
+    font-weight: 400;
+    line-height: 160.0000023841858;
+  }
+  .desktop-variant-Item{
+    font-size: 20px;
+    font-family: Balsamiq Sans, sans-serif;
+    font-weight: 400;
+    line-height: 200;
+  }
+
 .TitleMenuBlack{
     background-image:url(../public/images/Menu2.png);
 	background-repeat:no-repeat;
